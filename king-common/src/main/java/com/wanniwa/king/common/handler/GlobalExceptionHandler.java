@@ -8,6 +8,7 @@
 
 package com.wanniwa.king.common.handler;
 
+import com.wanniwa.king.common.enums.ResultEnum;
 import com.wanniwa.king.common.exception.ResultException;
 import com.wanniwa.king.common.utils.Result;
 import lombok.extern.slf4j.Slf4j;
@@ -20,8 +21,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  * 异常处理器
  *
  */
-@RestControllerAdvice
 @Slf4j
+@RestControllerAdvice
 public class GlobalExceptionHandler {
 
     /**
@@ -37,7 +38,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public Result exception(Exception e) {
-        log.error("异常信息 ex={}", e.getMessage(), e);
-        return Result.error(HttpStatus.INTERNAL_SERVER_ERROR.value(),e.getMessage());
+        log.error("异常信息:{}", e.getMessage(), e);
+        return Result.error(ResultEnum.FAILED.getCode(),e.getMessage());
     }
 }
