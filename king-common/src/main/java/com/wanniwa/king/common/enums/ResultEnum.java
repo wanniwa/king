@@ -10,7 +10,7 @@ public enum ResultEnum implements IErrorCode {
     /**
      * 成功
      */
-    SUCCESS(0, "执行成功");
+    SUCCESS(0, "成功");
 
     private final int code;
     private final String msg;

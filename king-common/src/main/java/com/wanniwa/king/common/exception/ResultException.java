@@ -15,6 +15,9 @@ public class ResultException extends RuntimeException {
 
     private Integer code;
 
+    public ResultException() {
+        super(ResultEnum.FAILED.getMsg());
+    }
     /**
      * 统一异常处理
      * @param resultEnum 状态枚举

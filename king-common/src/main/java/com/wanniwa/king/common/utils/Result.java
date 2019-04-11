@@ -2,7 +2,6 @@ package com.wanniwa.king.common.utils;
 
 import com.wanniwa.king.common.enums.ResultEnum;
 import lombok.Data;
-import org.springframework.http.HttpStatus;
 
 @Data
 public class Result {
@@ -58,18 +57,17 @@ public class Result {
     }
 
     public static Result error(String msg) {
-        return error(HttpStatus.INTERNAL_SERVER_ERROR.value(), msg);
+        return error(ResultEnum.FAILED.getCode(), msg);
     }
 
     public static Result error(int code, String msg) {
-
         return new Result(code, msg);
     }
 
     public static Result error(ResultEnum resultEnum) {
-
         return new Result(resultEnum);
     }
+
 
 
 }

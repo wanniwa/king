@@ -7,7 +7,7 @@ package com.wanniwa.king.common.utils;
 public interface IErrorCode {
 
     /**
-     * 错误编码 -1、失败 0、成功
+     * 错误编码 0、成功
      */
     int getCode();
 
