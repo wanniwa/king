@@ -30,6 +30,16 @@ public enum ResultEnum implements IErrorCode {
         return SUCCESS;
     }
 
+    public static String getMsgByCode(Integer code) {
+        ResultEnum[] array = ResultEnum.values();
+        for (ResultEnum obj : array) {
+            if (code.equals(obj.code)) {
+                return obj.msg;
+            }
+        }
+        return "";
+    }
+
     @Override
     public int getCode() {
         return code;
