@@ -1,6 +1,5 @@
 package com.wanniwa.king.common.utils;
 
-import com.baomidou.mybatisplus.extension.api.R;
 import com.wanniwa.king.common.enums.ResultEnum;
 import lombok.Data;
 import org.springframework.http.HttpStatus;
