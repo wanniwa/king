@@ -13,7 +13,6 @@ public class Result {
     // 响应数据
     private Object data;
 
-
     private Result() {
         super();
     }
@@ -23,6 +22,18 @@ public class Result {
         this.code = code;
         this.msg = ResultEnum.getMsgByCode(code);
     }
+    private Result(int code, String msg) {
+        super();
+        this.code = code;
+        this.msg = msg;
+    }
+
+    private Result(int code, String msg, Object data) {
+        super();
+        this.code = code;
+        this.msg = msg;
+        this.data = data;
+    }
 
     private Result(ResultEnum resultEnum) {
         super();
@@ -30,16 +41,10 @@ public class Result {
         this.msg = resultEnum.getMsg();
     }
 
-    private Result(Integer code, String msg) {
+    private Result(ResultEnum resultEnum,Object data) {
         super();
-        this.code = code;
-        this.msg = msg;
-    }
-
-    private Result(Integer code, String msg, Object data) {
-        super();
-        this.code = code;
-        this.msg = msg;
+        this.code = resultEnum.getCode();
+        this.msg = resultEnum.getMsg();
         this.data = data;
     }
 
@@ -48,8 +53,10 @@ public class Result {
     }
 
     public static Result success(String msg) {
-        success().setMsg(msg);
         return new Result(ResultEnum.SUCCESS.getCode(), msg);
+    }
+    public static Result success(Object data) {
+        return new Result(ResultEnum.SUCCESS, data);
     }
 
     public static Result error() {
@@ -67,7 +74,5 @@ public class Result {
     public static Result error(ResultEnum resultEnum) {
         return new Result(resultEnum);
     }
-
-
 
 }
