@@ -4,14 +4,14 @@ import com.wanniwa.king.common.enums.ResultEnum;
 import lombok.Data;
 
 @Data
-public class Result {
+public class Result<T> {
 
     // 状态码
     private int code;
     // 提示信息
     private String msg;
     // 响应数据
-    private Object data;
+    private T data;
 
     private Result() {
         super();
@@ -28,7 +28,7 @@ public class Result {
         this.msg = msg;
     }
 
-    private Result(int code, String msg, Object data) {
+    private Result(int code, String msg, T data) {
         super();
         this.code = code;
         this.msg = msg;
@@ -41,7 +41,7 @@ public class Result {
         this.msg = resultEnum.getMsg();
     }
 
-    private Result(ResultEnum resultEnum,Object data) {
+    private Result(ResultEnum resultEnum,T data) {
         super();
         this.code = resultEnum.getCode();
         this.msg = resultEnum.getMsg();
@@ -55,8 +55,8 @@ public class Result {
     public static Result success(String msg) {
         return new Result(ResultEnum.SUCCESS.getCode(), msg);
     }
-    public static Result success(Object data) {
-        return new Result(ResultEnum.SUCCESS, data);
+    public static <T> Result<T> success(T data) {
+        return new Result<>(ResultEnum.SUCCESS, data);
     }
 
     public static Result error() {

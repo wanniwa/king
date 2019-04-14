@@ -18,7 +18,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.wanniwa.king"))
+                .apis(RequestHandlerSelectors.basePackage("com.wanniwa.king.admin.modules"))
                 .paths(PathSelectors.any())
                 .build();
     }

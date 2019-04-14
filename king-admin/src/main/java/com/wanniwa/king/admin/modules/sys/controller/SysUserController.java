@@ -2,10 +2,13 @@ package com.wanniwa.king.admin.modules.sys.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.wanniwa.king.admin.modules.sys.entity.SysUser;
 import com.wanniwa.king.admin.modules.sys.service.SysUserService;
 import com.wanniwa.king.common.utils.Result;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +23,7 @@ import java.util.Date;
  */
 @RestController
 @RequestMapping("/sys/user")
+@Api(value = "用户信息")
 public class SysUserController {
     @Autowired
     private SysUserService sysUserService;
@@ -71,9 +75,10 @@ public class SysUserController {
     //
     //	return R.ok();
     //}
+    @ApiOperation(value = "用户分页查询")
     @GetMapping("/page")
     //@RequiresPermissions("sys:user:info")
-    public Result page(Page<SysUser> page, SysUser sysUser, Date startDate,Date endDate) {
+    public Result<IPage<SysUser>> page(Page<SysUser> page, SysUser sysUser, Date startDate, Date endDate) {
         QueryWrapper<SysUser> queryWrapper = new QueryWrapper<>();
         queryWrapper.lambda().likeRight(StringUtils.isNotEmpty(sysUser.getUsername()),SysUser::getUsername, sysUser.getUsername());
         queryWrapper.lambda().likeRight(StringUtils.isNotEmpty(sysUser.getPhone()),SysUser::getPhone, sysUser.getPhone());
@@ -88,7 +93,7 @@ public class SysUserController {
      */
     @GetMapping("/info/{userId}")
     //@RequiresPermissions("sys:user:info")
-    public Result info(@PathVariable("userId") Long userId) {
+    public Result<SysUser> info(@PathVariable("userId") Long userId) {
         SysUser user = sysUserService.getById(userId);
         //获取用户所属的角色列表
         //List<Long> roleIdList = sysUserService.queryRoleIdList(userId);
