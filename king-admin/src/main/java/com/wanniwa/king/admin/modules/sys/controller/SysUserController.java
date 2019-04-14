@@ -2,7 +2,6 @@ package com.wanniwa.king.admin.modules.sys.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.wanniwa.king.admin.modules.sys.entity.SysUser;
 import com.wanniwa.king.admin.modules.sys.service.SysUserService;
@@ -74,15 +73,13 @@ public class SysUserController {
     //}
     @GetMapping("/page")
     //@RequiresPermissions("sys:user:info")
-    public Result info(Page<SysUser> page, SysUser sysUser, Date startDate,Date endDate) {
+    public Result page(Page<SysUser> page, SysUser sysUser, Date startDate,Date endDate) {
         QueryWrapper<SysUser> queryWrapper = new QueryWrapper<>();
         queryWrapper.lambda().likeRight(StringUtils.isNotEmpty(sysUser.getUsername()),SysUser::getUsername, sysUser.getUsername());
         queryWrapper.lambda().likeRight(StringUtils.isNotEmpty(sysUser.getPhone()),SysUser::getPhone, sysUser.getPhone());
         queryWrapper.lambda().eq(null== sysUser.getState(),SysUser::getState, sysUser.getState());
         queryWrapper.lambda().ge(null ==startDate, SysUser::getCreateTime, startDate);
         queryWrapper.lambda().le(null == endDate, SysUser::getCreateTime, endDate);
-        //sysUserService.selectPage(new Page(1, 10), );
-
         return Result.success(sysUserService.page(page, queryWrapper));
     }
 
