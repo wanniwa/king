@@ -3,9 +3,10 @@ package com.wanniwa.king.admin.modules.sys.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.wanniwa.king.admin.modules.sys.entity.SysUser;
 import com.wanniwa.king.admin.modules.sys.service.SysUserService;
+import com.wanniwa.king.common.utils.PageQuery;
+import com.wanniwa.king.common.utils.PageUtil;
 import com.wanniwa.king.common.utils.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -78,14 +79,19 @@ public class SysUserController {
     @ApiOperation(value = "用户分页查询")
     @GetMapping("/page")
     //@RequiresPermissions("sys:user:info")
-    public Result<IPage<SysUser>> page(Page<SysUser> page, SysUser sysUser, Date startDate, Date endDate) {
+    public Result<IPage<SysUser>> page(PageQuery<SysUser> pageQuery, String username, String phone, Integer state, Date startDate, Date endDate) {
         QueryWrapper<SysUser> queryWrapper = new QueryWrapper<>();
-        queryWrapper.lambda().likeRight(StringUtils.isNotEmpty(sysUser.getUsername()),SysUser::getUsername, sysUser.getUsername());
-        queryWrapper.lambda().likeRight(StringUtils.isNotEmpty(sysUser.getPhone()),SysUser::getPhone, sysUser.getPhone());
-        queryWrapper.lambda().eq(null== sysUser.getState(),SysUser::getState, sysUser.getState());
+        //username
+        queryWrapper.lambda().likeRight(StringUtils.isNotEmpty(username),SysUser::getUsername, username);
+        //phone
+        queryWrapper.lambda().likeRight(StringUtils.isNotEmpty(phone),SysUser::getPhone, phone);
+        //state
+        queryWrapper.lambda().eq(null== state,SysUser::getState, state);
+        //startDate
         queryWrapper.lambda().ge(null ==startDate, SysUser::getCreateTime, startDate);
+        //endDate
         queryWrapper.lambda().le(null == endDate, SysUser::getCreateTime, endDate);
-        return Result.success(sysUserService.page(page, queryWrapper));
+        return Result.success(sysUserService.page(PageUtil.getPage(pageQuery), queryWrapper));
     }
 
     /**
