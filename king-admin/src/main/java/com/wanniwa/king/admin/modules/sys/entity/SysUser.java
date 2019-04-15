@@ -9,7 +9,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
 import lombok.Data;
 
-@ApiModel(value = "用户表")
+@ApiModel(value = "SysUser")
 @Data
 @TableName(value = "sys_user")
 public class SysUser {
