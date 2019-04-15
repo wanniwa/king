@@ -17,7 +17,7 @@ public class SysUser {
      * 用户id
      */
     @TableId(value = "user_id" , type = IdType.AUTO)
-    @ApiModelProperty(value = "用户id",example = "1")
+    @ApiModelProperty(value = "用户id")
     private Long userId;
 
     /**
@@ -66,14 +66,14 @@ public class SysUser {
      * 状态0 停用 1 启用
      */
     @TableField(value = "state")
-    @ApiModelProperty(value = "状态0 停用 1 启用",example = "1")
+    @ApiModelProperty(value = "状态0 停用 1 启用")
     private Integer state;
 
     /**
      * 创建人id
      */
     @TableField(value = "create_by")
-    @ApiModelProperty(value = "创建人id",example = "1")
+    @ApiModelProperty(value = "创建人id")
     private Long createBy;
 
     /**
@@ -87,7 +87,7 @@ public class SysUser {
      * 修改人id
      */
     @TableField(value = "update_by")
-    @ApiModelProperty(value = "修改人id",example = "1")
+    @ApiModelProperty(value = "修改人id")
     private Long updateBy;
 
     /**
@@ -96,6 +96,5 @@ public class SysUser {
     @TableField(value = "update_time")
     @ApiModelProperty(value = "修改时间")
     private Date updateTime;
-
 
 }
