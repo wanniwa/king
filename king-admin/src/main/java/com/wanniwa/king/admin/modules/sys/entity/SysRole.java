@@ -10,12 +10,21 @@ import lombok.Data;
 @Data
 @TableName(value = "sys_role")
 public class SysRole {
-     @TableId(value = "role_id", type = IdType.AUTO)
+    /**
+     * 角色id
+     */
+    @TableId(value = "role_id", type = IdType.AUTO)
     private Long roleId;
 
+    /**
+     * 角色名
+     */
     @TableField(value = "role_name")
     private String roleName;
 
+    /**
+     * 备注
+     */
     @TableField(value = "remark")
     private String remark;
 
@@ -43,4 +52,15 @@ public class SysRole {
     @TableField(value = "update_time")
     private Date updateTime;
 
+    public static final String COL_ROLE_NAME = "role_name";
+
+    public static final String COL_REMARK = "remark";
+
+    public static final String COL_CREATE_BY = "create_by";
+
+    public static final String COL_CREATE_TIME = "create_time";
+
+    public static final String COL_UPDATE_BY = "update_by";
+
+    public static final String COL_UPDATE_TIME = "update_time";
 }
