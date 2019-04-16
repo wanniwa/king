@@ -7,7 +7,9 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.wanniwa.king.admin.modules.sys.entity.SysRole;
 import com.wanniwa.king.admin.modules.sys.mapper.SysRoleMapper;
 import com.wanniwa.king.admin.modules.sys.service.SysRoleService;
+
 @Service
-public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> implements SysRoleService{
+public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> implements SysRoleService {
 
 }
+
