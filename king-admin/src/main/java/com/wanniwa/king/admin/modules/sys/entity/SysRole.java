@@ -9,7 +9,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
 import lombok.Data;
 
-@ApiModel(value = "SysRole")
+@ApiModel(value = "com.wanniwa.king.admin.modules.sys.entity.SysRole")
 @Data
 @TableName(value = "sys_role")
 public class SysRole {
@@ -34,7 +34,61 @@ public class SysRole {
     @ApiModelProperty(value = "备注")
     private String remark;
 
+    /**
+     * 删除状态
+     */
+    @TableField(value = "is_delete")
+    @ApiModelProperty(value = "删除状态")
+    private Boolean isDelete;
 
+    /**
+     * 状态0 停用 1 启用
+     */
+    @TableField(value = "state")
+    @ApiModelProperty(value = "状态0 停用 1 启用 ")
+    private Integer state;
 
+    /**
+     * 创建人id
+     */
+    @TableField(value = "create_by")
+    @ApiModelProperty(value = "创建人id")
+    private Long createBy;
 
+    /**
+     * 创建时间
+     */
+    @TableField(value = "create_time")
+    @ApiModelProperty(value = "创建时间")
+    private Date createTime;
+
+    /**
+     * 修改人id
+     */
+    @TableField(value = "update_by")
+    @ApiModelProperty(value = "修改人id")
+    private Long updateBy;
+
+    /**
+     * 修改时间
+     */
+    @TableField(value = "update_time")
+    @ApiModelProperty(value = "修改时间")
+    private Date updateTime;
+
+    public static final String COL_ROLE_NAME = "role_name";
+
+    public static final String COL_REMARK = "remark";
+
+    public static final String COL_IS_DELETE = "is_delete";
+
+    public static final String COL_STATE = "state";
+
+    public static final String COL_CREATE_BY = "create_by";
+
+    public static final String COL_CREATE_TIME = "create_time";
+
+    public static final String COL_UPDATE_BY = "update_by";
+
+    public static final String COL_UPDATE_TIME = "update_time";
 }
