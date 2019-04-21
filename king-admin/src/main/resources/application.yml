@@ -48,6 +48,10 @@ mybatis-plus:
     jdbc-type-for-null: 'null'
 #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
+king:
+  jwt:
+    secret:
+    expire:
 
 
 logging:
