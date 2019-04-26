@@ -27,7 +27,4 @@ public class SysUserRole {
     @TableField(value = "role_id")
     private Long roleId;
 
-    public static final String COL_USER_ID = "user_id";
-
-    public static final String COL_ROLE_ID = "role_id";
 }

@@ -76,19 +76,4 @@ public class SysRole {
     @ApiModelProperty(value = "修改时间")
     private Date updateTime;
 
-    public static final String COL_ROLE_NAME = "role_name";
-
-    public static final String COL_REMARK = "remark";
-
-    public static final String COL_IS_DELETE = "is_delete";
-
-    public static final String COL_STATE = "state";
-
-    public static final String COL_CREATE_BY = "create_by";
-
-    public static final String COL_CREATE_TIME = "create_time";
-
-    public static final String COL_UPDATE_BY = "update_by";
-
-    public static final String COL_UPDATE_TIME = "update_time";
 }

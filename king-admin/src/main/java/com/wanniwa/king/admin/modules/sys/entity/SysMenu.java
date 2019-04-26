@@ -94,29 +94,4 @@ public class SysMenu {
     @TableField(value = "update_time")
     private Date updateTime;
 
-    public static final String COL_MENU_NAME = "menu_name";
-
-    public static final String COL_PARENT_ID = "parent_id";
-
-    public static final String COL_PARENT_IDS = "parent_ids";
-
-    public static final String COL_ORDER_NUM = "order_num";
-
-    public static final String COL_URL = "url";
-
-    public static final String COL_PERMS = "perms";
-
-    public static final String COL_TYPE = "type";
-
-    public static final String COL_STATE = "state";
-
-    public static final String COL_ICON = "icon";
-
-    public static final String COL_CREATE_BY = "create_by";
-
-    public static final String COL_CREATE_TIME = "create_time";
-
-    public static final String COL_UPDATE_BY = "update_by";
-
-    public static final String COL_UPDATE_TIME = "update_time";
 }

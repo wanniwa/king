@@ -24,7 +24,4 @@ public class SysRoleMenu {
     @TableField(value = "menu_id")
     private Long menuId;
 
-    public static final String COL_ROLE_ID = "role_id";
-
-    public static final String COL_MENU_ID = "menu_id";
 }

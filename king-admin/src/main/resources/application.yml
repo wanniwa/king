@@ -26,8 +26,6 @@ mybatis-plus:
   typeAliasesPackage: com.wanniwa.king.admin.modules.*.entity
   global-config:
     db-config:
-      #数据库类型,默认值为未知的数据库类型 如果值为OTHER,启动时会根据数据库连接 url 获取数据库类型;如果不是OTHER则不会自动获取数据库类型
-      db-type: mysql
       #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:分布式id生成算法SnowFlake;
       id-type: AUTO
       #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
