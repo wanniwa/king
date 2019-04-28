@@ -11,6 +11,7 @@
         <module>king-common</module>
         <module>king-admin</module>
         <module>king-eureka</module>
+        <module>king-product</module>
     </modules>
     <packaging>pom</packaging>
 

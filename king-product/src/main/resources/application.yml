@@ -1,8 +1,8 @@
 server:
-  port: 8761
+  port: 9001
 spring:
   application:
-    name: king-erueka
+    name: king-product
 eureka:
   client:
     #是否从eureka服务器获取注册信息
