@@ -9,7 +9,11 @@ spring:
         username: root
         password: root
         driver-class-name:  com.mysql.cj.jdbc.Driver
-
+management:
+    endpoint:
+        health:
+            # 是否展示健康检查详情
+            show-details: always
 
 ##多数据源的配置
 #dynamic:
