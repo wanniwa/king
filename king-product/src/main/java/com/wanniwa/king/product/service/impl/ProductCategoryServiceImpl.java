@@ -14,7 +14,7 @@ public class ProductCategoryServiceImpl extends ServiceImpl<ProductCategoryMappe
     @Override
     public List<ProductCategory> findByCategoryTypeIn(List<Integer> categoryTypeIdList) {
         LambdaQueryWrapper<ProductCategory> queryWrapper= new LambdaQueryWrapper<>();
-        queryWrapper.in(ProductCategory::getCategoryId, categoryTypeIdList);
+        queryWrapper.in(ProductCategory::getCategoryType, categoryTypeIdList);
         return list(queryWrapper);
     }
 }
