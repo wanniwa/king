@@ -1,7 +1,12 @@
 package com.wanniwa.king.product.controller;
 
-import com.wanniwa.king.product.service.CategoryService;
-import com.wanniwa.king.product.service.ProductService;
+import com.wanniwa.king.common.utils.Result;
+import com.wanniwa.king.product.entity.ProductCategory;
+import com.wanniwa.king.product.entity.ProductInfo;
+import com.wanniwa.king.product.service.ProductCategoryService;
+import com.wanniwa.king.product.service.ProductInfoService;
+import com.wanniwa.king.product.vo.ProductInfoVO;
+import com.wanniwa.king.product.vo.ProductVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,10 +22,10 @@ import java.util.stream.Collectors;
 public class ProductController {
 
     @Autowired
-    private ProductService productService;
+    private ProductInfoService productInfoService;
 
     @Autowired
-    private CategoryService categoryService;
+    private ProductCategoryService productCategoryService;
 
     /**
      * 1. 查询所有在架的商品
@@ -29,9 +34,9 @@ public class ProductController {
      * 4. 构造数据
      */
     @GetMapping("/list")
-    public ResultVO<ProductVO> list() {
+    public Result<List<ProductVO>> list() {
         //1. 查询所有在架的商品
-        List<ProductInfo> productInfoList = productService.findUpAll();
+        List<ProductInfo> productInfoList = productInfoService.findUpAll();
 
         //2. 获取类目type列表
         List<Integer> categoryTypeList = productInfoList.stream()
@@ -39,7 +44,7 @@ public class ProductController {
                 .collect(Collectors.toList());
 
         //3. 从数据库查询类目
-        List<ProductCategory> categoryList = categoryService.findByCategoryTypeIn(categoryTypeList);
+        List<ProductCategory> categoryList = productCategoryService.findByCategoryTypeIn(categoryTypeList);
 
         //4. 构造数据
         List<ProductVO> productVOList = new ArrayList<>();
@@ -60,6 +65,6 @@ public class ProductController {
             productVOList.add(productVO);
         }
 
-        return ResultVOUtil.success(productVOList);
+        return Result.success(productVOList);
     }
 }
