@@ -1,5 +1,8 @@
 package com.wanniwa.king.product.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum  ProductStatusEnum {
     UP(0,"上架"),
     DOWN(1,"下架")
