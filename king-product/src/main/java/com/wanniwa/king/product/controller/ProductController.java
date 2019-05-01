@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @RestController
@@ -39,9 +40,9 @@ public class ProductController {
         List<ProductInfo> productInfoList = productInfoService.findUpAll();
 
         //2. 获取类目type列表
-        List<Integer> categoryTypeList = productInfoList.stream()
+        Set<Integer> categoryTypeList = productInfoList.stream()
                 .map(ProductInfo::getCategoryType)
-                .collect(Collectors.toList());
+                .collect(Collectors.toSet());
 
         //3. 从数据库查询类目
         List<ProductCategory> categoryList = productCategoryService.findByCategoryTypeIn(categoryTypeList);
