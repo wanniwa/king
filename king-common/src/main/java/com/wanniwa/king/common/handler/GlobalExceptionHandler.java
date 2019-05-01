@@ -1,11 +1,3 @@
-/**
- * Copyright (c) 2016-2019 人人开源 All rights reserved.
- * <p>
- * https://www.renren.io
- * <p>
- * 版权所有，侵权必究！
- */
-
 package com.wanniwa.king.common.handler;
 
 import com.wanniwa.king.common.enums.ResultEnum;
@@ -30,7 +22,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(ResultException.class)
     @ResponseStatus(HttpStatus.OK)
-    public Result handleRRException(ResultException e) {
+    public Result ResultException(ResultException e) {
         log.error(e.getMessage(), e);
         return Result.error(e.getCode(), e.getMessage());
     }

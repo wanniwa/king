@@ -4,14 +4,16 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+
 import java.math.BigDecimal;
 import java.util.Date;
+
 import lombok.Data;
 
 @Data
 @TableName(value = "order_detail")
 public class OrderDetail {
-     @TableId(value = "detail_id", type = IdType.INPUT)
+    @TableId(value = "detail_id", type = IdType.ID_WORKER_STR)
     private String detailId;
 
     @TableField(value = "order_id")
@@ -55,20 +57,5 @@ public class OrderDetail {
      */
     @TableField(value = "update_time")
     private Date updateTime;
-
-    public static final String COL_ORDER_ID = "order_id";
-
-    public static final String COL_PRODUCT_ID = "product_id";
-
-    public static final String COL_PRODUCT_NAME = "product_name";
-
-    public static final String COL_PRODUCT_PRICE = "product_price";
-
-    public static final String COL_PRODUCT_QUANTITY = "product_quantity";
-
-    public static final String COL_PRODUCT_ICON = "product_icon";
-
-    public static final String COL_CREATE_TIME = "create_time";
-
-    public static final String COL_UPDATE_TIME = "update_time";
+    
 }

@@ -3,14 +3,9 @@ package com.wanniwa.king.common.enums;
 import com.wanniwa.king.common.utils.IErrorCode;
 
 public enum ResultEnum implements IErrorCode {
-    /**
-     * 失败
-     */
     FAILED(-1, "操作失败"),
-    /**
-     * 成功
-     */
-    SUCCESS(0, "成功");
+    SUCCESS(0, "成功"),
+    PARAM_ERROR(1, "参数错误"), CART_EMPTY(2, "购物车为空");
 
     private final int code;
     private final String msg;

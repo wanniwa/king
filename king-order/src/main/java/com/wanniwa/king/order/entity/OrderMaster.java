@@ -4,14 +4,16 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+
 import java.math.BigDecimal;
 import java.util.Date;
+
 import lombok.Data;
 
 @Data
 @TableName(value = "order_master")
 public class OrderMaster {
-     @TableId(value = "order_id", type = IdType.INPUT)
+    @TableId(value = "order_id", type = IdType.ID_WORKER_STR)
     private String orderId;
 
     /**
@@ -48,13 +50,13 @@ public class OrderMaster {
      * 订单状态, 默认为新下单
      */
     @TableField(value = "order_status")
-    private Byte orderStatus;
+    private Integer orderStatus;
 
     /**
      * 支付状态, 默认未支付
      */
     @TableField(value = "pay_status")
-    private Byte payStatus;
+    private Integer payStatus;
 
     /**
      * 创建时间

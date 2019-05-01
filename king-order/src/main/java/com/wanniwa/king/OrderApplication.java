@@ -1,14 +1,13 @@
-package com.wanniwa.king.product;
+package com.wanniwa.king;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
-@MapperScan("com.wanniwa.king.product.mapper")
-public class ProductApplication {
+@MapperScan("com.wanniwa.king.order.mapper")
+public class OrderApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ProductApplication.class, args);
+        SpringApplication.run(OrderApplication.class, args);
     }
 }
