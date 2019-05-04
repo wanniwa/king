@@ -1,17 +1,18 @@
 package com.wanniwa.king.order.enums;
 
+import com.wanniwa.king.common.utils.ICodeMsg;
 import lombok.Getter;
 
 @Getter
-public enum PayStatusEnum {
+public enum PayStatusEnum implements ICodeMsg {
     WAIT(0, "等待支付"),
     SUCCESS(1, "支付成功"),
     ;
-    private Integer code;
-    private String message;
+    private int code;
+    private String msg;
 
-    PayStatusEnum(Integer code, String message) {
+    PayStatusEnum(int code, String message) {
         this.code = code;
-        this.message = message;
+        this.msg = message;
     }
 }

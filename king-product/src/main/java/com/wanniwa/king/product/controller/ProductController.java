@@ -1,6 +1,8 @@
 package com.wanniwa.king.product.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.wanniwa.king.common.utils.Result;
+import com.wanniwa.king.product.dto.CartDTO;
 import com.wanniwa.king.product.entity.ProductCategory;
 import com.wanniwa.king.product.entity.ProductInfo;
 import com.wanniwa.king.product.service.ProductCategoryService;
@@ -9,9 +11,7 @@ import com.wanniwa.king.product.vo.ProductInfoVO;
 import com.wanniwa.king.product.vo.ProductVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,5 +67,22 @@ public class ProductController {
         }
 
         return Result.success(productVOList);
+    }
+
+    /**
+     * 获取商品列表(给订单服务)
+     * @param productIdList
+     * @return
+     */
+    @PostMapping("/listForOrder")
+    public List<ProductInfo> listForOrder(@RequestBody List<String> productIdList) {
+        LambdaQueryWrapper<ProductInfo> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.in(ProductInfo::getProductId, productIdList);
+        return productInfoService.list(queryWrapper);
+    }
+
+    @PostMapping("/decreaseStock")
+    public void decreaseStock(@RequestBody List<CartDTO> cartDTOList) {
+        productInfoService.decreaseStock(cartDTOList);
     }
 }

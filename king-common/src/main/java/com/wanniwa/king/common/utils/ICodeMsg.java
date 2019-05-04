@@ -4,7 +4,7 @@ package com.wanniwa.king.common.utils;
 /**
  * 错误码接口
  */
-public interface IErrorCode {
+public interface ICodeMsg {
 
     /**
      * 错误编码 0、成功

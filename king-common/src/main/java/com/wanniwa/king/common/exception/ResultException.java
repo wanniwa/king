@@ -2,7 +2,7 @@ package com.wanniwa.king.common.exception;
 
 
 import com.wanniwa.king.common.enums.ResultEnum;
-import com.wanniwa.king.common.utils.IErrorCode;
+import com.wanniwa.king.common.utils.ICodeMsg;
 import lombok.Getter;
 
 /**
@@ -11,7 +11,7 @@ import lombok.Getter;
 @Getter
 public class ResultException extends RuntimeException {
 
-    private Integer code;
+    private int code;
 
     public ResultException() {
         super(ResultEnum.FAILED.getMsg());
@@ -29,7 +29,7 @@ public class ResultException extends RuntimeException {
      * 统一异常处理
      * @param iErrorCode 枚举类型，需要实现结果枚举接口
      */
-    public ResultException(IErrorCode iErrorCode) {
+    public ResultException(ICodeMsg iErrorCode) {
         super(iErrorCode.getMsg());
         this.code = iErrorCode.getCode();
     }
@@ -39,7 +39,7 @@ public class ResultException extends RuntimeException {
      * @param code 状态码
      * @param msg 提示信息
      */
-    public ResultException(Integer code, String msg) {
+    public ResultException(int code, String msg) {
         super(msg);
         this.code = code;
     }

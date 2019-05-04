@@ -1,8 +1,8 @@
 package com.wanniwa.king.common.enums;
 
-import com.wanniwa.king.common.utils.IErrorCode;
+import com.wanniwa.king.common.utils.ICodeMsg;
 
-public enum ResultEnum implements IErrorCode {
+public enum ResultEnum implements ICodeMsg {
     FAILED(-1, "操作失败"),
     SUCCESS(0, "成功"),
     PARAM_ERROR(1, "参数错误"), CART_EMPTY(2, "购物车为空");

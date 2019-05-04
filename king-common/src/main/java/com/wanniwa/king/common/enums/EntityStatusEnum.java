@@ -1,12 +1,13 @@
 package com.wanniwa.king.common.enums;
 
+import com.wanniwa.king.common.utils.ICodeMsg;
 import lombok.Getter;
 
 /**
  * 数据库字段状态枚举
  */
 @Getter
-public enum EntityStatusEnum {
+public enum EntityStatusEnum implements ICodeMsg {
 
     /**
      * 状态：正常

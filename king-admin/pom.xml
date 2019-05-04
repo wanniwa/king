@@ -14,7 +14,6 @@
         <dependency>
             <groupId>com.wanniwa</groupId>
             <artifactId>king-common</artifactId>
-            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
