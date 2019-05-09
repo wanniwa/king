@@ -9,7 +9,13 @@ spring:
     username: root
     password: root
     driver-class-name:  com.mysql.cj.jdbc.Driver
-
+#    hikari:
+#      connectionTimeout: 60000
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+      enabled: true
 eureka:
   client:
     service-url:
