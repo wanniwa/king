@@ -10,9 +10,10 @@ eureka:
     #是否向服务注册中心注册自己
     register-with-eureka: false
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+      defaultZone: http://127.0.0.1:${server.port}/eureka
   instance:
     hostname: localhost
-  #server:
+    prefer-ip-address: true
+    #server:
     #enable-self-preservation: false #关闭自我保护机制
 
