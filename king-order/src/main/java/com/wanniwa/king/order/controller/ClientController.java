@@ -5,8 +5,10 @@ import com.wanniwa.king.order.client.ProductClient;
 import com.wanniwa.king.order.dto.CartDTO;
 import com.wanniwa.king.order.entity.ProductInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -15,7 +17,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+
 @RestController
+@RefreshScope
 public class ClientController {
     @Autowired
     private LoadBalancerClient loadBalancerClient;
@@ -23,6 +27,13 @@ public class ClientController {
     //private RestTemplate restTemplate;
     @Autowired
     private ProductClient productClient;
+    @Value("${girl.name}")
+    private String name;
+
+    @GetMapping("/getName")
+    public String getName() {
+        return name;
+    }
 
     @GetMapping("/getProductMsg")
     public String getProductMsg() {
