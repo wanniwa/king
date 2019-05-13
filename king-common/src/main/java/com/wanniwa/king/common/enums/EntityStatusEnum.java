@@ -24,11 +24,8 @@ public enum EntityStatusEnum implements ICodeMsg {
     /**
      * 状态：停用
      */
-    DISABLED(3, "停用"),
-    /**
-     * 状态：删除
-     */
-    DELETED(9, "删除");
+    DISABLED(3, "停用");
+
 
     private int code;
 
