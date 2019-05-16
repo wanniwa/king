@@ -10,28 +10,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>king-product</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>king-product-web</module>
+        <module>king-product-api</module>
+    </modules>
 
-    <dependencies>
-        <!--注册中心客户端 -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.wanniwa</groupId>
-            <artifactId>king-common</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-    </dependencies>
+
 </project>
