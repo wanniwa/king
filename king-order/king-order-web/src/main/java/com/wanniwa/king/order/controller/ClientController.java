@@ -1,8 +1,8 @@
 package com.wanniwa.king.order.controller;
 
-import com.wanniwa.king.order.client.ProductClient;
-import com.wanniwa.king.order.dto.CartDTO;
-import com.wanniwa.king.order.entity.ProductInfo;
+import com.wanniwa.king.product.client.ProductClient;
+import com.wanniwa.king.product.dto.CartDTO;
+import com.wanniwa.king.product.entity.ProductInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;

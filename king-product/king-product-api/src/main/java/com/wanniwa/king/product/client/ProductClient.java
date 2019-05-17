@@ -1,7 +1,7 @@
-package com.wanniwa.king.order.client;
+package com.wanniwa.king.product.client;
 
-import com.wanniwa.king.order.dto.CartDTO;
-import com.wanniwa.king.order.entity.ProductInfo;
+import com.wanniwa.king.product.dto.CartDTO;
+import com.wanniwa.king.product.entity.ProductInfo;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

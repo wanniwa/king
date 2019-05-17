@@ -1,12 +1,9 @@
 package com.wanniwa.king.order.service.impl;
 
 import com.baomidou.mybatisplus.core.toolkit.IdWorker;
-import com.wanniwa.king.order.client.ProductClient;
-import com.wanniwa.king.order.dto.CartDTO;
 import com.wanniwa.king.order.dto.OrderDTO;
 import com.wanniwa.king.order.entity.OrderDetail;
 import com.wanniwa.king.order.entity.OrderMaster;
-import com.wanniwa.king.order.entity.ProductInfo;
 import com.wanniwa.king.order.enums.OrderStatusEnum;
 import com.wanniwa.king.order.enums.PayStatusEnum;
 import com.wanniwa.king.order.mapper.OrderMasterMapper;
