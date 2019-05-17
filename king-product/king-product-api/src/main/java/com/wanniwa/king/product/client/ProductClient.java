@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
-@FeignClient(name = "KING-PRODUCT")
+@FeignClient(name = "king-product")
 public interface ProductClient {
     @PostMapping("/product/listForOrder")
     List<ProductInfo> listForOrder(@RequestBody List<String> productIdList);
