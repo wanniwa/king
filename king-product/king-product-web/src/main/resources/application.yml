@@ -1,5 +1,5 @@
 server:
-  port: 9001
+  port: 9002
 spring:
   application:
     name: king-product
@@ -16,6 +16,11 @@ spring:
       max-file-size: 100MB
       max-request-size: 100MB
       enabled: true
+  rabbitmq:
+    host: 106.13.105.158
+    port: 5672
+    username: guest
+    password: wang1993
 eureka:
   client:
     service-url:

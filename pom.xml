@@ -13,6 +13,7 @@
         <module>king-eureka</module>
         <module>king-product</module>
         <module>king-order</module>
+        <module>king-gateway</module>
     </modules>
     <packaging>pom</packaging>
 
