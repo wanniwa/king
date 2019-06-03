@@ -5,7 +5,8 @@ import com.wanniwa.king.common.utils.ICodeMsg;
 public enum ResultEnum implements ICodeMsg {
     FAILED(-1, "操作失败"),
     SUCCESS(0, "成功"),
-    PARAM_ERROR(1, "参数错误"), CART_EMPTY(2, "购物车为空");
+    PARAM_ERROR(1, "参数错误"),
+    CART_EMPTY(2, "购物车为空");
 
     private final int code;
     private final String msg;
