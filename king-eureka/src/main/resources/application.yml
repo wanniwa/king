@@ -3,6 +3,11 @@ server:
 spring:
   application:
     name: king-erueka
+  security:
+    user:
+      name: wanniwa
+      password: wang1993
+
 eureka:
   client:
     #是否从eureka服务器获取注册信息
@@ -10,7 +15,7 @@ eureka:
     #是否向服务注册中心注册自己
     register-with-eureka: false
     service-url:
-      defaultZone: http://127.0.0.1:${server.port}/eureka
+      defaultZone: http://wanniwa:wang1993@127.0.0.1:${server.port}/eureka
   instance:
     hostname: localhost
     prefer-ip-address: true
