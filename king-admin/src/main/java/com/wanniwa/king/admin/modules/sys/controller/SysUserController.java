@@ -5,7 +5,6 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.wanniwa.king.admin.modules.sys.entity.SysUser;
 import com.wanniwa.king.admin.modules.sys.service.SysUserService;
-import com.wanniwa.king.common.exception.ResultException;
 import com.wanniwa.king.common.utils.PageQuery;
 import com.wanniwa.king.common.utils.PageUtil;
 import com.wanniwa.king.common.utils.Result;
