@@ -31,7 +31,8 @@ public class ClientController {
 
     @GetMapping("/getName")
     public String getName() {
-        return productClient.productMsg();
+        return name;
+        //return productClient.productMsg();
     }
 
     @GetMapping("/getProductMsg")

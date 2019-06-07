@@ -77,7 +77,7 @@ public class ProductController {
      */
     @PostMapping("/listForOrder")
     public List<ProductInfo> listForOrder(@RequestBody List<String> productIdList) {
-        LambdaQueryWrapper<ProductInfo> queryWrapper = new LambdaQueryWrapper<>();
+        LambdaQueryWrapper <ProductInfo> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.in(ProductInfo::getProductId, productIdList);
         return productInfoService.list(queryWrapper);
     }

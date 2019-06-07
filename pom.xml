@@ -6,7 +6,7 @@
 
     <groupId>com.wanniwa</groupId>
     <artifactId>king</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <modules>
         <module>king-common</module>
         <module>king-admin</module>
@@ -14,6 +14,7 @@
         <module>king-product</module>
         <module>king-order</module>
         <module>king-gateway</module>
+        <module>king-config</module>
     </modules>
     <packaging>pom</packaging>
 
