@@ -15,6 +15,7 @@
         <module>king-order</module>
         <module>king-gateway</module>
         <module>king-config</module>
+        <module>king-excel</module>
     </modules>
     <packaging>pom</packaging>
 
