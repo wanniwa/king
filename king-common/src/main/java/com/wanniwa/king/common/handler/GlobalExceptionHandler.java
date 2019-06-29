@@ -23,11 +23,13 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(ResultException.class)
     @ResponseStatus(HttpStatus.OK)
-    public Result ResultException(ResultException e) {
+    public Result resultException(ResultException e) {
         log.error(e.getMessage(), e);
         return Result.error(e.getCode(), e.getMessage());
     }
-
+    /**
+     * 通用异常
+     */
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public Result exception(Exception e) {

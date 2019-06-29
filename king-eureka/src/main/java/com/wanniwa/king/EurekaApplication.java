@@ -7,6 +7,10 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+/**
+ * 启动类
+ * @author wanniwa
+ */
 @EnableEurekaServer
 @SpringBootApplication
 public class EurekaApplication {
@@ -14,6 +18,9 @@ public class EurekaApplication {
         SpringApplication.run(EurekaApplication.class, args);
     }
 
+    /**
+     * Eureka安全
+     */
     @EnableWebSecurity
     static class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
