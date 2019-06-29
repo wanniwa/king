@@ -7,6 +7,7 @@ import lombok.Getter;
 
 /**
  * 自定义异常对象
+ * @author wanniwa
  */
 @Getter
 public class ResultException extends RuntimeException {

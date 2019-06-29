@@ -6,7 +6,7 @@ import lombok.Data;
 /**
  * 查询参数
  *
- * @author Mark sunlightcs@gmail.com
+ * @author wanniwa
  */
 @Data
 public class PageQuery<T> {

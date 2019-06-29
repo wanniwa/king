@@ -2,11 +2,28 @@ package com.wanniwa.king.common.enums;
 
 import com.wanniwa.king.common.utils.ICodeMsg;
 
+/**
+ *
+ * @author wanniwa
+ */
+
 public enum ResultEnum implements ICodeMsg {
+    /**
+     * 操作失败
+     */
     FAILED(-1, "操作失败"),
+    /**
+     * 成功
+     */
     SUCCESS(0, "成功"),
+    /**
+     * 参数错误
+     */
     PARAM_ERROR(1, "参数错误"),
-    CART_EMPTY(2, "购物车为空");
+    /**
+     * 购物车为空
+     */
+    CART_EMPTY(1000, "购物车为空");
 
     private final int code;
     private final String msg;

@@ -3,14 +3,24 @@ package com.wanniwa.king.common.utils;
 import com.wanniwa.king.common.enums.ResultEnum;
 import lombok.Data;
 
+/**
+ * 通用的返回类型
+ * @author wanniwa
+ */
 @Data
 public class Result<T> {
 
-    // 状态码
+    /**
+     * 状态码
+     */
     private int code;
-    // 提示信息
+    /**
+     * 提示信息
+     */
     private String msg;
-    // 响应数据
+    /**
+     * 响应数据
+     */
     private T data;
 
     private Result() {

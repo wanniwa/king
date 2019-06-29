@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 /**
  * 异常处理器
  *
+ * @author wanniwa
  */
 @Slf4j
 @RestControllerAdvice
