@@ -35,7 +35,7 @@
         <swagger.version>2.9.2</swagger.version>
         <swagger-ui.version>1.9.3</swagger-ui.version>
         <hutool.version>4.5.5</hutool.version>
-        <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
+        <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
 
     </properties>
 
@@ -108,7 +108,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Greenwich.SR1</version>
+                <version>Greenwich.SR2</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
