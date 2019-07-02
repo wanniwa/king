@@ -49,16 +49,16 @@ public class OrderServiceImpl implements OrderService {
                             .add(orderAmount);
                     BeanUtils.copyProperties(productInfo, orderDetail);
                     orderDetail.setOrderId(orderId);
-                    orderDetail.setDetailId(orderId+"-"+i);
+                    orderDetail.setDetailId(orderId + "-" + i);
                 }
             }
         }
 
         //TODO 扣库存(调用商品服务)
         List<CartDTO> cartDTOList = orderDTO.getOrderDetailList().stream()
-                .map(e -> new CartDTO(e.getProductId(),e.getProductQuantity()))
+                .map(e -> new CartDTO(e.getProductId(), e.getProductQuantity()))
                 .collect(Collectors.toList());
-                productClient.decreaseStock(cartDTOList);
+        productClient.decreaseStock(cartDTOList);
 
         //订单入库
         OrderMaster orderMaster = new OrderMaster();
