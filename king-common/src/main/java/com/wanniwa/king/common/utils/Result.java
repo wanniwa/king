@@ -1,6 +1,7 @@
 package com.wanniwa.king.common.utils;
 
 import com.wanniwa.king.common.enums.ResultEnum;
+import lombok.Builder;
 import lombok.Data;
 
 /**
@@ -8,6 +9,7 @@ import lombok.Data;
  * @author wanniwa
  */
 @Data
+@Builder
 public class Result<T> {
 
     /**
@@ -23,66 +25,22 @@ public class Result<T> {
      */
     private T data;
 
-    private Result() {
-        super();
-    }
-
-    private Result(int code) {
-        super();
-        this.code = code;
-        this.msg = ResultEnum.getMsgByCode(code);
-    }
-    private Result(int code, String msg) {
-        super();
-        this.code = code;
-        this.msg = msg;
-    }
-
-    private Result(int code, String msg, T data) {
-        super();
-        this.code = code;
-        this.msg = msg;
-        this.data = data;
-    }
-
-    private Result(ResultEnum resultEnum) {
-        super();
-        this.code = resultEnum.getCode();
-        this.msg = resultEnum.getMsg();
-    }
-
-    private Result(ResultEnum resultEnum,T data) {
-        super();
-        this.code = resultEnum.getCode();
-        this.msg = resultEnum.getMsg();
-        this.data = data;
-    }
-
     public static Result success() {
-        return new Result(ResultEnum.SUCCESS);
-    }
-
-    public static Result success(String msg) {
-        return new Result(ResultEnum.SUCCESS.getCode(), msg);
+        return success(null);
     }
     public static <T> Result<T> success(T data) {
-        return new Result<>(ResultEnum.SUCCESS, data);
+        return Result.<T>builder().code(ResultEnum.SUCCESS.getCode()).msg(ResultEnum.SUCCESS.getMsg()).data(data).build();
     }
 
     public static Result error() {
         return error(ResultEnum.FAILED.getCode(), "未知异常，请联系管理员");
     }
 
-    public static Result error(String msg) {
-        return error(ResultEnum.FAILED.getCode(), msg);
-    }
-
     public static Result error(int code, String msg) {
-        return new Result(code, msg);
+        return Result.builder().code(code).msg(ResultEnum.FAILED.getMsg()).build();
     }
 
-    public static Result error(ResultEnum resultEnum) {
-        return new Result(resultEnum);
+    public static Result error(ICodeMsg iCodeMsg) {
+        return Result.builder().code(iCodeMsg.getCode()).msg(iCodeMsg.getMsg()).build();
     }
-
 }

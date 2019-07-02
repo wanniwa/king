@@ -1,8 +1,8 @@
 server:
-  port: 9001
+  port: 9003
 spring:
   application:
-    name: king-order
+    name: king-product
   profiles:
     active: dev
   cloud:
@@ -10,11 +10,7 @@ spring:
       discovery:
         enabled: true
         service-id: king-config
-    stream:
-      bindings:
-        myMessageInput:
-          group: order
-          content-type: application/json
+
 eureka:
   client:
     service-url:
@@ -24,4 +20,7 @@ eureka:
     # 是否注册IP到eureka server，如不指定或设为false，那就会注册主机名到eureka server
     prefer-ip-address: true
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
+
+
+
 
