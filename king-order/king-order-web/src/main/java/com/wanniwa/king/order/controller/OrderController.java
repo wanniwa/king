@@ -54,7 +54,7 @@ public class OrderController {
 
         Map<String, String> map = new HashMap<>();
         map.put("orderId", result.getOrderId());
-        return Result.success(map);
+        return Result.ok(map);
     }
 
     /**
@@ -65,7 +65,7 @@ public class OrderController {
     @PostMapping("/finish")
     public Result finish(@RequestParam("orderId") String orderId) {
         orderService.finish(orderId);
-        return Result.success();
+        return Result.ok();
     }
 
 }

@@ -67,7 +67,7 @@ public class ProductController {
             productVOList.add(productVO);
         }
 
-        return Result.success(productVOList);
+        return Result.ok(productVOList);
     }
 
     /**
@@ -85,6 +85,6 @@ public class ProductController {
     @PostMapping("/decreaseStock")
     public Result decreaseStock(@RequestBody List<CartDTO> cartDTOList) {
         productInfoService.decreaseStock(cartDTOList);
-        return Result.success();
+        return Result.ok();
     }
 }

@@ -25,10 +25,10 @@ public class Result<T> {
      */
     private T data;
 
-    public static Result success() {
-        return success(null);
+    public static Result ok() {
+        return ok(null);
     }
-    public static <T> Result<T> success(T data) {
+    public static <T> Result<T> ok(T data) {
         return Result.<T>builder().code(ResultEnum.SUCCESS.getCode()).msg(ResultEnum.SUCCESS.getMsg()).data(data).build();
     }
 

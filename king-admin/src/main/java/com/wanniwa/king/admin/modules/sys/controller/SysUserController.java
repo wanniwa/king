@@ -91,7 +91,7 @@ public class SysUserController {
         queryWrapper.lambda().ge(null ==startDate, SysUser::getCreateTime, startDate);
         //endDate
         queryWrapper.lambda().le(null == endDate, SysUser::getCreateTime, endDate);
-        return Result.success(sysUserService.page(PageUtil.getPage(pageQuery), queryWrapper));
+        return Result.ok(sysUserService.page(PageUtil.getPage(pageQuery), queryWrapper));
     }
 
     /**
@@ -104,7 +104,7 @@ public class SysUserController {
         //获取用户所属的角色列表
         //List<Long> roleIdList = sysUserService.queryRoleIdList(userId);
         //user.setRoleIdList(roleIdList);
-        return Result.success(user);
+        return Result.ok(user);
     }
 
     ///**

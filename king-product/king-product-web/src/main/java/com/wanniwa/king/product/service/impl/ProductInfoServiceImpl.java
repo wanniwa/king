@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -29,8 +30,15 @@ public class ProductInfoServiceImpl extends ServiceImpl<ProductInfoMapper, Produ
     }
 
     @Override
-    @Transactional
+
     public void decreaseStock(List<CartDTO> cartDTOList) {
+        List<ProductInfo> productInfoList = decreaseStockProcess(cartDTOList);
+        amqpTemplate.convertAndSend("productInfo", JSONUtil.toJsonStr(productInfoList));
+
+    }
+    @Transactional(rollbackFor = Exception.class)
+    public List<ProductInfo> decreaseStockProcess(List<CartDTO> cartDTOList) {
+        List<ProductInfo> productInfoList = new ArrayList<>();
         for (CartDTO cartDTO : cartDTOList) {
             ProductInfo productInfo = this.getById(cartDTO.getProductId());
             //判断商品是否存在
@@ -44,7 +52,8 @@ public class ProductInfoServiceImpl extends ServiceImpl<ProductInfoMapper, Produ
             }
             productInfo.setProductStock(result);
             this.updateById(productInfo);
-            amqpTemplate.convertAndSend("productInfo", JSONUtil.toJsonStr(productInfo));
+            productInfoList.add(productInfo);
         }
+        return productInfoList;
     }
 }
