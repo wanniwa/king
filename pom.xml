@@ -16,6 +16,7 @@
         <module>king-gateway</module>
         <module>king-config</module>
         <module>king-excel</module>
+        <module>king-auth</module>
     </modules>
     <packaging>pom</packaging>
 

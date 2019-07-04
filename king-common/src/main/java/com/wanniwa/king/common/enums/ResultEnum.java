@@ -21,6 +21,14 @@ public enum ResultEnum implements ICodeMsg {
      */
     PARAM_ERROR(1, "参数错误"),
     /**
+     * 登录失败
+     */
+    LOGIN_ERROR(2,"登录失败"),
+    /**
+     * 登录失败
+     */
+    ROLE_ERROR(3,"角色权限有误"),
+    /**
      * 购物车为空
      */
     CART_EMPTY(1000, "购物车为空");
