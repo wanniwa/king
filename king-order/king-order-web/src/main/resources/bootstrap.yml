@@ -18,6 +18,11 @@ spring:
   redis:
     host: 106.13.105.158
     port: 6379
+  zipkin:
+    base-url: 106.13.105.158:9411
+  sleuth:
+    sampler:
+      probability: 1
 eureka:
   client:
     service-url:
@@ -27,4 +32,33 @@ eureka:
     # 是否注册IP到eureka server，如不指定或设为false，那就会注册主机名到eureka server
     prefer-ip-address: true
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+#    getProductInfoList:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 10000
+ribbon:
+  ReadTimeout: 5000
+  ConnectTimeout: 5000
 
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+feign:
+  hystrix:
+    enabled: true
+logging:
+  level:
+    root: INFO
+    org.springframework.cloud.netflix.feign: DEBUG

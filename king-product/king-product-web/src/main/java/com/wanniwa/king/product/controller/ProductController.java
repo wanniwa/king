@@ -36,6 +36,7 @@ public class ProductController {
      * 4. 构造数据
      */
     @GetMapping("/list")
+    //@CrossOrigin(allowCredentials = "true") //跨域
     public Result<List<ProductVO>> list() {
         //1. 查询所有在架的商品
         List<ProductInfo> productInfoList = productInfoService.findUpAll();
@@ -77,6 +78,11 @@ public class ProductController {
      */
     @PostMapping("/listForOrder")
     public List<ProductInfo> listForOrder(@RequestBody List<String> productIdList) {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         LambdaQueryWrapper <ProductInfo> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.in(ProductInfo::getProductId, productIdList);
         return productInfoService.list(queryWrapper);

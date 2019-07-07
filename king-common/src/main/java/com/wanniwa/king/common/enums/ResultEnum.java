@@ -31,7 +31,18 @@ public enum ResultEnum implements ICodeMsg {
     /**
      * 购物车为空
      */
-    CART_EMPTY(1000, "购物车为空");
+    CART_EMPTY(1000, "购物车为空"),
+    /**
+     * 订单不存在
+     */
+    ORDER_NOT_EXIST(2000,"订单不存在"),
+    /**
+     * 订单不存在
+     */
+    ORDER_STATUS_ERROR(2001,"订单状态错误"),
+    ORDER_DETAIL_NOT_EXIST(2002,"订单详情不存在"),
+
+    ;
 
     private final int code;
     private final String msg;

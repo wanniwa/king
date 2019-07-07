@@ -1,4 +1,4 @@
-package com.wanniwa.king.common.utils;
+package com.wanniwa.king.gateway.util;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;

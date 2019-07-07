@@ -38,6 +38,7 @@ public class OrderController {
     @PostMapping("/create")
     public Result<Map<String, String>> create(@Valid OrderForm orderForm,
                                               BindingResult bindingResult) {
+
         if (bindingResult.hasErrors()){
             log.error("【创建订单】参数不正确, orderForm={}", orderForm);
             throw new ResultException(ResultEnum.PARAM_ERROR.getCode(),
@@ -64,8 +65,7 @@ public class OrderController {
      */
     @PostMapping("/finish")
     public Result finish(@RequestParam("orderId") String orderId) {
-        orderService.finish(orderId);
-        return Result.ok();
+        return Result.ok(orderService.finish(orderId));
     }
 
 }

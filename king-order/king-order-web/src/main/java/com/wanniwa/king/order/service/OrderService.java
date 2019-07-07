@@ -3,7 +3,17 @@ package com.wanniwa.king.order.service;
 import com.wanniwa.king.order.dto.OrderDTO;
 
 public interface OrderService {
+    /**
+     * 创建订单
+     * @param orderDTO
+     * @return
+     */
     OrderDTO create(OrderDTO orderDTO);
 
-    void finish(String orderId);
+    /**
+     * 完结订单 只能卖家操作
+     * @param orderId
+     * @return
+     */
+    OrderDTO finish(String orderId);
 }

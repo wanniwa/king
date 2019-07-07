@@ -14,7 +14,7 @@ public class ResultException extends RuntimeException {
 
     private int code;
 
-    public ResultException() {
+    private ResultException() {
         super(ResultEnum.FAILED.getMsg());
     }
     /**
