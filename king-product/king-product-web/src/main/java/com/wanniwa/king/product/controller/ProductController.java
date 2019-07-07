@@ -78,11 +78,11 @@ public class ProductController {
      */
     @PostMapping("/listForOrder")
     public List<ProductInfo> listForOrder(@RequestBody List<String> productIdList) {
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        //try {
+        //    Thread.sleep(2000);
+        //} catch (InterruptedException e) {
+        //    e.printStackTrace();
+        //}
         LambdaQueryWrapper <ProductInfo> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.in(ProductInfo::getProductId, productIdList);
         return productInfoService.list(queryWrapper);

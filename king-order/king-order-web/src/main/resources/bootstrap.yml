@@ -19,10 +19,12 @@ spring:
     host: 106.13.105.158
     port: 6379
   zipkin:
-    base-url: 106.13.105.158:9411
+    base-url:  http://106.13.105.158:9411
+    sender:
+      type: web
   sleuth:
     sampler:
-      probability: 1
+      probability: 1.0
 eureka:
   client:
     service-url:
