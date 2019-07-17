@@ -21,7 +21,7 @@ spring:
   zipkin:
     base-url:  http://106.13.105.158:9411
     sender:
-      type: web
+      type: web  # 如果没使用rabbitmq可以不写
   sleuth:
     sampler:
       probability: 1.0
@@ -33,22 +33,14 @@ eureka:
   instance:
     # 是否注册IP到eureka server，如不指定或设为false，那就会注册主机名到eureka server
     prefer-ip-address: true
-    instance-id: ${spring.cloud.client.ip-address}:${server.port}
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 5000
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}client
+
 #    getProductInfoList:
 #      execution:
 #        isolation:
 #          thread:
 #            timeoutInMilliseconds: 10000
-ribbon:
-  ReadTimeout: 5000
-  ConnectTimeout: 5000
+
 
 
 
@@ -60,7 +52,12 @@ management:
 feign:
   hystrix:
     enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic
 logging:
   level:
-    root: INFO
-    org.springframework.cloud.netflix.feign: DEBUG
+    org.springframework.cloud.openfeign: DEBUG
