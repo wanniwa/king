@@ -6,6 +6,8 @@
     <modules>
         <module>king-common-core</module>
         <module>king-common-data</module>
+        <module>king-common-bom</module>
+        <module>king-common-security</module>
     </modules>
     <parent>
         <artifactId>king</artifactId>

@@ -1,6 +1,7 @@
 package com.wanniwa.king.common.core.constant.enums;
 
 
+import com.wanniwa.king.common.core.constant.CommonConstants;
 import com.wanniwa.king.common.core.utils.ICodeMsg;
 
 /**
@@ -12,36 +13,11 @@ public enum ResultEnum implements ICodeMsg {
     /**
      * 操作失败
      */
-    FAILED(-1, "操作失败"),
+    FAILED(CommonConstants.SUCCESS, "操作失败"),
     /**
      * 成功
      */
-    SUCCESS(0, "成功"),
-    /**
-     * 参数错误
-     */
-    PARAM_ERROR(1, "参数错误"),
-    /**
-     * 登录失败
-     */
-    LOGIN_ERROR(2,"登录失败"),
-    /**
-     * 登录失败
-     */
-    ROLE_ERROR(3,"角色权限有误"),
-    /**
-     * 购物车为空
-     */
-    CART_EMPTY(1000, "购物车为空"),
-    /**
-     * 订单不存在
-     */
-    ORDER_NOT_EXIST(2000,"订单不存在"),
-    /**
-     * 订单不存在
-     */
-    ORDER_STATUS_ERROR(2001,"订单状态错误"),
-    ORDER_DETAIL_NOT_EXIST(2002,"订单详情不存在"),
+    SUCCESS(CommonConstants.FAIL, "成功"),
 
     ;
 

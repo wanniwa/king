@@ -22,8 +22,11 @@
         <java.version>1.8</java.version>
         <spring-boot-admin.version>2.1.6</spring-boot-admin.version>
         <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
+        <spring-platform.version>Cairo-SR8</spring-platform.version>
+        <swagger.fox.version>2.9.2</swagger.fox.version>
+        <swagger-bootstrap-ui.version>1.9.5</swagger-bootstrap-ui.version>
         <hutool.version>4.6.3</hutool.version>
-        <mybatis-plus.version>3.2.0</mybatis-plus.version>
+
     </properties>
 
     <dependencies>
@@ -33,7 +36,6 @@
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
-
         <!--监控-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -81,9 +83,11 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>${mybatis-plus.version}</version>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>king-common-bom</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>

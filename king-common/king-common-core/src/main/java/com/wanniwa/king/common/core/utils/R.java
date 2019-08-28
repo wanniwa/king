@@ -38,9 +38,12 @@ public class R<T> {
     public static R error() {
         return error(ResultEnum.FAILED);
     }
+    public static R error(String msg) {
+        return R.builder().code(ResultEnum.FAILED.getCode()).msg(msg).build();
+    }
 
     public static R error(int code, String msg) {
-        return R.builder().code(code).msg(ResultEnum.FAILED.getMsg()).build();
+        return R.builder().code(code).msg(msg).build();
     }
 
     /**

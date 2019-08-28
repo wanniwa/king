@@ -8,17 +8,13 @@
         <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>king-common-data</artifactId>
+
+    <artifactId>king-common-security</artifactId>
     <dependencies>
         <dependency>
             <groupId>com.wanniwa</groupId>
             <artifactId>king-common-core</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-extension</artifactId>
-        </dependency>
     </dependencies>
-
 
 </project>
