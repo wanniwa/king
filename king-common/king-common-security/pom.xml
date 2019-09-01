@@ -11,9 +11,15 @@
 
     <artifactId>king-common-security</artifactId>
     <dependencies>
+        <!--common核心-->
         <dependency>
             <groupId>com.wanniwa</groupId>
             <artifactId>king-common-core</artifactId>
+        </dependency>
+        <!--安全模块 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-oauth2</artifactId>
         </dependency>
     </dependencies>
 

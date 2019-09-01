@@ -1,9 +1,9 @@
 package com.wanniwa.king.gateway.filter;
 
+import cn.hutool.core.util.StrUtil;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.wanniwa.king.gateway.util.CookieUtil;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -53,7 +53,7 @@ public class AuthBuyerFilter extends ZuulFilter {
          *  /product/list 都可访问
          */
         Cookie cookie = CookieUtil.get(request, "openid");
-        if (cookie == null || StringUtils.isEmpty(cookie.getValue())) {
+        if (cookie == null || StrUtil.isEmpty(cookie.getValue())) {
             requestContext.setSendZuulResponse(false);
             requestContext.setResponseStatusCode(HttpStatus.UNAUTHORIZED.value());
         }

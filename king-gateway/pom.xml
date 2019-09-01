@@ -36,6 +36,10 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bus-amqp</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.wanniwa</groupId>
+            <artifactId>king-common-core</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <plugins>

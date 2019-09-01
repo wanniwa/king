@@ -1,8 +1,8 @@
 package com.wanniwa.king.gateway.filter;
 
+import cn.hutool.core.util.StrUtil;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import org.springframework.stereotype.Component;
 
@@ -30,7 +30,7 @@ public class TokenFilter extends ZuulFilter {
         HttpServletRequest request = requestContext.getRequest();
         //这里是从参数中拿 也可以从cookie,header里获取
         String token = request.getParameter("token");
-        if (StringUtils.isEmpty(token)) {
+        if (StrUtil.isEmpty(token)) {
             //requestContext.setSendZuulResponse(false);
             //requestContext.setResponseStatusCode(HttpStatus.UNAUTHORIZED.value());
         }

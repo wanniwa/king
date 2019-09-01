@@ -1,5 +1,5 @@
 
-package com.wanniwa.king.common.utils;
+package com.wanniwa.king.common.data.util;
 
 import lombok.Data;
 
@@ -19,14 +19,5 @@ public class PageQuery<T> {
      * 当前页
      */
     private long current = 1;
-    /**
-     * SQL 排序 ASC 数组
-     */
-    private String[] ascs;
-    /**
-     * SQL 排序 DESC 数组
-     */
-    private String[] descs;
-
 
 }

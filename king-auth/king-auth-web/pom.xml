@@ -17,10 +17,7 @@
             <artifactId>king-auth-api</artifactId>
             <version>1.0.0</version>
         </dependency>
-        <dependency>
-            <groupId>com.wanniwa</groupId>
-            <artifactId>king-common</artifactId>
-        </dependency>
+
         <!--注册中心客户端 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -50,7 +47,17 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.wanniwa</groupId>
+            <artifactId>king-common-data</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
+        <dependency>
+            <groupId>com.wanniwa</groupId>
+            <artifactId>king-common-security</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
     </dependencies>
     <build>

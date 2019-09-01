@@ -29,6 +29,11 @@
                 <artifactId>king-common-data</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.wanniwa</groupId>
+                <artifactId>king-common-security</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             <!--mybatis plus extension,包含了mybatis plus core-->
             <dependency>
                 <groupId>com.baomidou</groupId>

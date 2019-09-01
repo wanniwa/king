@@ -1,6 +1,6 @@
-package com.wanniwa.king.common.enums;
+package com.wanniwa.king.common.core.constant.enums;
 
-import com.wanniwa.king.common.utils.ICodeMsg;
+import com.wanniwa.king.common.core.utils.ICodeMsg;
 import lombok.Getter;
 
 /**

@@ -19,7 +19,6 @@
             <artifactId>hutool-all</artifactId>
             <version>${hutool.version}</version>
         </dependency>
-
         <!--hibernate-validator-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
