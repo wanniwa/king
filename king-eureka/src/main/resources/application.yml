@@ -4,7 +4,6 @@ spring:
   application:
     name: king-erueka
   security:
-
     user:
       name: wanniwa
       password: wang1993
@@ -23,6 +22,6 @@ eureka:
     #server:
     #enable-self-preservation: false #关闭自我保护机制
   server:
-    eviction-interval-timer-in-ms: 4000
+    eviction-interval-timer-in-ms: 30000
     enable-self-preservation: false
 #    renewal-percent-threshold: 0.9

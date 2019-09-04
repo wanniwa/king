@@ -183,10 +183,6 @@ CREATE TABLE `sys_user`  (
   PRIMARY KEY (`user_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '用户表' ROW_FORMAT = Dynamic;
 
--- ----------------------------
--- Records of sys_user
--- ----------------------------
-INSERT INTO `sys_user` VALUES (1, 'admin', NULL, NULL, NULL, NULL, NULL, 11111, NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for sys_user_role
