@@ -8,6 +8,7 @@ import org.springframework.validation.FieldError;
 
 /**
  * 通用的返回类型
+ *
  * @author wanniwa
  */
 @Data
@@ -27,6 +28,7 @@ public class R<T> {
      */
     private T data;
 
+
     public static R ok() {
         return ok(null);
     }
@@ -35,32 +37,35 @@ public class R<T> {
         return R.<T>builder().code(ResultEnum.SUCCESS.getCode()).msg(ResultEnum.SUCCESS.getMsg()).data(data).build();
     }
 
-    public static R error() {
+    public static <T> R<T> error() {
         return error(ResultEnum.FAILED);
     }
-    public static R error(String msg) {
-        return R.builder().code(ResultEnum.FAILED.getCode()).msg(msg).build();
+
+    public static <T> R<T> error(String msg) {
+        return R.<T>builder().code(ResultEnum.FAILED.getCode()).msg(msg).build();
     }
 
-    public static R error(int code, String msg) {
-        return R.builder().code(code).msg(msg).build();
+    public static <T> R<T> error(int code, String msg) {
+        return R.<T>builder().code(code).msg(msg).build();
     }
 
     /**
-     * 接收ICodeMsg子类
-     * @param iCodeMsg
+     * 接收通用错误码接口
+     *
+     * @param iCodeMsg 定义枚举
      * @return
      */
-    public static R error(ICodeMsg iCodeMsg) {
-        return R.builder().code(iCodeMsg.getCode()).msg(iCodeMsg.getMsg()).build();
+    public static <T> R<T> error(ICodeMsg iCodeMsg) {
+        return R.<T>builder().code(iCodeMsg.getCode()).msg(iCodeMsg.getMsg()).build();
     }
 
     /**
      * 数据自动校验
+     *
      * @param bindingResult
      * @return
      */
-    public static R error(BindingResult bindingResult) {
+    public static <T> R<T> error(BindingResult bindingResult) {
         FieldError fieldError = bindingResult.getFieldError();
         assert fieldError != null;
         return R.error(ResultEnum.FAILED.getCode(), fieldError.getField() + fieldError.getDefaultMessage());

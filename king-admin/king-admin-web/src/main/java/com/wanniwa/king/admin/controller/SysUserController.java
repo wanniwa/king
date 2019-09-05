@@ -86,7 +86,7 @@ public class SysUserController {
         //phone
         queryWrapper.lambda().likeRight(StrUtil.isNotEmpty(phone),SysUser::getPhone, phone);
         //state
-        queryWrapper.lambda().eq(null== state,SysUser::getState, state);
+        queryWrapper.lambda().eq(null== state,SysUser::getStatus, state);
         //startDate
         queryWrapper.lambda().ge(null ==startDate, SysUser::getCreateTime, startDate);
         //endDate

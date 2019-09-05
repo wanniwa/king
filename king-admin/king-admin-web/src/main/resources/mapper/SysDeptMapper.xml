@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.wanniwa.king.admin.mapper.SysRoleMapper">
-  <resultMap id="BaseResultMap" type="com.wanniwa.king.admin.entity.SysRole">
+<mapper namespace="com.wanniwa.king.admin.mapper.SysDeptMapper">
+  <resultMap id="BaseResultMap" type="com.wanniwa.king.admin.entity.SysDept">
     <!--@mbg.generated-->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="parent_id" jdbcType="INTEGER" property="parentId" />
+    <result column="parent_ids" jdbcType="VARCHAR" property="parentIds" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
     <result column="remark" jdbcType="VARCHAR" property="remark" />
     <result column="del_flag" jdbcType="BOOLEAN" property="delFlag" />
     <result column="create_by" jdbcType="INTEGER" property="createBy" />
@@ -15,6 +17,7 @@
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, `name`, code, remark, del_flag, create_by, update_by, create_time, update_time
+    id, `name`, parent_id, parent_ids, sort, remark, del_flag, create_by, update_by, 
+    create_time, update_time
   </sql>
 </mapper>

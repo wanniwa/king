@@ -13,20 +13,26 @@ public class SysMenu {
     /**
      * 菜单ID
      */
-     @TableId(value = "menu_id", type = IdType.AUTO)
-    private Long menuId;
+    @TableId(value = "id", type = IdType.AUTO)
+    private Integer id;
 
     /**
      * 菜单名称
      */
-    @TableField(value = "menu_name")
-    private String menuName;
+    @TableField(value = "name")
+    private String name;
+
+    /**
+     * 请求地址
+     */
+    @TableField(value = "path")
+    private String path;
 
     /**
      * 父级编号
      */
     @TableField(value = "parent_id")
-    private Long parentId;
+    private Integer parentId;
 
     /**
      * 所有父级编号
@@ -35,34 +41,10 @@ public class SysMenu {
     private String parentIds;
 
     /**
-     * 排序
+     * 角色标识
      */
-    @TableField(value = "order_num")
-    private Integer orderNum;
-
-    /**
-     * url
-     */
-    @TableField(value = "url")
-    private String url;
-
-    /**
-     * 权限标识
-     */
-    @TableField(value = "perms")
-    private String perms;
-
-    /**
-     * 类型
-     */
-    @TableField(value = "type")
-    private Integer type;
-
-    /**
-     * 状态1:正常,2:冻结
-     */
-    @TableField(value = "state")
-    private String state;
+    @TableField(value = "permission")
+    private String permission;
 
     /**
      * 图标
@@ -71,10 +53,34 @@ public class SysMenu {
     private String icon;
 
     /**
-     * 创建人id
+     * 菜单类型：0-菜单 1-按钮
+     */
+    @TableField(value = "type")
+    private Byte type;
+
+    /**
+     * 排序
+     */
+    @TableField(value = "sort")
+    private Integer sort;
+
+    /**
+     * 删除状态：0-正常 1-删除
+     */
+    @TableField(value = "del_flag")
+    private Boolean delFlag;
+
+    /**
+     * 创建人ID
      */
     @TableField(value = "create_by")
-    private Long createBy;
+    private Integer createBy;
+
+    /**
+     * 修改人ID
+     */
+    @TableField(value = "update_by")
+    private Integer updateBy;
 
     /**
      * 创建时间
@@ -83,15 +89,8 @@ public class SysMenu {
     private Date createTime;
 
     /**
-     * 修改人id
-     */
-    @TableField(value = "update_by")
-    private Long updateBy;
-
-    /**
      * 修改时间
      */
     @TableField(value = "update_time")
     private Date updateTime;
-
 }

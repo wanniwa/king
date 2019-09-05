@@ -14,7 +14,6 @@
     <version>1.0.0</version>
     <properties>
         <mybatis-plus.version>3.2.0</mybatis-plus.version>
-        <mysql.connector.version>8.0.17</mysql.connector.version>
         <swagger.core.version>1.5.22</swagger.core.version>
     </properties>
     <dependencyManagement>
@@ -34,6 +33,11 @@
                 <artifactId>king-common-security</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.wanniwa</groupId>
+                <artifactId>king-admin-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             <!--mybatis plus extension,包含了mybatis plus core-->
             <dependency>
                 <groupId>com.baomidou</groupId>
@@ -45,12 +49,6 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
-            </dependency>
-            <!--mysql 驱动-->
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql.connector.version}</version>
             </dependency>
 
             <!--swagger 最新依赖内置版本-->

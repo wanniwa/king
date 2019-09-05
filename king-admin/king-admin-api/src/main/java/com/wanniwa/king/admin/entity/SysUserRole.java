@@ -7,21 +7,17 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 @Data
-@TableName(value = "sys_role_menu")
-public class SysRoleMenu {
-     @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
+@TableName(value = "sys_user_role")
+public class SysUserRole {
+    /**
+     * 用户ID
+     */
+    @TableId(value = "user_id", type = IdType.INPUT)
+    private Integer userId;
 
     /**
      * 角色ID
      */
-    @TableField(value = "role_id")
-    private Long roleId;
-
-    /**
-     * 菜单ID
-     */
-    @TableField(value = "menu_id")
-    private Long menuId;
-
+    @TableId(value = "role_id", type = IdType.INPUT)
+    private Integer roleId;
 }
