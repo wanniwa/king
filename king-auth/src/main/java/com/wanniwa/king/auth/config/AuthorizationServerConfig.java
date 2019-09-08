@@ -20,13 +20,11 @@
 package com.wanniwa.king.auth.config;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
@@ -60,8 +58,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         security
                 //开启/oauth/token_key验证端口无权限访问
                 .tokenKeyAccess("permitAll()")         //url:/oauth/token_key,exposes public key for token verification if using JWT tokens
-                .allowFormAuthenticationForClients()
-                .checkTokenAccess("isAuthenticated()");
+                .checkTokenAccess("isAuthenticated()")
+                .allowFormAuthenticationForClients();
 
     }
 
@@ -73,7 +71,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         //初始化 Client 数据到 DB
-        clients.jdbc(dataSource)
+        clients.inMemory()
                 // clients.inMemory()
                 .withClient("client_1")
                 .authorizedGrantTypes("client_credentials")
@@ -106,6 +104,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .scopes("all","read", "write")
                 .accessTokenValiditySeconds(7200)
                 .refreshTokenValiditySeconds(10000);
+        System.out.println("secret:"+passwordEncoder.encode("123456"));
         //super.configure(clients);
     }
 
@@ -117,6 +116,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints
+                .authenticationManager(authenticationManager)
                 .allowedTokenEndpointRequestMethods(HttpMethod.GET, HttpMethod.POST)
                 .tokenStore(tokenStore());
                 //.tokenEnhancer(tokenEnhancer())
