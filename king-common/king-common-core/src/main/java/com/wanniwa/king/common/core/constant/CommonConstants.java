@@ -23,7 +23,6 @@ package com.wanniwa.king.common.core.constant;
  * 通用常量类
  *
  * @author wanniwa
- * @date 2019/8/28
  */
 public interface CommonConstants {
 
