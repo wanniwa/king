@@ -1,5 +1,3 @@
-
-
 package com.wanniwa.king.common.security.exception;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;

@@ -1,5 +1,3 @@
-
-
 package com.wanniwa.king.common.core.constant.enums;
 
 import lombok.AllArgsConstructor;

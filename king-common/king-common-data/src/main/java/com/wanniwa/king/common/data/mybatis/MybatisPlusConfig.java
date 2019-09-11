@@ -1,5 +1,3 @@
-
-
 package com.wanniwa.king.common.data.mybatis;
 
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;

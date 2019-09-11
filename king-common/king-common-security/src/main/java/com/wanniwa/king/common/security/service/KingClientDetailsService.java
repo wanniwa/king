@@ -1,5 +1,3 @@
-
-
 package com.wanniwa.king.common.security.service;
 
 import com.wanniwa.king.common.core.constant.CacheConstants;
