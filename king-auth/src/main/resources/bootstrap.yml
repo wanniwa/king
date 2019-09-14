@@ -10,10 +10,10 @@ spring:
       discovery:
         enabled: true
         service-id: king-config
-
   redis:
     host: 106.13.105.158
     port: 6379
+    password: wang1993
 eureka:
   client:
     service-url:

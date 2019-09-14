@@ -1,6 +1,6 @@
 package com.wanniwa.king.admin.feign.fallback;
 
-import com.wanniwa.king.admin.entity.SysUser;
+import com.wanniwa.king.admin.dto.UserInfo;
 import com.wanniwa.king.admin.feign.ISysUserClient;
 import com.wanniwa.king.common.core.utils.R;
 import org.springframework.stereotype.Component;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class ISysUserClientFallback implements ISysUserClient {
 
     @Override
-    public R<SysUser> info(String username) {
+    public R<UserInfo> info(String username) {
         return R.error();
     }
 }
