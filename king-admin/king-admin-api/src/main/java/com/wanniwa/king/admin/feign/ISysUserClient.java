@@ -1,7 +1,6 @@
 package com.wanniwa.king.admin.feign;
 
 import com.wanniwa.king.admin.dto.UserInfo;
-import com.wanniwa.king.admin.entity.SysUser;
 import com.wanniwa.king.admin.feign.fallback.ISysUserClientFallback;
 import com.wanniwa.king.common.core.constant.ClientNameConstants;
 import com.wanniwa.king.common.core.utils.R;
@@ -11,8 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @FeignClient(
         value = ClientNameConstants.ADMIN_CLIENT,
-        fallback = ISysUserClientFallback.class,
-        path = "/user"
+        fallback = ISysUserClientFallback.class
 )
 public interface ISysUserClient {
     /**
@@ -21,7 +19,7 @@ public interface ISysUserClient {
      * @param username 用户名
      * @return R
      */
-    @GetMapping("/info/{username}")
+    @GetMapping("api/user/info/{username}")
     R<UserInfo> info(@PathVariable("username") String username);
 
 

@@ -67,7 +67,7 @@ public class KingWebResponseExceptionTranslator<T> implements WebResponseExcepti
         if (status == HttpStatus.UNAUTHORIZED.value() || (e instanceof InsufficientScopeException)) {
             headers.set("WWW-Authenticate", String.format("%s %s", OAuth2AccessToken.BEARER_TYPE, e.getSummary()));
         }
-
+        log.error(e.getMessage(),e);
         ResponseEntity<OAuth2Exception> response = new ResponseEntity<>(new KingOAuthException(status, e.getSummary()), headers,
                 HttpStatus.valueOf(status));
 

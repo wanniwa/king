@@ -79,14 +79,14 @@ public class SysUserController {
     @ApiOperation(value = "用户分页查询")
     @GetMapping("/page")
     //@RequiresPermissions("sys:user:info")
-    public R<IPage<SysUser>> page(PageQuery<SysUser> pageQuery, String username, String phone, Integer state, Date startDate, Date endDate) {
+    public R<IPage<SysUser>> page(PageQuery<SysUser> pageQuery, String username, String phone, Boolean lockFlag, Date startDate, Date endDate) {
         QueryWrapper<SysUser> queryWrapper = new QueryWrapper<>();
         //username
         queryWrapper.lambda().likeRight(StrUtil.isNotEmpty(username),SysUser::getUsername, username);
         //phone
         queryWrapper.lambda().likeRight(StrUtil.isNotEmpty(phone),SysUser::getPhone, phone);
         //state
-        queryWrapper.lambda().eq(null== state,SysUser::getStatus, state);
+        queryWrapper.lambda().eq(null== lockFlag,SysUser::getLockFlag, lockFlag);
         //startDate
         queryWrapper.lambda().ge(null ==startDate, SysUser::getCreateTime, startDate);
         //endDate

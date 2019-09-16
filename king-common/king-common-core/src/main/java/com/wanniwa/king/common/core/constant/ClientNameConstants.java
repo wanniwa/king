@@ -8,6 +8,6 @@ public interface ClientNameConstants {
 	/**
 	 * UMPS模块
 	 */
-	String ADMIN_CLIENT = "king-admin-web";
+	String ADMIN_CLIENT = "king-admin";
 
 }

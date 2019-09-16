@@ -1,26 +1,28 @@
 package com.wanniwa.king.common.security.service;
 
 import cn.hutool.core.util.ArrayUtil;
-import cn.hutool.core.util.StrUtil;
 import com.wanniwa.king.admin.dto.UserInfo;
 import com.wanniwa.king.admin.entity.SysUser;
 import com.wanniwa.king.admin.feign.ISysUserClient;
 import com.wanniwa.king.common.core.constant.CacheConstants;
-import com.wanniwa.king.common.core.constant.CommonConstants;
 import com.wanniwa.king.common.core.constant.SecurityConstants;
 import com.wanniwa.king.common.core.utils.R;
 import lombok.AllArgsConstructor;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 @AllArgsConstructor
+@Service
 public class KingUserDetailsServiceImpl implements KingUserDetailsService {
     private final ISysUserClient sysUserClient;
     private final CacheManager cacheManager;
@@ -49,13 +51,16 @@ public class KingUserDetailsServiceImpl implements KingUserDetailsService {
             Arrays.stream(info.getRoles()).forEach(roleId -> grantedAuthorities.add(new SimpleGrantedAuthority(SecurityConstants.ROLE + roleId)));
             // 获取资源
         }
+        if (ArrayUtil.isNotEmpty(info.getPermissions())) {
+            // 获取角色
+            Arrays.stream(info.getPermissions()).forEach(permission -> grantedAuthorities.add(new SimpleGrantedAuthority(permission)));
+            // 获取资源
+        }
 
-        Collection<? extends GrantedAuthority> authorities
-                = AuthorityUtils.createAuthorityList(dbAuthsSet.toArray(new String[0]));
         SysUser user = info.getSysUser();
         // 构造security用户
         return new KingUser(user.getUsername(), SecurityConstants.BCRYPT + user.getPassword(),
                 user.getEnabled(), true, true, !user.getLockFlag(),
-                authorities, user.getId(), user.getDeptId());
+                grantedAuthorities, user.getId(), user.getDeptId());
     }
 }
