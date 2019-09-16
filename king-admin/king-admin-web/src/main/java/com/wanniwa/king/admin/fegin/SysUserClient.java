@@ -1,8 +1,6 @@
 package com.wanniwa.king.admin.fegin;
 
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.wanniwa.king.admin.dto.UserInfo;
-import com.wanniwa.king.admin.entity.SysUser;
 import com.wanniwa.king.admin.feign.ISysUserClient;
 import com.wanniwa.king.admin.service.SysUserService;
 import com.wanniwa.king.common.core.utils.R;
@@ -14,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/user")
+@RequestMapping("api/user")
 public class SysUserClient implements ISysUserClient {
     private SysUserService sysUserService;
 
