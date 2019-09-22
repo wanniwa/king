@@ -22,11 +22,12 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
     @Override
     @SneakyThrows
     public void configure(HttpSecurity http) {
-        http    .requestMatchers()
-                .antMatchers("/api/**")
-                .antMatchers("/oauth/**")
-                .and()
+        http
+                .csrf().disable()
+                .requestMatchers().antMatchers("/api/**").and()
                 .authorizeRequests()
+                .antMatchers("/api/**").authenticated()
+                .antMatchers("/oauth/**").permitAll()
                 .anyRequest().permitAll();
     }
 //    @Override
