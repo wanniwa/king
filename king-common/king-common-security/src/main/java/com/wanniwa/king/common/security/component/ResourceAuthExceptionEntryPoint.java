@@ -4,7 +4,6 @@ import cn.hutool.http.HttpStatus;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wanniwa.king.common.core.constant.CommonConstants;
 import com.wanniwa.king.common.core.utils.R;
-import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +30,6 @@ public class ResourceAuthExceptionEntryPoint implements AuthenticationEntryPoint
 		response.setCharacterEncoding(CommonConstants.UTF8);
 		response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
 		R result = R.error();
-		result.setCode(CommonConstants.FAIL);
 		if (authException != null) {
 			result.setMsg(authException.getMessage());
 		}

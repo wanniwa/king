@@ -28,9 +28,8 @@ public class R<T> {
      */
     private T data;
 
-
-    public static R ok() {
-        return ok(null);
+    public static <T> R<T> ok() {
+        return R.<T>builder().code(ResultEnum.SUCCESS.getCode()).msg(ResultEnum.SUCCESS.getMsg()).build();
     }
 
     public static <T> R<T> ok(T data) {
@@ -53,7 +52,7 @@ public class R<T> {
      * 接收通用错误码接口
      *
      * @param iCodeMsg 定义枚举
-     * @return
+     * @return R
      */
     public static <T> R<T> error(ICodeMsg iCodeMsg) {
         return R.<T>builder().code(iCodeMsg.getCode()).msg(iCodeMsg.getMsg()).build();
@@ -62,8 +61,8 @@ public class R<T> {
     /**
      * 数据自动校验
      *
-     * @param bindingResult
-     * @return
+     * @param bindingResult  General interface that represents binding results
+     * @return R
      */
     public static <T> R<T> error(BindingResult bindingResult) {
         FieldError fieldError = bindingResult.getFieldError();

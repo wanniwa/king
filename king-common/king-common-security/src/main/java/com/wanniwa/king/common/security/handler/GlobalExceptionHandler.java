@@ -1,7 +1,6 @@
 package com.wanniwa.king.common.security.handler;
 
 
-import com.wanniwa.king.common.core.constant.enums.ResultEnum;
 import com.wanniwa.king.common.core.utils.R;
 import com.wanniwa.king.common.exception.ResultException;
 import lombok.extern.slf4j.Slf4j;
@@ -33,6 +32,7 @@ public class GlobalExceptionHandler {
         log.error(e.getMessage(), e);
         return R.error(e.getCode(), e.getMessage());
     }
+
     /**
      * 通用异常
      */
@@ -40,7 +40,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public R exception(Exception e) {
         log.error("异常信息:{}", e.getMessage(), e);
-        return R.error(ResultEnum.FAILED.getCode(),e.getMessage());
+        return R.error(e.getMessage());
     }
 
     /**

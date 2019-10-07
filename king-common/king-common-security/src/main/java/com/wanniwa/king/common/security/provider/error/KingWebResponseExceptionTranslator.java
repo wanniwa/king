@@ -20,7 +20,7 @@ import java.io.IOException;
  * DefaultThrowableAnalyzer
  */
 @Slf4j
-public class KingWebResponseExceptionTranslator<T> implements WebResponseExceptionTranslator {
+public class KingWebResponseExceptionTranslator implements WebResponseExceptionTranslator<OAuth2Exception> {
 
     private ThrowableAnalyzer throwableAnalyzer = new DefaultThrowableAnalyzer();
 
