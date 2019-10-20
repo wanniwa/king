@@ -13,7 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>king-admin-api</module>
-        <module>king-admin-web</module>
+        <module>king-admin-server</module>
     </modules>
 
 </project>

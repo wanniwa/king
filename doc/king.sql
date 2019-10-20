@@ -44,15 +44,6 @@ INSERT INTO `oauth_client_details` VALUES ('client_2', '', '{bcrypt}$2a$10$FuYGI
 INSERT INTO `oauth_client_details` VALUES ('client_3', '', '{bcrypt}$2a$10$ooZlCPp7Zd4OAXkTJF.4Q.zJMPUI5/F7KQh4gsuLha9/mZJw6m5vi', 'all,read,write', 'authorization_code', 'http://localhost:8080/signin,http://localhost:8080/callback', 'authorization_code,refresh_token', 7200, 10000, '{}', '');
 INSERT INTO `oauth_client_details` VALUES ('client_test', '', '{bcrypt}$2a$10$5AVvD0BTdRKm4HXjFGz1mO2bMTjCbTwK7dEOY5TDeDevIKihhHpxK', 'all,read,write', 'all flow,authorization_code,client_credentials,refresh_token,password,implicit', 'http://localhost:8080/signin,http://localhost:8080/callback', '', 7200, 10000, '{}', '');
 
--- ----------------------------
--- Table structure for pdman_db_version
--- ----------------------------
-DROP TABLE IF EXISTS `pdman_db_version`;
-CREATE TABLE `pdman_db_version`  (
-  `DB_VERSION` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `VERSION_DESC` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `CREATED_TIME` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for sys_dept

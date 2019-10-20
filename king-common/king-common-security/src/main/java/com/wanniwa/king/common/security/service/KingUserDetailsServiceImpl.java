@@ -55,7 +55,7 @@ public class KingUserDetailsServiceImpl implements KingUserDetailsService {
         }
         SysUser user = info.getSysUser();
         // 构造security用户
-        return new KingUser(user.getUsername(), user.getPassword(),
+        return new KingUser(user.getUsername(), SecurityConstants.BCRYPT+user.getPassword(),
                 user.getEnabled(), true, true, !user.getLockFlag(),
                 grantedAuthorities, user.getId(), user.getDeptId());
     }

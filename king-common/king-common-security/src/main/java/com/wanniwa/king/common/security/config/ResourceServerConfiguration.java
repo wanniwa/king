@@ -1,10 +1,9 @@
 package com.wanniwa.king.common.security.config;
 
 import com.wanniwa.king.common.security.component.ResourceAuthExceptionEntryPoint;
+import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
@@ -16,18 +15,20 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 * */
 @Configuration
 @EnableResourceServer
-@Order(3)
+@AllArgsConstructor
 public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter {
-    @Autowired
-    TokenStore tokenStore;
+    final TokenStore tokenStore;
+
     @Override
     @SneakyThrows
     public void configure(HttpSecurity http) {
         http
-                .csrf().disable()
+                .antMatcher("/**")
                 .authorizeRequests()
-                //.antMatchers("/oauth/**").permitAll()
-                .anyRequest().permitAll();
+                .antMatchers("/api/user/**").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .csrf().disable();
     }
 //    @Override
 //    public void configure(HttpSecurity http) throws Exception {

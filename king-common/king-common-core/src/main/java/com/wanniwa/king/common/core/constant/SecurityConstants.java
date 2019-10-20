@@ -23,7 +23,7 @@ public interface SecurityConstants {
 	/**
 	 * 前缀
 	 */
-	String PIGX_PREFIX = "pigx_";
+	String KING_PREFIX = "king_";
 
 	/**
 	 * oauth 相关前缀
@@ -32,17 +32,8 @@ public interface SecurityConstants {
 	/**
 	 * 项目的license
 	 */
-	String PIGX_LICENSE = "made by pigx";
+	String KING_LICENSE = "made by wanniwa";
 
-	/**
-	 * 内部
-	 */
-	String FROM_IN = "Y";
-
-	/**
-	 * 标志
-	 */
-	String FROM = "from";
 
 	/**
 	 * OAUTH URL

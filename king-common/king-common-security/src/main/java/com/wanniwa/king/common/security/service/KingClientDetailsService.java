@@ -10,7 +10,7 @@ import javax.sql.DataSource;
 
 /**
  * @author wanniwa
- * see JdbcClientDetailsService
+ * 用来配置客户端详情服务
  */
 public class KingClientDetailsService extends JdbcClientDetailsService {
 
