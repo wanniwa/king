@@ -31,6 +31,3 @@ security:
       grant-type: client_credentials
     resource: # 认证中心的check_token 接口地址
       token-info-uri: http://127.0.0.1:9000/oauth/check_token
-logging:
-  pattern:
-    level: debug
