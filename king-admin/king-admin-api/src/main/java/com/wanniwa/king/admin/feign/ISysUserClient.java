@@ -19,7 +19,7 @@ public interface ISysUserClient {
      * @param username 用户名
      * @return R
      */
-    @GetMapping("api/user/info/{username}")
+    @GetMapping("/api/user/info/{username}")
     R<UserInfo> info(@PathVariable("username") String username);
 
 

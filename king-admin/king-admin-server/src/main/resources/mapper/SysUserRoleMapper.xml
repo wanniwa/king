@@ -3,6 +3,7 @@
 <mapper namespace="com.wanniwa.king.admin.mapper.SysUserRoleMapper">
   <resultMap id="BaseResultMap" type="com.wanniwa.king.admin.entity.SysUserRole">
     <!--@mbg.generated-->
+    <!--@Table sys_user_role-->
     <id column="user_id" jdbcType="INTEGER" property="userId" />
     <id column="role_id" jdbcType="INTEGER" property="roleId" />
   </resultMap>

@@ -3,6 +3,7 @@
 <mapper namespace="com.wanniwa.king.admin.mapper.SysRoleMenuMapper">
   <resultMap id="BaseResultMap" type="com.wanniwa.king.admin.entity.SysRoleMenu">
     <!--@mbg.generated-->
+    <!--@Table sys_role_menu-->
     <id column="role_id" jdbcType="INTEGER" property="roleId" />
     <id column="menu_id" jdbcType="INTEGER" property="menuId" />
   </resultMap>

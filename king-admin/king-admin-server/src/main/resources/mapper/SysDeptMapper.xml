@@ -3,13 +3,14 @@
 <mapper namespace="com.wanniwa.king.admin.mapper.SysDeptMapper">
   <resultMap id="BaseResultMap" type="com.wanniwa.king.admin.entity.SysDept">
     <!--@mbg.generated-->
+    <!--@Table sys_dept-->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="parent_id" jdbcType="INTEGER" property="parentId" />
     <result column="parent_ids" jdbcType="VARCHAR" property="parentIds" />
     <result column="sort" jdbcType="INTEGER" property="sort" />
     <result column="remark" jdbcType="VARCHAR" property="remark" />
-    <result column="del_flag" jdbcType="BOOLEAN" property="delFlag" />
+    <result column="del_flag" jdbcType="BIT" property="delFlag" />
     <result column="create_by" jdbcType="INTEGER" property="createBy" />
     <result column="update_by" jdbcType="INTEGER" property="updateBy" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
