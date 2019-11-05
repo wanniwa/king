@@ -12,6 +12,10 @@
     <artifactId>king-auth</artifactId>
     <packaging>jar</packaging>
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+        </dependency>
         <!--注册中心客户端 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

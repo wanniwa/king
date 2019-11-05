@@ -27,10 +27,3 @@ feign:
   okhttp:
     enabled: true
 
-security:
-  oauth2:
-    client:
-      client-id: client
-      client-secret: $2a$10$fyvasJLA.nAPOG7f0c.i2.hUyx2OP3iz5rd/IEOdbnWiiQ5dl8Mti
-      scope: all
-      grant-type: client_credentials

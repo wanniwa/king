@@ -46,7 +46,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().csrf().disable();
 
     }
-
+    /**
+     * 必须注入 AuthenticationManager，不然oauth  无法处理四种授权方式
+     *
+     * @return AuthenticationManager
+     */
     @Bean
     @Override
     @SneakyThrows

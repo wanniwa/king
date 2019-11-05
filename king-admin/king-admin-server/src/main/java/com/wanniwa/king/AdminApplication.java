@@ -1,4 +1,4 @@
-package com.wanniwa.king.admin;
+package com.wanniwa.king;
 
 
 import org.mybatis.spring.annotation.MapperScan;
