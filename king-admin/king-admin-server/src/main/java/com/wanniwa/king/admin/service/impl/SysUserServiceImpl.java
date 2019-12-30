@@ -26,8 +26,9 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     @Override
     public UserInfo getUserInfoByUsername(String username) {
         SysUser sysUser = baseMapper.selectOne(Wrappers.<SysUser>query().lambda().eq(SysUser::getUsername, username));
-        if (sysUser==null)
+        if (sysUser == null) {
             return null;
+        }
         return findUserInfo(sysUser);
     }
 
@@ -53,6 +54,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         return userInfo;
     }
 }
+
 
 
 

@@ -24,13 +24,19 @@ public class SysMenu {
     private String name;
 
     /**
-     * 请求地址
+     * 菜单权限标识
+     */
+    @TableField(value = "permission")
+    private String permission;
+
+    /**
+     * 前端URL
      */
     @TableField(value = "path")
     private String path;
 
     /**
-     * 父级编号
+     * 父菜单ID
      */
     @TableField(value = "parent_id")
     private Integer parentId;
@@ -42,28 +48,34 @@ public class SysMenu {
     private String parentIds;
 
     /**
-     * 角色标识
-     */
-    @TableField(value = "permission")
-    private String permission;
-
-    /**
      * 图标
      */
     @TableField(value = "icon")
     private String icon;
 
     /**
-     * 菜单类型：0-菜单 1-按钮
+     * VUE页面
      */
-    @TableField(value = "type")
-    private Byte type;
+    @TableField(value = "component")
+    private String component;
 
     /**
-     * 排序
+     * 排序值
      */
     @TableField(value = "sort")
     private Integer sort;
+
+    /**
+     * 0-开启，1- 关闭
+     */
+    @TableField(value = "keep_alive")
+    private String keepAlive;
+
+    /**
+     * 菜单类型：0-目录 1-菜单 2-按钮
+     */
+    @TableField(value = "type")
+    private Byte type;
 
     /**
      * 删除状态：0-正常 1-删除
@@ -72,25 +84,13 @@ public class SysMenu {
     private Boolean delFlag;
 
     /**
-     * 创建人ID
-     */
-    @TableField(value = "create_by")
-    private Integer createBy;
-
-    /**
-     * 修改人ID
-     */
-    @TableField(value = "update_by")
-    private Integer updateBy;
-
-    /**
      * 创建时间
      */
     @TableField(value = "create_time")
     private Date createTime;
 
     /**
-     * 修改时间
+     * 更新时间
      */
     @TableField(value = "update_time")
     private Date updateTime;

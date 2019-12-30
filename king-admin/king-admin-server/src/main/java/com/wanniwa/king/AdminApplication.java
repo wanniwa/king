@@ -8,6 +8,12 @@ import org.springframework.cloud.client.SpringCloudApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 
+/**
+ * 启动类
+ *
+ * @author wanniwa
+ * @date 2019/12/30
+ */
 @SpringCloudApplication
 @EnableFeignClients
 @MapperScan("com.wanniwa.king.admin.mapper")

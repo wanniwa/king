@@ -46,8 +46,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
         security
-                //开启/oauth/token_key验证端口无权限访问
-                .tokenKeyAccess("permitAll()")         //url:/oauth/token_key,exposes public key for token verification if using JWT tokens
+                // 开启/oauth/token_key验证端口无权限访问
+                // url:/oauth/token_key,exposes public key for token verification if using JWT tokens
+                .tokenKeyAccess("permitAll()")
                 .checkTokenAccess("isAuthenticated()")
                 .allowFormAuthenticationForClients();
 

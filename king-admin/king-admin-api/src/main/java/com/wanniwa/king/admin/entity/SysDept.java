@@ -53,25 +53,13 @@ public class SysDept {
     private Boolean delFlag;
 
     /**
-     * 创建人ID
-     */
-    @TableField(value = "create_by")
-    private Integer createBy;
-
-    /**
-     * 更新人ID
-     */
-    @TableField(value = "update_by")
-    private Integer updateBy;
-
-    /**
      * 创建时间
      */
     @TableField(value = "create_time")
     private Date createTime;
 
     /**
-     * 修改时间
+     * 更新时间
      */
     @TableField(value = "update_time")
     private Date updateTime;

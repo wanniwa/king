@@ -7,7 +7,9 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.wanniwa.king.admin.entity.SysDept;
 import com.wanniwa.king.admin.mapper.SysDeptMapper;
 import com.wanniwa.king.admin.service.SysDeptService;
+
 @Service
-public class SysDeptServiceImpl extends ServiceImpl<SysDeptMapper, SysDept> implements SysDeptService{
+public class SysDeptServiceImpl extends ServiceImpl<SysDeptMapper, SysDept> implements SysDeptService {
 
 }
+

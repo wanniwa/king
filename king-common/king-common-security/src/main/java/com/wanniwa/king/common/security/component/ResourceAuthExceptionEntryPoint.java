@@ -19,7 +19,9 @@ import java.io.PrintWriter;
 @Slf4j
 @Component
 public class ResourceAuthExceptionEntryPoint implements AuthenticationEntryPoint {
-	//ObjectMapper 是一个使用 Swift 语言编写的数据模型转换框架，我们可以方便的将模型对象转换为JSON，或者JSON生成相应的模型类
+	/**
+	 * ObjectMapper 是一个使用 Swift 语言编写的数据模型转换框架，我们可以方便的将模型对象转换为JSON，或者JSON生成相应的模型类
+	 */
 	@Autowired
 	private  ObjectMapper objectMapper;
 
@@ -28,8 +30,7 @@ public class ResourceAuthExceptionEntryPoint implements AuthenticationEntryPoint
 	public void commence(HttpServletRequest request, HttpServletResponse response,
 						 AuthenticationException authException) {
 		response.setCharacterEncoding(CommonConstants.UTF8);
-		response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
-		R result = R.error();
+		R<String> result = R.error();
 		if (authException != null) {
 			result.setMsg(authException.getMessage());
 		}

@@ -59,7 +59,7 @@ public class SysRole {
     private Date createTime;
 
     /**
-     * 修改时间
+     * 更新时间
      */
     @TableField(value = "update_time")
     private Date updateTime;
