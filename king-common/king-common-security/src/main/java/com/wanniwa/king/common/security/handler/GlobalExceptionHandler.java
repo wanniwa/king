@@ -30,7 +30,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.OK)
     public R<String> resultException(ResultException e) {
         log.error(e.getMessage(), e);
-        return R.error(e.getCode(), e.getMessage());
+        return R.fail(e.getCode(), e.getMessage());
     }
 
     /**
@@ -40,7 +40,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public R<String> exception(Exception e) {
         log.error("异常信息:{}", e.getMessage(), e);
-        return R.error(e.getMessage());
+        return R.fail(e.getMessage());
     }
 
     /**
@@ -54,6 +54,6 @@ public class GlobalExceptionHandler {
     public R<String> handleBodyValidException(MethodArgumentNotValidException exception) {
         List<FieldError> fieldErrors = exception.getBindingResult().getFieldErrors();
         log.error("参数绑定异常,ex = {}", fieldErrors.get(0).getDefaultMessage());
-        return R.error(fieldErrors.get(0).getDefaultMessage());
+        return R.fail(fieldErrors.get(0).getDefaultMessage());
     }
 }

@@ -23,22 +23,14 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     private final SysRoleService sysRoleService;
     private final SysMenuService sysMenuService;
 
-    @Override
-    public UserInfo getUserInfoByUsername(String username) {
-        SysUser sysUser = baseMapper.selectOne(Wrappers.<SysUser>query().lambda().eq(SysUser::getUsername, username));
-        if (sysUser == null) {
-            return null;
-        }
-        return findUserInfo(sysUser);
-    }
-
     /**
      * 将查询到的SysUser信息、角色信息、权限、补全到UserInfo中
      *
      * @param sysUser
      * @return
      */
-    private UserInfo findUserInfo(SysUser sysUser) {
+    @Override
+    public UserInfo getUserInfo(SysUser sysUser) {
         UserInfo userInfo = new UserInfo();
         userInfo.setSysUser(sysUser);
         //角色
@@ -54,6 +46,9 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         return userInfo;
     }
 }
+
+
+
 
 
 

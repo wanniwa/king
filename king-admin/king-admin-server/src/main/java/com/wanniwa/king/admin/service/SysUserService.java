@@ -4,16 +4,25 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.wanniwa.king.admin.dto.UserInfo;
 import com.wanniwa.king.admin.entity.SysUser;
 
+/**
+ * 用户
+ *
+ * @author wanniwa
+ * @date 2019/12/30
+ */
 public interface SysUserService extends IService<SysUser> {
 
     /**
-     * 查询用户信息
+     * 通过查用户的全部信息
      *
-     * @param username
-     * @return
+     * @param sysUser 用户
+     * @return 用户的全部信息
      */
-    UserInfo getUserInfoByUsername(String username);
+    UserInfo getUserInfo(SysUser sysUser);
 }
+
+
+
 
 
 

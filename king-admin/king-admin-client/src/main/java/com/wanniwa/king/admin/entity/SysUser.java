@@ -61,8 +61,14 @@ public class SysUser {
     /**
      * 0-未启用，1-启用
      */
-    @TableField(value = "enabled")
-    private Boolean enabled;
+    @TableField(value = "is_enabled")
+    private Boolean isEnabled;
+
+    /**
+     * 0 未锁定 1 锁定
+     */
+    @TableField(value = "lock_flag")
+    private Boolean lockFlag;
 
     /**
      * 删除状态：0-正常 1-删除
@@ -81,10 +87,4 @@ public class SysUser {
      */
     @TableField(value = "update_time")
     private Date updateTime;
-
-    /**
-     * 0 未锁定 1 锁定
-     */
-    @TableField(value = "lock_flag")
-    private Boolean lockFlag;
 }

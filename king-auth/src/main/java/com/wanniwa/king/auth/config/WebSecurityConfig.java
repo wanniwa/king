@@ -44,10 +44,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/oauth/**","/actuator/**").permitAll()
                 .anyRequest().authenticated()
                 .and().csrf().disable();
-
     }
+
     /**
-     * 必须注入 AuthenticationManager，不然oauth  无法处理四种授权方式
+     * 必须注入 AuthenticationManager，不然oauth无法处理四种授权方式
      *
      * @return AuthenticationManager
      */

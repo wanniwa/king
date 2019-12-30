@@ -12,7 +12,7 @@
     <artifactId>king-admin</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>king-admin-api</module>
+        <module>king-admin-client</module>
         <module>king-admin-server</module>
     </modules>
 

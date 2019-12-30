@@ -49,7 +49,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 // 开启/oauth/token_key验证端口无权限访问
                 // url:/oauth/token_key,exposes public key for token verification if using JWT tokens
                 .tokenKeyAccess("permitAll()")
-                .checkTokenAccess("isAuthenticated()")
+                .checkTokenAccess("permitAll()")
                 .allowFormAuthenticationForClients();
 
     }
@@ -63,38 +63,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         //从数据库读取client信息，并缓存到redis中
         clients.withClientDetails(new KingClientDetailsService(dataSource));
-                //// clients.inMemory()
-                //.withClient("client_1")
-                //.authorizedGrantTypes("client_credentials")
-                //.scopes("all","read", "write")
-                //.authorities("client_credentials")
-                //.accessTokenValiditySeconds(7200)
-                //.secret(passwordEncoder.encode("123456"))
-                //
-                //.and().withClient("client_2")
-                //.authorizedGrantTypes("password", "refresh_token")
-                //.scopes("all","read", "write")
-                //.accessTokenValiditySeconds(7200)
-                //.refreshTokenValiditySeconds(10000)
-                //.authorities("password")
-                //.secret(passwordEncoder.encode("123456"))
-                //
-                //.and().withClient("client_3").authorities("authorization_code","refresh_token")
-                //.secret(passwordEncoder.encode("123456"))
-                //.authorizedGrantTypes("authorization_code")
-                //.scopes("all","read", "write")
-                //.accessTokenValiditySeconds(7200)
-                //.refreshTokenValiditySeconds(10000)
-                //.redirectUris("http://localhost:8080/callback","http://localhost:8080/signin")
-                //
-                //.and().withClient("client_test")
-                //.secret(passwordEncoder.encode("123456"))
-                //.authorizedGrantTypes("all flow")
-                //.authorizedGrantTypes("authorization_code", "client_credentials", "refresh_token","password", "implicit")
-                //.redirectUris("http://localhost:8080/callback","http://localhost:8080/signin")
-                //.scopes("all","read", "write")
-                //.accessTokenValiditySeconds(7200)
-                //.refreshTokenValiditySeconds(10000);
+
         System.out.println("secret:"+passwordEncoder.encode("123456"));
         //super.configure(clients);
     }

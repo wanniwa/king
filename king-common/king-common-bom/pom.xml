@@ -35,7 +35,7 @@
             </dependency>
             <dependency>
                 <groupId>com.wanniwa</groupId>
-                <artifactId>king-admin-api</artifactId>
+                <artifactId>king-admin-client</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <!--mybatis plus extension,包含了mybatis plus core-->

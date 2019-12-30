@@ -36,15 +36,15 @@ public class R<T> {
         return R.<T>builder().code(ResultEnum.SUCCESS.getCode()).msg(ResultEnum.SUCCESS.getMsg()).data(data).build();
     }
 
-    public static <T> R<T> error() {
-        return error(ResultEnum.FAILED);
+    public static <T> R<T> fail() {
+        return fail(ResultEnum.FAILED);
     }
 
-    public static <T> R<T> error(String msg) {
+    public static <T> R<T> fail(String msg) {
         return R.<T>builder().code(ResultEnum.FAILED.getCode()).msg(msg).build();
     }
 
-    public static <T> R<T> error(int code, String msg) {
+    public static <T> R<T> fail(int code, String msg) {
         return R.<T>builder().code(code).msg(msg).build();
     }
 
@@ -54,7 +54,7 @@ public class R<T> {
      * @param iCodeMsg 定义枚举
      * @return R
      */
-    public static <T> R<T> error(ICodeMsg iCodeMsg) {
+    public static <T> R<T> fail(ICodeMsg iCodeMsg) {
         return R.<T>builder().code(iCodeMsg.getCode()).msg(iCodeMsg.getMsg()).build();
     }
 
@@ -64,9 +64,9 @@ public class R<T> {
      * @param bindingResult  General interface that represents binding results
      * @return R
      */
-    public static <T> R<T> error(BindingResult bindingResult) {
+    public static <T> R<T> fail(BindingResult bindingResult) {
         FieldError fieldError = bindingResult.getFieldError();
         assert fieldError != null;
-        return R.error(ResultEnum.FAILED.getCode(), fieldError.getField() + fieldError.getDefaultMessage());
+        return R.fail(ResultEnum.FAILED.getCode(), fieldError.getField() + fieldError.getDefaultMessage());
     }
 }

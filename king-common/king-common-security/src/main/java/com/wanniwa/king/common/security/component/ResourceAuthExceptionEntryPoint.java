@@ -7,7 +7,6 @@ import com.wanniwa.king.common.core.utils.R;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
@@ -30,7 +29,7 @@ public class ResourceAuthExceptionEntryPoint implements AuthenticationEntryPoint
 	public void commence(HttpServletRequest request, HttpServletResponse response,
 						 AuthenticationException authException) {
 		response.setCharacterEncoding(CommonConstants.UTF8);
-		R<String> result = R.error();
+		R<String> result = R.fail();
 		if (authException != null) {
 			result.setMsg(authException.getMessage());
 		}

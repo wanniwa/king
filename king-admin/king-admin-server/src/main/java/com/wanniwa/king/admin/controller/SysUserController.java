@@ -9,6 +9,7 @@ import com.wanniwa.king.admin.service.SysUserService;
 import com.wanniwa.king.common.core.utils.R;
 import com.wanniwa.king.common.data.util.PageQuery;
 import com.wanniwa.king.common.data.util.PageUtil;
+import com.wanniwa.king.common.security.util.SecurityUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,9 @@ import java.util.Date;
 
 /**
  * 系统用户
+ *
+ * @author wanniwa
+ * @date 2019/12/30
  */
 @RestController
 @RequestMapping("/sys/user")
@@ -28,6 +32,26 @@ import java.util.Date;
 public class SysUserController {
     @Autowired
     private SysUserService sysUserService;
+
+    /**
+     * 获取当前用户全部信息
+     *
+     * @return 用户信息
+     */
+    @GetMapping(value = {"/info"})
+    public R info() {
+        Integer userId = SecurityUtil.getUser().getId();
+        SysUser user = sysUserService.getById(userId);
+        if (user == null) {
+            return R.fail("获取当前用户信息失败");
+        }
+        return R.ok(sysUserService.getUserInfo(user));
+    }
+
+
+
+
+
 
     //@Autowired
     //private SysUserRoleService sysUserRoleService;

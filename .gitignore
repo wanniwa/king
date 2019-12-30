@@ -29,10 +29,4 @@
 /king-config/target/
 /king-eureka/target/
 /king-gateway/target/
-/king-order/king-order-api/target/
-/king-order/king-order-web/target/
-/king-product/king-product-api/target/
-/king-product/king-product-web/target/
-/king-product/target/
-/king-auth/king-auth-web/target/
-/king-auth/king-auth-api/target/
+/king-auth/target/

@@ -10,6 +10,6 @@ public class ISysUserClientFallback implements ISysUserClient {
 
     @Override
     public R<UserInfo> info(String username) {
-        return R.error();
+        return R.fail();
     }
 }

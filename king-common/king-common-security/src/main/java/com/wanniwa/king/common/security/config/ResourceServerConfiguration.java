@@ -27,8 +27,8 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
     public void configure(HttpSecurity http) {
         http
                 .authorizeRequests()
-                .antMatchers("/api/user/info").permitAll()
-                //.anyRequest().authenticated()
+                .antMatchers("/api/user/**").permitAll()
+                .anyRequest().authenticated()
                 .and()
                 .csrf().disable();
     }
