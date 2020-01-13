@@ -18,6 +18,8 @@ import java.io.IOException;
 
 /**
  * DefaultThrowableAnalyzer
+ *
+ * @author wanniwa
  */
 @Slf4j
 public class KingWebResponseExceptionTranslator implements WebResponseExceptionTranslator<OAuth2Exception> {
@@ -58,6 +60,13 @@ public class KingWebResponseExceptionTranslator implements WebResponseExceptionT
 
     }
 
+    /**
+     * 处理OAuth2Exception
+     *
+     * @param e OAuth2Exception
+     * @return ResponseEntity<OAuth2Exception>
+     * @throws IOException io
+     */
     private ResponseEntity<OAuth2Exception> handleOAuth2Exception(OAuth2Exception e) throws IOException {
 
         int status = e.getHttpErrorCode();
@@ -67,11 +76,10 @@ public class KingWebResponseExceptionTranslator implements WebResponseExceptionT
         if (status == HttpStatus.UNAUTHORIZED.value() || (e instanceof InsufficientScopeException)) {
             headers.set("WWW-Authenticate", String.format("%s %s", OAuth2AccessToken.BEARER_TYPE, e.getSummary()));
         }
-        log.error(e.getMessage(),e);
-        ResponseEntity<OAuth2Exception> response = new ResponseEntity<>(new KingOAuthException(status, e.getSummary()), headers,
-                HttpStatus.valueOf(status));
+        log.error(e.getMessage(), e);
 
-        return response;
+        return new ResponseEntity<>(new KingOAuthException(status, e.getSummary()), headers,
+                HttpStatus.valueOf(status));
 
     }
 
