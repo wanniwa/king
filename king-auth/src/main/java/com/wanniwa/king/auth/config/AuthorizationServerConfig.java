@@ -1,5 +1,6 @@
 package com.wanniwa.king.auth.config;
 
+import com.wanniwa.king.common.core.constant.SecurityConstants;
 import com.wanniwa.king.common.security.provider.error.KingWebResponseExceptionTranslator;
 import com.wanniwa.king.common.security.service.KingClientDetailsService;
 import com.wanniwa.king.common.security.service.KingUserDetailsService;
@@ -9,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.common.exceptions.OAuth2Exception;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
@@ -34,7 +34,6 @@ import javax.sql.DataSource;
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
     private final AuthenticationManager authenticationManager;
-    private PasswordEncoder passwordEncoder;
     private final DataSource dataSource;
     private final RedisConnectionFactory redisConnectionFactory;
     private final KingUserDetailsService kingUserDetailsService;
@@ -49,23 +48,22 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 // 开启/oauth/token_key验证端口无权限访问
                 // url:/oauth/token_key,exposes public key for token verification if using JWT tokens
                 .tokenKeyAccess("permitAll()")
-                .checkTokenAccess("permitAll()")
+                .checkTokenAccess("isAuthenticated()")
                 .allowFormAuthenticationForClients();
 
     }
 
     /**
      * ClientDetailsServiceConfigurer：用来配置客户端详情信息，一般使用数据库来存储或读取应用配置的详情信息（client_id ，client_secret，redirect_uri 等配置信息）。
-     * @param clients
+     *
+     * @param clients client服务配置
      * @throws Exception
      */
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         //从数据库读取client信息，并缓存到redis中
-        clients.withClientDetails(new KingClientDetailsService(dataSource));
-
-        System.out.println("secret:"+passwordEncoder.encode("123456"));
-        //super.configure(clients);
+        KingClientDetailsService kingClientDetailsService = new KingClientDetailsService(dataSource);
+        clients.withClientDetails(kingClientDetailsService);
     }
 
     /**
@@ -98,6 +96,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Bean
     public TokenStore tokenStore() {
         RedisTokenStore tokenStore = new RedisTokenStore(redisConnectionFactory);
+        tokenStore.setPrefix(SecurityConstants.KING_PREFIX + SecurityConstants.OAUTH_PREFIX);
         return tokenStore;
     }
 
