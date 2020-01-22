@@ -22,37 +22,51 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `oauth_client_details`;
 CREATE TABLE `oauth_client_details`  (
-  `client_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `resource_ids` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `client_secret` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `scope` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `authorized_grant_types` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `web_server_redirect_uri` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `authorities` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `access_token_validity` int(10) NULL DEFAULT NULL,
-  `refresh_token_validity` int(10) NULL DEFAULT NULL,
-  `additional_information` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
-  `autoapprove` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  PRIMARY KEY (`client_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+                                         `client_id`               varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+                                         `resource_ids`            varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+                                         `client_secret`           varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+                                         `scope`                   varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+                                         `authorized_grant_types`  varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+                                         `web_server_redirect_uri` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+                                         `authorities`             varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+                                         `access_token_validity`   int(10)                                                       NULL DEFAULT NULL,
+                                         `refresh_token_validity`  int(10)                                                       NULL DEFAULT NULL,
+                                         `additional_information`  text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci         NULL,
+                                         `autoapprove`             varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+                                         PRIMARY KEY (`client_id`) USING BTREE
+) ENGINE = InnoDB
+  CHARACTER SET = utf8mb4
+  COLLATE = utf8mb4_0900_ai_ci
+  ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of oauth_client_details
 -- ----------------------------
-INSERT INTO `oauth_client_details` VALUES ('client_1', '', '{bcrypt}$2a$10$fyvasJLA.nAPOG7f0c.i2.hUyx2OP3iz5rd/IEOdbnWiiQ5dl8Mti', 'all,read,write', 'client_credentials', '', 'client_credentials', 7200, NULL, '{}', '');
-INSERT INTO `oauth_client_details` VALUES ('client_2', '', '{bcrypt}$2a$10$FuYGIVT/BF2k3l2JpBBMW.4wfMdaMRlm.OZBY.wApWHJxFHmdJexm', 'all,read,write', 'password,refresh_token', '', 'password', 7200, 10000, '{}', '');
-INSERT INTO `oauth_client_details` VALUES ('client_3', '', '{bcrypt}$2a$10$ooZlCPp7Zd4OAXkTJF.4Q.zJMPUI5/F7KQh4gsuLha9/mZJw6m5vi', 'all,read,write', 'authorization_code', 'http://localhost:8080/signin,http://localhost:8080/callback', 'authorization_code,refresh_token', 7200, 10000, '{}', '');
-INSERT INTO `oauth_client_details` VALUES ('client_test', '', '{bcrypt}$2a$10$5AVvD0BTdRKm4HXjFGz1mO2bMTjCbTwK7dEOY5TDeDevIKihhHpxK', 'all,read,write', 'all flow,authorization_code,client_credentials,refresh_token,password,implicit', 'http://localhost:8080/signin,http://localhost:8080/callback', '', 7200, 10000, '{}', '');
+INSERT INTO `oauth_client_details`
+VALUES ('client_1', '', '{noop}123456', 'all,read,write', 'client_credentials', '', 'client_credentials', 7200, NULL,
+        '{}', '');
+INSERT INTO `oauth_client_details`
+VALUES ('client_2', '', '{noop}123456', 'all,read,write', 'password,refresh_token', '', 'password', 7200, 10000, '{}',
+        '');
+INSERT INTO `oauth_client_details`
+VALUES ('client_3', '', '{noop}123456', 'all,read,write', 'authorization_code',
+        'http://localhost:8080/signin,http://localhost:8080/callback', 'authorization_code,refresh_token', 7200, 10000,
+        '{}', '');
+INSERT INTO `oauth_client_details`
+VALUES ('client_test', '', '{noop}123456', 'all,read,write',
+        'all flow,authorization_code,client_credentials,refresh_token,password,implicit',
+        'http://localhost:8080/signin,http://localhost:8080/callback', '', 7200, 10000, '{}', '');
 
 
 -- ----------------------------
 -- Table structure for sys_dept
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_dept`;
-CREATE TABLE `sys_dept`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '部门ID',
-  `name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '部门名称',
-  `parent_id` int(10) NULL DEFAULT NULL COMMENT '父级编号',
+CREATE TABLE `sys_dept`
+(
+    `id`        int(11)                                                      NOT NULL AUTO_INCREMENT COMMENT '部门ID',
+    `name`      varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '部门名称',
+    `parent_id` int(10)                                                      NULL DEFAULT NULL COMMENT '父级编号',
   `parent_ids` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '所有父级编号',
   `sort` int(10) NULL DEFAULT NULL COMMENT '排序',
   `remark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '备注',

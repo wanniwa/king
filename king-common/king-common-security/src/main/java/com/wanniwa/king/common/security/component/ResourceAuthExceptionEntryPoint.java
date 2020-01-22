@@ -15,26 +15,33 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 
+/**
+ * 认证异常处理
+ *
+ * @author wanniwa
+ */
 @Slf4j
 @Component
 public class ResourceAuthExceptionEntryPoint implements AuthenticationEntryPoint {
-	/**
-	 * ObjectMapper 是一个使用 Swift 语言编写的数据模型转换框架，我们可以方便的将模型对象转换为JSON，或者JSON生成相应的模型类
-	 */
-	@Autowired
-	private  ObjectMapper objectMapper;
+    /**
+     * ObjectMapper 是一个使用 Swift 语言编写的数据模型转换框架，我们可以方便的将模型对象转换为JSON，或者JSON生成相应的模型类
+     */
+    @Autowired
+    private ObjectMapper objectMapper;
 
-	@Override
-	@SneakyThrows
-	public void commence(HttpServletRequest request, HttpServletResponse response,
-						 AuthenticationException authException) {
-		response.setCharacterEncoding(CommonConstants.UTF8);
-		R<String> result = R.fail();
-		if (authException != null) {
-			result.setMsg(authException.getMessage());
-		}
-		response.setStatus(HttpStatus.HTTP_UNAUTHORIZED);
-		PrintWriter printWriter = response.getWriter();
-		printWriter.append(objectMapper.writeValueAsString(result));
-	}
+    @Override
+    @SneakyThrows
+    public void commence(HttpServletRequest request, HttpServletResponse response,
+                         AuthenticationException authException) {
+        response.setCharacterEncoding(CommonConstants.UTF8);
+        R<String> result = R.fail();
+        if (authException != null) {
+            result.setMsg(authException.getMessage());
+        }
+        response.setStatus(HttpStatus.HTTP_UNAUTHORIZED);
+        PrintWriter printWriter = response.getWriter();
+        printWriter.append(objectMapper.writeValueAsString(result));
+        printWriter.flush();
+        printWriter.close();
+    }
 }

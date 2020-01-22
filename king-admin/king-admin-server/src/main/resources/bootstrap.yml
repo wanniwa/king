@@ -28,8 +28,10 @@ security:
       client-id: client_2
       client-secret: 123456
       scope: all
+      grant-type: client_credentials
     resource:
       token-info-uri: http://127.0.0.1:9000/oauth/check_token
+      id: 111
 #security:
 #  oauth2:
 #    client:

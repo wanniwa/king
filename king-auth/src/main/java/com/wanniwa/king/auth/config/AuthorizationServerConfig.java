@@ -23,11 +23,20 @@ import org.springframework.security.oauth2.provider.token.store.redis.RedisToken
 import javax.sql.DataSource;
 
 /**
- * @author wanniwa
  * 认证服务器配置
+ * <p>
+ * 授权服务配置总结：授权服务配置分成三大块，可以关联记忆。
+ * 既然要完成认证，它首先得知道客户端信息从哪儿读取，因此要进行客户端详情配置。
+ * 既然要颁发token，那必须得定义token的相关endpoint，以及token如何存取，以及客户端支持哪些类型的token。
+ * 既然暴露除了一些endpoint，那对这些endpoint可以定义一些安全上的约束等。
+ * <p>
+ * EnableAuthorizationServer 开启认证服务器功能
+ * <p>
  * ClientDetailsServiceConfigurer：用来配置客户端详情服务（ClientDetailsService），客户端详情信息在这里进行初始化，你能够把客户端详情信息写死在这里或者是通过数据库来存储调取详情信息。
  * AuthorizationServerSecurityConfigurer：用来配置令牌端点(Token Endpoint)的安全约束.
  * AuthorizationServerEndpointsConfigurer：用来配置授权（authorization）以及令牌（token）的访问端点和令牌服务(token services)。
+ *
+ * @author wanniwa
  */
 @Configuration
 @AllArgsConstructor
@@ -37,24 +46,34 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     private final DataSource dataSource;
     private final RedisConnectionFactory redisConnectionFactory;
     private final KingUserDetailsService kingUserDetailsService;
+
+
     /**
-     * AuthorizationServerSecurityConfigurer：用来配置令牌端点(Token Endpoint)的安全与权限访问。
+     * AuthorizationServerSecurityConfigurer：
+     * 用来配置令牌端点(Token Endpoint)的安全与权限访问。
+     *
      * @param security
      * @throws Exception
      */
     @Override
-    public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-        security
-                // 开启/oauth/token_key验证端口无权限访问
-                // url:/oauth/token_key,exposes public key for token verification if using JWT tokens
-                .tokenKeyAccess("permitAll()")
-                .checkTokenAccess("isAuthenticated()")
-                .allowFormAuthenticationForClients();
+    public void configure(AuthorizationServerSecurityConfigurer security) {
+
+        //
+        security.checkTokenAccess("isAuthenticated()");
+
+        // 开启/oauth/token_key验证端口无权限访问
+        // url:/oauth/token_key,exposes public key for token verification if using JWT tokens
+        security.tokenKeyAccess("permitAll()");
+
+        security.allowFormAuthenticationForClients();
 
     }
 
     /**
-     * ClientDetailsServiceConfigurer：用来配置客户端详情信息，一般使用数据库来存储或读取应用配置的详情信息（client_id ，client_secret，redirect_uri 等配置信息）。
+     * ClientDetailsServiceConfigurer
+     * 用来配置客户端详情服务（ClientDetailsService），客户端详情信息在
+     * 这里进行初始化，你能够把客户端详情信息写死在这里或者是通过数据库来存储调取详情信息。
+     * 一般使用数据库来存储或读取应用配置的详情信息（client_id ，client_secret，redirect_uri 等配置信息）。
      *
      * @param clients client服务配置
      * @throws Exception
@@ -67,7 +86,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     }
 
     /**
-     * AuthorizationServerEndpointsConfigurer：用来配置授权以及令牌（Token）的访问端点和令牌服务（比如：配置令牌的签名与存储方式）
+     * AuthorizationServerEndpointsConfigurer
+     * 用来配置授权以及令牌（Token）的访问端点和令牌服务（比如：配置令牌的签名与存储方式）
+     *
      * @param endpoints
      * @throws Exception
      */
@@ -79,19 +100,19 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .tokenStore(tokenStore())
                 //.tokenEnhancer(tokenEnhancer())
                 .userDetailsService(kingUserDetailsService)
-                //.authenticationManager(authenticationManagerBean)
                 .reuseRefreshTokens(false)
-                //.pathMapping("/oauth/confirm_access", "/token/confirm_access")
                 .exceptionTranslator(webResponseExceptionTranslator());
     }
+
     @Bean
-    public WebResponseExceptionTranslator<OAuth2Exception> webResponseExceptionTranslator(){
+    public WebResponseExceptionTranslator<OAuth2Exception> webResponseExceptionTranslator() {
         return new KingWebResponseExceptionTranslator();
     }
 
     /**
-     *  token存储
-     * @return TokenStore;
+     * token存储
+     *
+     * @return TokenStore
      */
     @Bean
     public TokenStore tokenStore() {

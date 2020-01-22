@@ -13,7 +13,13 @@
     <packaging>jar</packaging>
     <description>king 公共工具类核心包</description>
     <dependencies>
-        <!--hutool-->
+        <!--JSON转化工具fastjson-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+        <!--国产工具hutool-->
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>

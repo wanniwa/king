@@ -2,17 +2,22 @@ package com.wanniwa.king.auth.config;
 
 import lombok.SneakyThrows;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-
+/**
+ * WebSecurityConfig 安全控制配置类作为安全控制中心， 用于实现身份认证与授权配置功能
+ * EnableWebSecurity 启动 SpringSecurity 过滤器链功能userDetailsService 包含了@Configuration注解
+ * WebSecurityConfigurerAdapter @Order(100)
+ *
+ * @author wanniwa
+ */
 @EnableWebSecurity
-@Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
@@ -36,18 +41,45 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     //    //   .passwordEncoder(passwordEncoder());
     //}
 
+    /**
+     * 认证管理器：
+     * 1、认证信息提供方式（用户名、密码、当前用户的资源权限）
+     * 2、可采用内存存储方式，也可能采用数据库方式等
+     *
+     * @param auth
+     * @throws Exception
+     */
+    @Override
+    @SneakyThrows
+    public void configure(AuthenticationManagerBuilder auth) {
+        super.configure(auth);
+    }
+
+    /**
+     * 资源权限配置（过滤器链）:
+     * 1、被拦截的资源
+     * 2、资源所对应的角色权限
+     * 3、定义认证方式：httpBasic 、httpForm
+     * 4、定制登录页面、登录请求地址、错误处理方式
+     * 5、自定义 spring security 过滤器
+     *
+     * @param http
+     * @throws Exception
+     */
     @Override
     @SneakyThrows
     protected void configure(HttpSecurity http) {
         http
+                .formLogin()
+                .and()
                 .authorizeRequests()
-                .antMatchers("/oauth/**","/actuator/**").permitAll()
                 .anyRequest().authenticated()
-                .and().csrf().disable();
+                .and()
+                .csrf().disable();
     }
 
     /**
-     * 必须注入 AuthenticationManager，不然oauth无法处理四种授权方式
+     * password 密码模式要使用此认证管理器
      *
      * @return AuthenticationManager
      */

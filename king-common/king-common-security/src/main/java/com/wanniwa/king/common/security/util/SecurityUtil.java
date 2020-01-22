@@ -34,7 +34,8 @@ public class SecurityUtil {
      */
     public KingUser getUser() {
         try {
-            return (KingUser) getAuthentication().getPrincipal();
+            Object principal = getAuthentication().getPrincipal();
+            return (KingUser) principal;
         } catch (Exception e) {
             throw new ResultException(HttpStatus.UNAUTHORIZED.value(), "登录状态过期");
         }
