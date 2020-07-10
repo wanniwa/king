@@ -17,9 +17,4 @@ public class GatewayApplication {
     public static void main(String[] args) {
         SpringApplication.run(GatewayApplication.class, args);
     }
-    @ConfigurationProperties("zuul")
-    @RefreshScope
-    public ZuulProperties zuulProperties(){
-        return new ZuulProperties();
-    }
 }
