@@ -35,10 +35,10 @@
             <groupId>com.wanniwa</groupId>
             <artifactId>king-common-data</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.wanniwa</groupId>
-            <artifactId>king-common-security</artifactId>
-        </dependency>
+        <!--<dependency>-->
+        <!--    <groupId>com.wanniwa</groupId>-->
+        <!--    <artifactId>king-common-security</artifactId>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -60,7 +60,15 @@
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
+        <!--监控-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <plugins>

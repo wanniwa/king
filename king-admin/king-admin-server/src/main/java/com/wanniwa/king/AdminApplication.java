@@ -17,8 +17,8 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringCloudApplication
 @EnableFeignClients
 @MapperScan("com.wanniwa.king.admin.mapper")
-@ComponentScan("com.wanniwa.king")
-@EnableCaching
+//@ComponentScan("com.wanniwa.king")
+//@EnableCaching
 public class AdminApplication {
     public static void main(String[] args) {
         SpringApplication.run(AdminApplication.class, args);

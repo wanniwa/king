@@ -9,7 +9,7 @@ import com.wanniwa.king.admin.service.SysUserService;
 import com.wanniwa.king.common.core.utils.R;
 import com.wanniwa.king.common.data.util.PageQuery;
 import com.wanniwa.king.common.data.util.PageUtil;
-import com.wanniwa.king.common.security.util.SecurityUtil;
+//import com.wanniwa.king.common.security.util.SecurityUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,8 +39,8 @@ public class SysUserController {
      * @return 用户信息
      */
     @GetMapping(value = {"/info"})
-    public R info() {
-        Integer userId = SecurityUtil.getUser().getId();
+    public R info(Integer userId) {
+        //Integer userId = SecurityUtil.getUser().getId();
         SysUser user = sysUserService.getById(userId);
         if (user == null) {
             return R.fail("获取当前用户信息失败");

@@ -1,7 +1,7 @@
 package com.wanniwa.king.admin.controller;
 
 import com.wanniwa.king.common.core.utils.R;
-import org.springframework.security.access.prepost.PreAuthorize;
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/product")
 public class ProductController {
     @GetMapping("/list")
-    @PreAuthorize("hasAuthority('product:view')")
+    //@PreAuthorize("hasAuthority('product:view')")
     public R list() {
         List<String> list = new ArrayList<>();
         list.add("眼镜");

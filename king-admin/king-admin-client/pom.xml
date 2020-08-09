@@ -22,5 +22,19 @@
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-extension</artifactId>
         </dependency>
+        <!--feign 依赖-->
+        <!--<dependency>-->
+        <!--    <groupId>io.github.openfeign</groupId>-->
+        <!--    <artifactId>feign-okhttp</artifactId>-->
+        <!--</dependency>-->
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-httpclient</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
     </dependencies>
+
 </project>
