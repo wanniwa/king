@@ -1,7 +1,6 @@
 package com.wanniwa.king.admin.service.impl;
 
 import cn.hutool.core.util.ArrayUtil;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.wanniwa.king.admin.dto.UserInfo;
 import com.wanniwa.king.admin.entity.SysRole;

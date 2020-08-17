@@ -4,6 +4,7 @@ package com.wanniwa.king.admin.controller;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.wanniwa.king.admin.dto.UserInfo;
 import com.wanniwa.king.admin.entity.SysUser;
 import com.wanniwa.king.admin.service.SysUserService;
 import com.wanniwa.king.common.core.utils.R;
@@ -39,7 +40,7 @@ public class SysUserController {
      * @return 用户信息
      */
     @GetMapping(value = {"/info"})
-    public R info(Integer userId) {
+    public R<UserInfo> info(Integer userId) {
         //Integer userId = SecurityUtil.getUser().getId();
         SysUser user = sysUserService.getById(userId);
         if (user == null) {
@@ -47,6 +48,8 @@ public class SysUserController {
         }
         return R.ok(sysUserService.getUserInfo(user));
     }
+
+
 
 
 
