@@ -14,7 +14,7 @@ public class SysDept {
      * 部门ID
      */
     @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+    private Long id;
 
     /**
      * 部门名称

@@ -16,8 +16,4 @@ public class UserController {
         return principal;
     }
 
-    @GetMapping("/{name}")
-    public String getUserName(@PathVariable String name) {
-        return "hello,"+ name;
-    }
 }

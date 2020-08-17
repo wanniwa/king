@@ -1,6 +1,6 @@
 package com.wanniwa.king.common.core.utils;
 
-import com.wanniwa.king.common.core.constant.enums.ResultEnum;
+import com.wanniwa.king.common.core.enums.ResultEnum;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.validation.BindingResult;

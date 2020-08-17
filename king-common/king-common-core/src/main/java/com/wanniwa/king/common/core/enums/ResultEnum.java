@@ -1,4 +1,4 @@
-package com.wanniwa.king.common.core.constant.enums;
+package com.wanniwa.king.common.core.enums;
 
 
 import com.wanniwa.king.common.core.constant.CommonConstants;

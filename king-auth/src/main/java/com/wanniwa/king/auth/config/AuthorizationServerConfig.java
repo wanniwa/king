@@ -1,8 +1,9 @@
 package com.wanniwa.king.auth.config;
 
 import com.wanniwa.king.common.core.constant.SecurityConstants;
-import com.wanniwa.king.common.security.provider.error.KingWebResponseExceptionTranslator;
+import com.wanniwa.king.common.security.exception.KingWebResponseExceptionTranslator;
 import com.wanniwa.king.common.security.service.KingClientDetailsService;
+import com.wanniwa.king.common.security.service.KingUser;
 import com.wanniwa.king.common.security.service.KingUserDetailsService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -10,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
@@ -20,6 +22,8 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
 
 import javax.sql.DataSource;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * 认证服务器配置
@@ -56,15 +60,11 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
      */
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) {
-
-        //
-        security.checkTokenAccess("isAuthenticated()");
-
-        // 开启/oauth/token_key验证端口无权限访问
-        // url:/oauth/token_key,exposes public key for token verification if using JWT tokens
-        security.tokenKeyAccess("permitAll()");
-
-        security.allowFormAuthenticationForClients();
+        security.checkTokenAccess("isAuthenticated()")
+                // 开启/oauth/token_key验证端口无权限访问
+                // url:/oauth/token_key,exposes public key for token verification if using JWT tokens
+                .tokenKeyAccess("permitAll()")
+                .allowFormAuthenticationForClients();
 
     }
 
@@ -109,15 +109,31 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     }
 
     /**
-     * token存储
+     * token存储于Redis
      *
      * @return TokenStore
      */
     @Bean
     public TokenStore tokenStore() {
         RedisTokenStore tokenStore = new RedisTokenStore(redisConnectionFactory);
-        tokenStore.setPrefix(SecurityConstants.KING_PREFIX + SecurityConstants.OAUTH_PREFIX);
+        tokenStore.setPrefix(SecurityConstants.OAUTH_PREFIX);
         return tokenStore;
     }
 
+    /**
+     * 自定义生成令牌
+     */
+    @Bean
+    public TokenEnhancer tokenEnhancer() {
+        return (accessToken, authentication) -> {
+            if (authentication.getUserAuthentication() != null) {
+                Map<String, Object> additionalInformation = new LinkedHashMap<>();
+                KingUser user = (KingUser) authentication.getUserAuthentication().getPrincipal();
+                additionalInformation.put(SecurityConstants.DETAILS_USER_ID, user.getUserId());
+                additionalInformation.put(SecurityConstants.DETAILS_USERNAME, user.getUsername());
+                ((DefaultOAuth2AccessToken) accessToken).setAdditionalInformation(additionalInformation);
+            }
+            return accessToken;
+        };
+    }
 }

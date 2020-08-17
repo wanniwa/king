@@ -4,18 +4,7 @@ package com.wanniwa.king.common.core.constant;
  * @author wanniwa
  */
 public interface SecurityConstants {
-	/**
-	 * 刷新
-	 */
-	String REFRESH_TOKEN = "refresh_token";
-	/**
-	 * 验证码有效期
-	 */
-	int CODE_TIME = 60;
-	/**
-	 * 验证码长度
-	 */
-	String CODE_SIZE = "4";
+
 	/**
 	 * 角色前缀
 	 */
@@ -29,6 +18,25 @@ public interface SecurityConstants {
 	 * oauth 相关前缀
 	 */
 	String OAUTH_PREFIX = "oauth:";
+
+
+	/**
+	 * {bcrypt} 加密的特征码
+	 */
+	String BCRYPT = "{bcrypt}";
+	/**
+	 * 刷新
+	 */
+	String REFRESH_TOKEN = "refresh_token";
+	/**
+	 * 验证码有效期
+	 */
+	int CODE_TIME = 60;
+	/**
+	 * 验证码长度
+	 */
+	String CODE_SIZE = "4";
+
 	/**
 	 * 项目的license
 	 */
@@ -82,10 +90,7 @@ public interface SecurityConstants {
 	 */
 	String OSC_USER_INFO_URL = "https://www.oschina.net/action/openapi/user?access_token=%s&dataType=json";
 
-	/**
-	 * {bcrypt} 加密的特征码
-	 */
-	String BCRYPT = "{bcrypt}";
+
 	/**
 	 * sys_oauth_client_details 表的字段，不包括client_id、client_secret
 	 */

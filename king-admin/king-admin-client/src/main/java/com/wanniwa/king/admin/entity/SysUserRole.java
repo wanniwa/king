@@ -13,11 +13,11 @@ public class SysUserRole {
      * 用户ID
      */
     @TableId(value = "user_id", type = IdType.INPUT)
-    private Integer userId;
+    private Long userId;
 
     /**
      * 角色ID
      */
     @TableId(value = "role_id", type = IdType.INPUT)
-    private Integer roleId;
+    private Long roleId;
 }

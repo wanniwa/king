@@ -1,4 +1,4 @@
-package com.wanniwa.king.common.core.constant.enums;
+package com.wanniwa.king.common.core.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

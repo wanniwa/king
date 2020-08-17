@@ -14,7 +14,7 @@ public class SysRole {
      * 角色ID
      */
     @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+    private Long id;
 
     /**
      * 角色名称

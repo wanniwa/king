@@ -1,5 +1,6 @@
 package com.wanniwa.king.common.security.service;
 
+import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ArrayUtil;
 import com.wanniwa.king.admin.dto.UserInfo;
 import com.wanniwa.king.admin.entity.SysUser;
@@ -15,11 +16,8 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import java.util.*;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 @Service
 @AllArgsConstructor
 public class KingUserDetailsServiceImpl implements KingUserDetailsService {
@@ -44,19 +42,17 @@ public class KingUserDetailsServiceImpl implements KingUserDetailsService {
             throw new UsernameNotFoundException("用户不存在");
         }
         UserInfo info = result.getData();
-        Set<GrantedAuthority> grantedAuthorities =  new HashSet<>();
+        Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
         if (ArrayUtil.isNotEmpty(info.getRoles())) {
-            // 获取角色
-            Arrays.stream(info.getRoles()).forEach(roleId -> grantedAuthorities.add(new SimpleGrantedAuthority(SecurityConstants.ROLE + roleId)));
-            // 获取资源
+            info.getRoles().forEach(roleId -> grantedAuthorities.add(new SimpleGrantedAuthority(SecurityConstants.ROLE + roleId)));
         }
         if (ArrayUtil.isNotEmpty(info.getPermissions())) {
-            Arrays.stream(info.getPermissions()).forEach( permission-> grantedAuthorities.add(new SimpleGrantedAuthority(permission)));
+            info.getPermissions().forEach(permission -> grantedAuthorities.add(new SimpleGrantedAuthority(permission)));
         }
         SysUser user = info.getSysUser();
         // 构造security用户
-        return new KingUser(user.getUsername(), SecurityConstants.BCRYPT+user.getPassword(),
+        return new KingUser(user.getId(), user.getUsername(), SecurityConstants.BCRYPT + user.getPassword(),
                 user.getIsEnabled(), true, true, !user.getLockFlag(),
-                grantedAuthorities, user.getId(), user.getDeptId());
+                grantedAuthorities);
     }
 }

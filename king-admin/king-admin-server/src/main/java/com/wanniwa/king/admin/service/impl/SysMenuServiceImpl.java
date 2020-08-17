@@ -7,6 +7,7 @@ import com.wanniwa.king.admin.entity.SysMenu;
 import com.wanniwa.king.admin.service.SysMenuService;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> implements SysMenuService {
@@ -17,7 +18,7 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
     }
 
     @Override
-    public List<String> findPermissionsByRoleIds(String roleIds) {
+    public Set<String> findPermissionsByRoleIds(String roleIds) {
         return baseMapper.findPermissionsByRoleIds(roleIds);
     }
 }

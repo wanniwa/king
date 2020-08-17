@@ -2,6 +2,7 @@ package com.wanniwa.king.admin.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.wanniwa.king.admin.entity.SysMenu;import org.apache.ibatis.annotations.Param;import java.util.List;
+import java.util.Set;
 
 public interface SysMenuMapper extends BaseMapper<SysMenu> {
     /**
@@ -18,5 +19,5 @@ public interface SysMenuMapper extends BaseMapper<SysMenu> {
      * @param roleIds Ids
      * @return List<String>
      */
-    List<String> findPermissionsByRoleIds(String roleIds);
+    Set<String> findPermissionsByRoleIds(String roleIds);
 }

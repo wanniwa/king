@@ -5,6 +5,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import java.util.Set;
+
 @Data
 @ApiModel(value = "用户信息")
 public class UserInfo {
@@ -17,10 +19,10 @@ public class UserInfo {
      * 权限标识集合
      */
     @ApiModelProperty(value = "权限标识集合")
-    private String[] permissions;
+    private Set<String> permissions;
     /**
      * 角色集合
      */
     @ApiModelProperty(value = "角色标识集合")
-    private Integer[] roles;
+    private Set<Long> roles;
 }

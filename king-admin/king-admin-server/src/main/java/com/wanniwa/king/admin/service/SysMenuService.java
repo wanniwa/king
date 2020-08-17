@@ -24,5 +24,5 @@ public interface SysMenuService extends IService<SysMenu> {
      * @param roleIds Ids
      * @return List<String>
      */
-    List<String> findPermissionsByRoleIds(String roleIds);
+    Set<String> findPermissionsByRoleIds(String roleIds);
 }

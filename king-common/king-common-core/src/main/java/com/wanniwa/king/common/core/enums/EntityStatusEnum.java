@@ -1,4 +1,4 @@
-package com.wanniwa.king.common.core.constant.enums;
+package com.wanniwa.king.common.core.enums;
 
 import com.wanniwa.king.common.core.utils.ICodeMsg;
 import lombok.Getter;
@@ -28,9 +28,9 @@ public enum EntityStatusEnum implements ICodeMsg {
     DISABLED(3, "停用");
 
 
-    private int code;
+    private final int code;
 
-    private String msg;
+    private final String msg;
 
     EntityStatusEnum(int code, String msg) {
         this.code = code;

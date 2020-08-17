@@ -13,11 +13,11 @@ public class SysRoleMenu {
      * 角色ID
      */
     @TableId(value = "role_id", type = IdType.INPUT)
-    private Integer roleId;
+    private Long roleId;
 
     /**
      * 菜单ID
      */
     @TableId(value = "menu_id", type = IdType.INPUT)
-    private Integer menuId;
+    private Long menuId;
 }

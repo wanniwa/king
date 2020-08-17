@@ -1,7 +1,7 @@
 package com.wanniwa.king.common.exception;
 
 
-import com.wanniwa.king.common.core.constant.enums.ResultEnum;
+import com.wanniwa.king.common.core.enums.ResultEnum;
 import com.wanniwa.king.common.core.utils.ICodeMsg;
 import lombok.Getter;
 

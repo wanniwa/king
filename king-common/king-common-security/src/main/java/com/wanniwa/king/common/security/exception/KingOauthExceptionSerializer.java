@@ -1,4 +1,4 @@
-package com.wanniwa.king.common.security.component;
+package com.wanniwa.king.common.security.exception;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;

@@ -14,7 +14,7 @@
     <version>1.0.0</version>
     <properties>
         <mybatis-plus.version>3.3.0</mybatis-plus.version>
-        <swagger.core.version>1.5.22</swagger.core.version>
+        <swagger.core.version>1.5.24</swagger.core.version>
     </properties>
     <dependencyManagement>
         <dependencies>

@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.wanniwa.king.admin.entity.SysDept">
     <!--@mbg.generated-->
     <!--@Table sys_dept-->
-    <id column="id" jdbcType="INTEGER" property="id" />
+    <id column="id" jdbcType="BIGINT" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="parent_id" jdbcType="INTEGER" property="parentId" />
     <result column="parent_ids" jdbcType="VARCHAR" property="parentIds" />

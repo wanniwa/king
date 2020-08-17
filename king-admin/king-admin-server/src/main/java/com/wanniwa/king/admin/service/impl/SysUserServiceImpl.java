@@ -14,6 +14,7 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -33,15 +34,14 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         UserInfo userInfo = new UserInfo();
         userInfo.setSysUser(sysUser);
         //角色
-        List<Integer> roleIdList = sysRoleService.findRolesByUserId(sysUser.getId())
+        Set<Long> roleIdList = sysRoleService.findRolesByUserId(sysUser.getId())
                 .stream()
                 .map(SysRole::getId)
-                .collect(Collectors.toList());
-
-        userInfo.setRoles(ArrayUtil.toArray(roleIdList, Integer.class));
+                .collect(Collectors.toSet());
+        userInfo.setRoles(roleIdList);
         //权限
-        List<String> permissions = sysMenuService.findPermissionsByRoleIds(StringUtils.join(roleIdList, ","));
-        userInfo.setPermissions(ArrayUtil.toArray(permissions, String.class));
+        Set<String> permissions = sysMenuService.findPermissionsByRoleIds(StringUtils.join(roleIdList, ","));
+        userInfo.setPermissions(permissions);
         return userInfo;
     }
 }

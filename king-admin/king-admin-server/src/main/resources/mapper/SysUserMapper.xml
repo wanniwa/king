@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.wanniwa.king.admin.entity.SysUser">
     <!--@mbg.generated-->
     <!--@Table sys_user-->
-    <id column="id" jdbcType="INTEGER" property="id" />
+    <id column="id" jdbcType="BIGINT" property="id" />
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="salt" jdbcType="VARCHAR" property="salt" />
@@ -20,7 +20,7 @@
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, username, `password`, salt, phone, email, avatar, dept_id, is_enabled, lock_flag, 
+    id, username, `password`, salt, phone, email, avatar, dept_id, is_enabled, lock_flag,
     del_flag, create_time, update_time
   </sql>
 
