@@ -6,6 +6,8 @@ import lombok.Data;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 
+import java.io.Serializable;
+
 /**
  * 通用的返回类型
  *
@@ -13,7 +15,9 @@ import org.springframework.validation.FieldError;
  */
 @Data
 @Builder
-public class R<T> {
+public class R<T> implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     /**
      * 状态码
@@ -34,6 +38,10 @@ public class R<T> {
 
     public static <T> R<T> ok(T data) {
         return R.<T>builder().code(ResultEnum.SUCCESS.getCode()).msg(ResultEnum.SUCCESS.getMsg()).data(data).build();
+    }
+
+    public static <T> R<T> ok(String msg, T data) {
+        return R.<T>builder().code(ResultEnum.SUCCESS.getCode()).msg(msg).data(data).build();
     }
 
     public static <T> R<T> fail() {
@@ -61,7 +69,7 @@ public class R<T> {
     /**
      * 数据自动校验
      *
-     * @param bindingResult  General interface that represents binding results
+     * @param bindingResult General interface that represents binding results
      * @return R
      */
     public static <T> R<T> fail(BindingResult bindingResult) {

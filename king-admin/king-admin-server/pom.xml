@@ -35,10 +35,10 @@
             <groupId>com.wanniwa</groupId>
             <artifactId>king-common-data</artifactId>
         </dependency>
-        <!--<dependency>-->
-        <!--    <groupId>com.wanniwa</groupId>-->
-        <!--    <artifactId>king-common-security</artifactId>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>com.wanniwa</groupId>
+            <artifactId>king-common-security</artifactId>
+        </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>

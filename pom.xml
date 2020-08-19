@@ -3,19 +3,10 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>com.wanniwa</groupId>
     <artifactId>king</artifactId>
     <version>1.0.0</version>
-
     <packaging>pom</packaging>
-
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.9.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
 
     <properties>
         <king-version>1.0.0</king-version>
@@ -28,6 +19,8 @@
         <fastjson.version>1.2.72</fastjson.version>
         <hutool.version>5.1.1</hutool.version>
         <guava.version>28.2-jre</guava.version>
+        <mybatis-plus.version>3.3.0</mybatis-plus.version>
+        <swagger.core.version>1.5.24</swagger.core.version>
     </properties>
 
     <dependencies>
@@ -56,13 +49,13 @@
     <dependencyManagement>
         <dependencies>
             <!--spring boot 公共版本定义-->
-            <!--<dependency>-->
-            <!--    <groupId>org.springframework.boot</groupId>-->
-            <!--    <artifactId>spring-boot-dependencies</artifactId>-->
-            <!--    <version>${spring-boot.version}</version>-->
-            <!--    <type>pom</type>-->
-            <!--    <scope>import</scope>-->
-            <!--</dependency>-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
 
             <!-- SpringCloud Alibaba 微服务 -->
             <dependency>
@@ -77,13 +70,6 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>king-common-bom</artifactId>
-                <version>${project.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -108,6 +94,57 @@
                     </exclusion>
                 </exclusions>
             </dependency>
+
+            <dependency>
+                <groupId>com.wanniwa</groupId>
+                <artifactId>king-common-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.wanniwa</groupId>
+                <artifactId>king-common-data</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.wanniwa</groupId>
+                <artifactId>king-common-security</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.wanniwa</groupId>
+                <artifactId>king-admin-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!--mybatis plus extension,包含了mybatis plus core-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-extension</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <!--mybatis-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <!--swagger 最新依赖内置版本-->
+            <!-- https://mvnrepository.com/artifact/io.swagger/swagger-models -->
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-models</artifactId>
+                <version>${swagger.core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${swagger.core.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -119,6 +156,7 @@
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
                     <configuration>
                         <finalName>${project.build.finalName}</finalName>
                     </configuration>
@@ -136,8 +174,8 @@
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <target>${maven.compiler.target}</target>
-                    <source>${maven.compiler.source}</source>
+                    <target>${java.version}</target>
+                    <source>${java.version}</source>
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>
