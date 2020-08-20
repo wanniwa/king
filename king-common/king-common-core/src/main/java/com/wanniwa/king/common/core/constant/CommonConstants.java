@@ -32,4 +32,9 @@ public interface CommonConstants {
      * 系统用户初始密码
      */
     String INITIAL_PASSWORD = "123456";
+
+    /**
+     * JSON 资源
+     */
+    String CONTENT_TYPE = "application/json; charset=utf-8";
 }

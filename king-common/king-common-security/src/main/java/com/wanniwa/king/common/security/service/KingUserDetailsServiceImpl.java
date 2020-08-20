@@ -1,6 +1,5 @@
 package com.wanniwa.king.common.security.service;
 
-import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ArrayUtil;
 import com.wanniwa.king.admin.dto.UserInfo;
 import com.wanniwa.king.admin.entity.SysUser;
@@ -16,7 +15,10 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import java.util.*;
+
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 @Service
 @AllArgsConstructor

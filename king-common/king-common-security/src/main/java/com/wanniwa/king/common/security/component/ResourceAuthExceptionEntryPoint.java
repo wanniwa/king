@@ -4,6 +4,7 @@ import cn.hutool.http.HttpStatus;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wanniwa.king.common.core.constant.CommonConstants;
 import com.wanniwa.king.common.core.utils.R;
+import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ import java.io.PrintWriter;
  */
 @Slf4j
 @Component
+
 public class ResourceAuthExceptionEntryPoint implements AuthenticationEntryPoint {
     /**
      * ObjectMapper 是一个使用 Swift 语言编写的数据模型转换框架，我们可以方便的将模型对象转换为JSON，或者JSON生成相应的模型类
@@ -34,6 +36,7 @@ public class ResourceAuthExceptionEntryPoint implements AuthenticationEntryPoint
     public void commence(HttpServletRequest request, HttpServletResponse response,
                          AuthenticationException authException) {
         response.setCharacterEncoding(CommonConstants.UTF8);
+        response.setContentType(CommonConstants.CONTENT_TYPE);
         R<String> result = R.fail();
         if (authException != null) {
             result.setMsg(authException.getMessage());
@@ -41,7 +44,6 @@ public class ResourceAuthExceptionEntryPoint implements AuthenticationEntryPoint
         response.setStatus(HttpStatus.HTTP_UNAUTHORIZED);
         PrintWriter printWriter = response.getWriter();
         printWriter.append(objectMapper.writeValueAsString(result));
-        printWriter.flush();
-        printWriter.close();
+
     }
 }

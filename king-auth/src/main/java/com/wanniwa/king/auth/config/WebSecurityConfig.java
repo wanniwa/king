@@ -41,19 +41,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     //    //   .passwordEncoder(passwordEncoder());
     //}
 
-    /**
-     * 认证管理器：
-     * 1、认证信息提供方式（用户名、密码、当前用户的资源权限）
-     * 2、可采用内存存储方式，也可能采用数据库方式等
-     *
-     * @param auth
-     * @throws Exception
-     */
-    @Override
-    @SneakyThrows
-    public void configure(AuthenticationManagerBuilder auth) {
-        super.configure(auth);
-    }
 
     /**
      * 资源权限配置（过滤器链）:
