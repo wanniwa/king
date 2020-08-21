@@ -49,7 +49,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     private final DataSource dataSource;
     private final RedisConnectionFactory redisConnectionFactory;
     private final KingUserDetailsService kingUserDetailsService;
-    private final TokenEnhancer tokenEnhancer;
 
     /**
      * AuthorizationServerSecurityConfigurer：
@@ -100,7 +99,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .allowedTokenEndpointRequestMethods(HttpMethod.GET, HttpMethod.POST)
                 // 指定token存储位置
                 .tokenStore(tokenStore())
-                //.tokenEnhancer(tokenEnhancer())
+                .tokenEnhancer(tokenEnhancer())
                 .userDetailsService(kingUserDetailsService)
                 // 是否重复使用 refresh_token
                 .reuseRefreshTokens(false)

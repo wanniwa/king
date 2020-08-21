@@ -15,9 +15,15 @@ spring:
         shared-configs:
           - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
   redis:
-    host: 106.13.105.158
+    host: 122.51.14.162
     port: 6379
     password: wang1993
+  # 数据源配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/king?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&tinyInt1isBit=true&allowPublicKeyRetrieval=true&autoReconnect=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
 security:
   oauth2:
     client:
@@ -26,6 +32,5 @@ security:
       scope: server
     resource:
       token-info-uri: http://127.0.0.1:9000/oauth/check_token
-
 
 

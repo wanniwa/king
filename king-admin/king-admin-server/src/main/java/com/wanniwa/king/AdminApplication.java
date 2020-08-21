@@ -18,7 +18,7 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableFeignClients
 @MapperScan("com.wanniwa.king.admin.mapper")
 //@ComponentScan("com.wanniwa.king")
-//@EnableCaching
+@EnableCaching
 public class AdminApplication {
     public static void main(String[] args) {
         SpringApplication.run(AdminApplication.class, args);

@@ -155,7 +155,7 @@ CREATE TABLE `sys_user`
     `avatar`      varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '头像',
     `dept_id`     int(11)                                                       NULL DEFAULT NULL COMMENT '部门ID',
     `is_enabled`  bit(1)                                                        NULL DEFAULT NULL COMMENT '0-未启用，1-启用',
-    `is_locked`   bit(1)                                                        NULL DEFAULT NULL COMMENT '0-未锁定 1-锁定',
+    `lock_flag`   bit(1)                                                        NULL DEFAULT NULL COMMENT '0-未锁定 1-锁定',
     `del_flag`    bit(1)                                                        NULL DEFAULT NULL COMMENT '删除状态：0-正常 1-删除',
     `create_time` datetime                                                      NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     `update_time` datetime                                                      NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',

@@ -15,10 +15,7 @@ import java.io.Serializable;
  */
 @Data
 @Builder
-public class R<T> implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
+public class R<T> {
     /**
      * 状态码
      */

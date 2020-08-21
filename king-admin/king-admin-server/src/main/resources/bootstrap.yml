@@ -21,10 +21,16 @@ spring:
     sentinel:
       transport:
         dashboard: localhost:8080
+  redis:
+    host: 122.51.14.162
+    port: 6379
+    password: wang1993
 
-ribbon:
-  eager-load:
-     enabled: true
+#ribbon:
+#  eager-load:
+#     enabled: true
+
+
 #  # 数据源配置
 #  datasource:
 #    url: jdbc:mysql://localhost:3306/king?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&tinyInt1isBit=true&allowPublicKeyRetrieval=true&autoReconnect=true

@@ -28,14 +28,14 @@ public class KingUserDetailsServiceImpl implements KingUserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Cache cache = cacheManager.getCache(CacheConstants.USER_DETAILS);
-        if (cache != null && cache.get(username) != null) {
-            return (KingUser) Objects.requireNonNull(cache.get(username)).get();
-        }
+        //Cache cache = cacheManager.getCache(CacheConstants.USER_DETAILS);
+        //if (cache != null && cache.get(username) != null) {
+        //    return (KingUser) Objects.requireNonNull(cache.get(username)).get();
+        //}
         R<UserInfo> result = sysUserClient.info(username);
         UserDetails userDetails = getUserDetails(result);
-        assert cache != null;
-        cache.put(username, userDetails);
+        //assert cache != null;
+        //cache.put(username, userDetails);
         return userDetails;
     }
 

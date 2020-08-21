@@ -3,7 +3,6 @@ package com.wanniwa.king.admin.config;
 import com.wanniwa.king.common.security.component.ResourceAuthExceptionEntryPoint;
 import lombok.SneakyThrows;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
@@ -23,7 +22,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
     public void configure(HttpSecurity http) {
         http
                 .authorizeRequests()
-                .antMatchers("/api/user/**").permitAll()
+                .antMatchers("/api/user/info/*").permitAll()
                 // 资源授权规则
                 .antMatchers("/product/**").hasAuthority("product")
                 // 所有的请求对应访问的用户都要有 all 范围权限

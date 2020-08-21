@@ -12,7 +12,7 @@ import java.util.List;
 public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> implements SysRoleService {
 
     @Override
-    public List<SysRole> findRolesByUserId(Integer userId) {
+    public List<SysRole> findRolesByUserId(Long userId) {
         return baseMapper.selectListByUserId(userId);
     }
 }

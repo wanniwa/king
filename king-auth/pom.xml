@@ -42,7 +42,16 @@
             <groupId>com.wanniwa</groupId>
             <artifactId>king-common-data</artifactId>
         </dependency>
-
+        <!--数据库-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <!--JDBC相关-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.wanniwa</groupId>
             <artifactId>king-common-security</artifactId>
