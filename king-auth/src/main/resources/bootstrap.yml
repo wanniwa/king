@@ -24,13 +24,13 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
-security:
-  oauth2:
-    client:
-      client-id: king
-      client-secret: 123456
-      scope: server
-    resource:
-      token-info-uri: http://127.0.0.1:9000/oauth/check_token
+#security:
+#  oauth2:
+#    client:
+#      client-id: king
+#      client-secret: 123456
+#      scope: server
+#    resource:
+#      token-info-uri: http://127.0.0.1:9000/oauth/check_token
 
 

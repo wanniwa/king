@@ -1,5 +1,6 @@
 package com.wanniwa.king.common.security.service;
 
+import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ArrayUtil;
 import com.wanniwa.king.admin.dto.UserInfo;
 import com.wanniwa.king.admin.entity.SysUser;
@@ -28,14 +29,14 @@ public class KingUserDetailsServiceImpl implements KingUserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        //Cache cache = cacheManager.getCache(CacheConstants.USER_DETAILS);
-        //if (cache != null && cache.get(username) != null) {
-        //    return (KingUser) Objects.requireNonNull(cache.get(username)).get();
-        //}
+        Cache cache = cacheManager.getCache(CacheConstants.USER_DETAILS);
+        if (cache != null && cache.get(username) != null) {
+            return (KingUser) Objects.requireNonNull(cache.get(username)).get();
+        }
         R<UserInfo> result = sysUserClient.info(username);
         UserDetails userDetails = getUserDetails(result);
-        //assert cache != null;
-        //cache.put(username, userDetails);
+        assert cache != null;
+        cache.put(username, userDetails);
         return userDetails;
     }
 
@@ -45,10 +46,10 @@ public class KingUserDetailsServiceImpl implements KingUserDetailsService {
         }
         UserInfo info = result.getData();
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
-        if (ArrayUtil.isNotEmpty(info.getRoles())) {
+        if (CollectionUtil.isNotEmpty(info.getRoles())) {
             info.getRoles().forEach(roleId -> grantedAuthorities.add(new SimpleGrantedAuthority(SecurityConstants.ROLE + roleId)));
         }
-        if (ArrayUtil.isNotEmpty(info.getPermissions())) {
+        if (CollectionUtil.isNotEmpty(info.getPermissions())) {
             info.getPermissions().forEach(permission -> grantedAuthorities.add(new SimpleGrantedAuthority(permission)));
         }
         SysUser user = info.getSysUser();
