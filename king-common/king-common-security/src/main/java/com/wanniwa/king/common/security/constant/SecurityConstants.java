@@ -1,4 +1,4 @@
-package com.wanniwa.king.common.core.constant;
+package com.wanniwa.king.common.security.constant;
 
 /**
  * @author wanniwa
@@ -24,6 +24,10 @@ public interface SecurityConstants {
 	 * {bcrypt} 加密的特征码
 	 */
 	String BCRYPT = "{bcrypt}";
+
+
+	String BEARER_TOKEN_TYPE = "Bearer";
+
 	/**
 	 * 刷新
 	 */

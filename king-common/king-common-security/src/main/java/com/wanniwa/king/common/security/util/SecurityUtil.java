@@ -1,7 +1,7 @@
 package com.wanniwa.king.common.security.util;
 
 import cn.hutool.core.util.StrUtil;
-import com.wanniwa.king.common.core.constant.SecurityConstants;
+import com.wanniwa.king.common.security.constant.SecurityConstants;
 import com.wanniwa.king.common.exception.ResultException;
 import com.wanniwa.king.common.security.service.KingUser;
 import lombok.experimental.UtilityClass;

@@ -1,6 +1,6 @@
 package com.wanniwa.king.auth.config;
 
-import com.wanniwa.king.common.core.constant.SecurityConstants;
+import com.wanniwa.king.common.security.constant.SecurityConstants;
 import com.wanniwa.king.common.security.exception.KingWebResponseExceptionTranslator;
 import com.wanniwa.king.common.security.service.KingClientDetailsService;
 import com.wanniwa.king.common.security.service.KingUser;

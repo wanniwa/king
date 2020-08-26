@@ -1,12 +1,11 @@
 package com.wanniwa.king.common.security.service;
 
 import cn.hutool.core.collection.CollectionUtil;
-import cn.hutool.core.util.ArrayUtil;
 import com.wanniwa.king.admin.dto.UserInfo;
 import com.wanniwa.king.admin.entity.SysUser;
 import com.wanniwa.king.admin.feign.ISysUserClient;
 import com.wanniwa.king.common.core.constant.CacheConstants;
-import com.wanniwa.king.common.core.constant.SecurityConstants;
+import com.wanniwa.king.common.security.constant.SecurityConstants;
 import com.wanniwa.king.common.core.utils.R;
 import lombok.AllArgsConstructor;
 import org.springframework.cache.Cache;
