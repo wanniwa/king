@@ -20,9 +20,8 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
     @Override
     @SneakyThrows
     public void configure(HttpSecurity http) {
-        http
-                .authorizeRequests()
-                .antMatchers("/api/user/info/*").permitAll()
+        http.authorizeRequests()
+                .antMatchers("/api/user/info/**").permitAll()
                 // 资源授权规则
                 .antMatchers("/product/**").hasAuthority("product")
                 // 所有的请求对应访问的用户都要有 all 范围权限
@@ -33,7 +32,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
     }
 
     @Override
-    public void configure(ResourceServerSecurityConfigurer resource) throws Exception {
+    public void configure(ResourceServerSecurityConfigurer resource) {
         //这里把自定义异常加进去
         resource.authenticationEntryPoint(new ResourceAuthExceptionEntryPoint());
     }

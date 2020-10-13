@@ -1,4 +1,4 @@
-package com.wanniwa.king.common.security.service;
+package com.wanniwa.king.auth.service;
 
 import com.wanniwa.king.common.core.constant.CacheConstants;
 import org.springframework.cache.annotation.Cacheable;
@@ -13,10 +13,10 @@ import javax.sql.DataSource;
  *
  * @author wanniwa
  */
-public class KingClientDetailsService extends JdbcClientDetailsService {
+public class KingClientDetailsServiceImpl extends JdbcClientDetailsService {
 
 
-    public KingClientDetailsService(DataSource dataSource) {
+    public KingClientDetailsServiceImpl(DataSource dataSource) {
         super(dataSource);
     }
 
@@ -25,7 +25,6 @@ public class KingClientDetailsService extends JdbcClientDetailsService {
      *
      * @param clientId The client id
      * @return Client details for OAuth 2
-     * @throws InvalidClientException Exception thrown when a client was unable to authenticate.
      */
     @Override
     @Cacheable(value = CacheConstants.CLIENT_DETAILS_KEY, key = "#clientId", unless = "#result == null")

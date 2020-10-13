@@ -15,11 +15,13 @@ public class UserInfo {
      */
     @ApiModelProperty(value = "用户基本信息")
     private SysUser sysUser;
+
     /**
      * 权限标识集合
      */
     @ApiModelProperty(value = "权限标识集合")
     private Set<String> permissions;
+
     /**
      * 角色集合
      */

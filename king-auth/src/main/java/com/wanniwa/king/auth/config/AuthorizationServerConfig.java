@@ -2,7 +2,7 @@ package com.wanniwa.king.auth.config;
 
 import com.wanniwa.king.common.security.constant.SecurityConstants;
 import com.wanniwa.king.common.security.exception.KingWebResponseExceptionTranslator;
-import com.wanniwa.king.common.security.service.KingClientDetailsService;
+import com.wanniwa.king.auth.service.KingClientDetailsServiceImpl;
 import com.wanniwa.king.common.security.service.KingUser;
 import com.wanniwa.king.common.security.service.KingUserDetailsService;
 import lombok.AllArgsConstructor;
@@ -50,13 +50,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     private final RedisConnectionFactory redisConnectionFactory;
     private final KingUserDetailsService kingUserDetailsService;
 
-    /**
-     * AuthorizationServerSecurityConfigurer：
-     * 用来配置令牌端点(Token Endpoint)的安全与权限访问。
-     *
-     * @param security
-     * @throws Exception
-     */
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) {
         security.checkTokenAccess("isAuthenticated()")
@@ -67,29 +60,12 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     }
 
-    /**
-     * ClientDetailsServiceConfigurer
-     * 用来配置客户端详情服务（ClientDetailsService），客户端详情信息在
-     * 这里进行初始化，你能够把客户端详情信息写死在这里或者是通过数据库来存储调取详情信息。
-     * 一般使用数据库来存储或读取应用配置的详情信息（client_id ，client_secret，redirect_uri 等配置信息）。
-     *
-     * @param clients client服务配置
-     * @throws Exception
-     */
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         //从数据库读取client信息，并缓存到redis中
-        KingClientDetailsService kingClientDetailsService = new KingClientDetailsService(dataSource);
-        clients.withClientDetails(kingClientDetailsService);
+        clients.withClientDetails(new KingClientDetailsServiceImpl(dataSource));
     }
 
-    /**
-     * AuthorizationServerEndpointsConfigurer
-     * 用来配置授权以及令牌（Token）的访问端点和令牌服务（比如：配置令牌的签名与存储方式）
-     *
-     * @param endpoints
-     * @throws Exception
-     */
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) {
         endpoints

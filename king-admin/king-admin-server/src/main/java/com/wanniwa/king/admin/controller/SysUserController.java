@@ -25,7 +25,7 @@ import java.util.Date;
  * 系统用户
  *
  * @author wanniwa
- * @date 2019/12/30
+ * @since 2019/12/30
  */
 @RestController
 @RequestMapping("/sys/user")
@@ -48,12 +48,6 @@ public class SysUserController {
         }
         return R.ok(sysUserService.getUserInfo(user));
     }
-
-
-
-
-
-
 
 
     //@Autowired
@@ -109,13 +103,13 @@ public class SysUserController {
     public R<IPage<SysUser>> page(PageQuery<SysUser> pageQuery, String username, String phone, Boolean lockFlag, Date startDate, Date endDate) {
         QueryWrapper<SysUser> queryWrapper = new QueryWrapper<>();
         //username
-        queryWrapper.lambda().likeRight(StrUtil.isNotEmpty(username),SysUser::getUsername, username);
+        queryWrapper.lambda().likeRight(StrUtil.isNotEmpty(username), SysUser::getUsername, username);
         //phone
-        queryWrapper.lambda().likeRight(StrUtil.isNotEmpty(phone),SysUser::getPhone, phone);
+        queryWrapper.lambda().likeRight(StrUtil.isNotEmpty(phone), SysUser::getPhone, phone);
         //state
-        queryWrapper.lambda().eq(null== lockFlag,SysUser::getLockFlag, lockFlag);
+        queryWrapper.lambda().eq(null == lockFlag, SysUser::getLockFlag, lockFlag);
         //startDate
-        queryWrapper.lambda().ge(null ==startDate, SysUser::getCreateTime, startDate);
+        queryWrapper.lambda().ge(null == startDate, SysUser::getCreateTime, startDate);
         //endDate
         queryWrapper.lambda().le(null == endDate, SysUser::getCreateTime, endDate);
         return R.ok(sysUserService.page(PageUtil.getPage(pageQuery), queryWrapper));

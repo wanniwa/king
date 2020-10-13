@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-public class AuthenticationFailureEvenHandler implements ApplicationListener<AuthenticationSuccessEvent> {
+public class AuthenticationFailureEventHandler implements ApplicationListener<AuthenticationSuccessEvent> {
 
 	@Override
 	public void onApplicationEvent(AuthenticationSuccessEvent authenticationSuccessEvent) {
