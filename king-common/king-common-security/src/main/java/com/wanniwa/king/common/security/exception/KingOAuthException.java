@@ -8,13 +8,20 @@ import org.springframework.security.oauth2.common.exceptions.OAuth2Exception;
  * @author wanniwa
  * 自定义OAuth2Exception
  */
+@Getter
 @JsonSerialize(using = KingOauthExceptionSerializer.class)
 public class KingOAuthException extends OAuth2Exception {
-	@Getter
-	private final int code;
 
-	public KingOAuthException(Integer code,String msg) {
-		super(msg);
-		this.code = code;
+	private final int httpErrorCode;
+	private final String oAuth2ErrorCode;
+
+
+	public KingOAuthException(String msg, Throwable t, String oAuth2ErrorCode, int httpErrorCode) {
+		super(msg, t);
+		this.oAuth2ErrorCode = oAuth2ErrorCode;
+		this.httpErrorCode = httpErrorCode;
 	}
+
 }
+
+

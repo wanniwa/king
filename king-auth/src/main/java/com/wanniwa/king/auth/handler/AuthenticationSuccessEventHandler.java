@@ -11,9 +11,8 @@ import org.springframework.stereotype.Component;
 public class AuthenticationSuccessEventHandler implements ApplicationListener<AuthenticationSuccessEvent> {
 
     @Override
-    public void onApplicationEvent(AuthenticationSuccessEvent authenticationSuccessEvent) {
-        Authentication authentication = authenticationSuccessEvent.getAuthentication();
-        log.info("用户：{} 登录成功", authentication.getPrincipal());
-
+    public void onApplicationEvent(AuthenticationSuccessEvent event) {
+        Authentication authentication = event.getAuthentication();
+        log.info("用户：【{}】 登录成功", authentication.getPrincipal());
     }
 }
