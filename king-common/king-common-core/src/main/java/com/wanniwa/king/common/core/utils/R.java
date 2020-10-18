@@ -5,8 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 
 /**
  * 通用的返回类型

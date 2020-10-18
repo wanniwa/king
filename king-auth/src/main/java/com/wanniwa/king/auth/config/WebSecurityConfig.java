@@ -3,7 +3,6 @@ package com.wanniwa.king.auth.config;
 import lombok.SneakyThrows;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -50,8 +49,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      * 4、定制登录页面、登录请求地址、错误处理方式
      * 5、自定义 spring security 过滤器
      *
-     * @param http
-     * @throws Exception
+     * @param http HttpSecurity
      */
     @Override
     @SneakyThrows

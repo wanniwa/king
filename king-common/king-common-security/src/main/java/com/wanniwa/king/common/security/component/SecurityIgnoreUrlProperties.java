@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
  * 资源服务器对外直接暴露URL,如果设置contex-path 要特殊处理
  */
 @Slf4j
@@ -20,6 +19,6 @@ import java.util.List;
 @Setter
 public class SecurityIgnoreUrlProperties {
 
-	private List<String> urls = new ArrayList<>();
+    private List<String> urls = new ArrayList<>();
 
 }

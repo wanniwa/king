@@ -1,4 +1,3 @@
-
 package com.wanniwa.king.common.data.util;
 
 import lombok.Data;

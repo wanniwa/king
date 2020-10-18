@@ -4,15 +4,15 @@ server:
   port: 8011
 spring:
   application:
-    name:  king-admin
+    name: king-admin
   profiles:
     active: dev
   cloud:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
-#        namespace: 1fe8f6d3-f5aa-4de4-ae07-57cfa21f600f
-#        cluster-name: nanjing
+      #        namespace: 1fe8f6d3-f5aa-4de4-ae07-57cfa21f600f
+      #        cluster-name: nanjing
       config:
         server-addr: 127.0.0.1:8848
         file-extension: yml

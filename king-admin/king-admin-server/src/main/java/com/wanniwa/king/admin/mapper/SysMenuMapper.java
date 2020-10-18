@@ -1,7 +1,10 @@
 package com.wanniwa.king.admin.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.wanniwa.king.admin.entity.SysMenu;import org.apache.ibatis.annotations.Param;import java.util.List;
+import com.wanniwa.king.admin.entity.SysMenu;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 import java.util.Set;
 
 public interface SysMenuMapper extends BaseMapper<SysMenu> {

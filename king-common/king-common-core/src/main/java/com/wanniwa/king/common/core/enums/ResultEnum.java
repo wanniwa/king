@@ -5,7 +5,6 @@ import com.wanniwa.king.common.core.constant.CommonConstants;
 import com.wanniwa.king.common.core.utils.ICodeMsg;
 
 /**
- *
  * @author wanniwa
  */
 

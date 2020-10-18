@@ -27,7 +27,7 @@ public class KingOauthExceptionSerializer extends StdSerializer<KingOAuthExcepti
         jsonGenerator.writeStringField("data", e.getOAuth2ErrorCode());
         jsonGenerator.writeStringField("timestamp", String.valueOf(System.currentTimeMillis()));
         jsonGenerator.writeStringField("path", request.getServletPath());
-        if (e.getAdditionalInformation()!=null) {
+        if (e.getAdditionalInformation() != null) {
             for (Map.Entry<String, String> entry : e.getAdditionalInformation().entrySet()) {
                 String key = entry.getKey();
                 String add = entry.getValue();

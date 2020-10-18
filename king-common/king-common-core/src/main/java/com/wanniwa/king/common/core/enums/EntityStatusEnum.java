@@ -5,6 +5,7 @@ import lombok.Getter;
 
 /**
  * 数据库字段状态枚举
+ *
  * @author wanniwa
  */
 @Getter

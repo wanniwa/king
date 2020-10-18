@@ -1,6 +1,5 @@
 package com.wanniwa.king.admin.service.impl;
 
-import cn.hutool.core.util.ArrayUtil;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.wanniwa.king.admin.dto.UserInfo;
 import com.wanniwa.king.admin.entity.SysRole;
@@ -13,7 +12,6 @@ import lombok.AllArgsConstructor;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -26,8 +24,8 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     /**
      * 将查询到的SysUser信息、角色信息、权限、补全到UserInfo中
      *
-     * @param sysUser
-     * @return
+     * @param sysUser 用户相关信息
+     * @return 用户信息
      */
     @Override
     public UserInfo getUserInfo(SysUser sysUser) {

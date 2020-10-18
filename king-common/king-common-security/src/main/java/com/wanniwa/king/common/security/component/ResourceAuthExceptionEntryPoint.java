@@ -4,9 +4,9 @@ import cn.hutool.http.HttpStatus;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wanniwa.king.common.core.constant.CommonConstants;
 import com.wanniwa.king.common.core.utils.R;
-import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.codec.CharEncoding;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
@@ -35,7 +35,7 @@ public class ResourceAuthExceptionEntryPoint implements AuthenticationEntryPoint
     @SneakyThrows
     public void commence(HttpServletRequest request, HttpServletResponse response,
                          AuthenticationException authException) {
-        response.setCharacterEncoding(CommonConstants.UTF8);
+        response.setCharacterEncoding(CharEncoding.UTF_8);
         response.setContentType(CommonConstants.CONTENT_TYPE);
         R<String> result = R.fail();
         if (authException != null) {

@@ -10,11 +10,9 @@ import org.springframework.context.annotation.Configuration;
  * @author ruoyi
  **/
 @Configuration
-public class OAuth2FeignConfig
-{
+public class OAuth2FeignConfig {
     @Bean
-    public RequestInterceptor requestInterceptor()
-    {
+    public RequestInterceptor requestInterceptor() {
         return new OAuth2FeignRequestInterceptor();
     }
 }

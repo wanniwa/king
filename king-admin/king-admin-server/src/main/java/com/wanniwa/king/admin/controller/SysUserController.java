@@ -10,7 +10,6 @@ import com.wanniwa.king.admin.service.SysUserService;
 import com.wanniwa.king.common.core.utils.R;
 import com.wanniwa.king.common.data.util.PageQuery;
 import com.wanniwa.king.common.data.util.PageUtil;
-//import com.wanniwa.king.common.security.util.SecurityUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

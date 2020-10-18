@@ -1,8 +1,8 @@
 package com.wanniwa.king.auth.config;
 
+import com.wanniwa.king.auth.service.KingClientDetailsServiceImpl;
 import com.wanniwa.king.common.security.constant.SecurityConstants;
 import com.wanniwa.king.common.security.exception.KingWebResponseExceptionTranslator;
-import com.wanniwa.king.auth.service.KingClientDetailsServiceImpl;
 import com.wanniwa.king.common.security.service.KingUser;
 import com.wanniwa.king.common.security.service.KingUserDetailsService;
 import lombok.AllArgsConstructor;

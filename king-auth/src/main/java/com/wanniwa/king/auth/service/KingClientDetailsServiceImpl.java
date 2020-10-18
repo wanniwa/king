@@ -2,7 +2,6 @@ package com.wanniwa.king.auth.service;
 
 import com.wanniwa.king.common.core.constant.CacheConstants;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.security.oauth2.common.exceptions.InvalidClientException;
 import org.springframework.security.oauth2.provider.ClientDetails;
 import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
 
