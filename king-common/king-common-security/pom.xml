@@ -23,7 +23,7 @@
         </dependency>
         <dependency>
             <groupId>com.wanniwa</groupId>
-            <artifactId>king-admin-client</artifactId>
+            <artifactId>king-admin-api</artifactId>
         </dependency>
     </dependencies>
 

@@ -54,13 +54,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     @SneakyThrows
     protected void configure(HttpSecurity http) {
-        http
+        http.csrf()
+                .disable()
                 .formLogin()
                 .and()
                 .authorizeRequests()
                 .anyRequest().authenticated()
                 .and()
-                .csrf().disable();
+        ;
     }
 
     /**

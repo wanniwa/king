@@ -8,6 +8,8 @@
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
+
+
     <properties>
         <king-version>1.0.0</king-version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -16,6 +18,7 @@
         <spring-boot.version>2.3.4.RELEASE</spring-boot.version>
         <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
         <spring-cloud-alibaba.version>2.2.3.RELEASE</spring-cloud-alibaba.version>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <fastjson.version>1.2.74</fastjson.version>
         <hutool.version>5.1.1</hutool.version>
         <guava.version>28.2-jre</guava.version>
@@ -45,6 +48,7 @@
         <module>king-admin</module>
         <module>king-gateway</module>
         <module>king-auth</module>
+        <module>king-blog</module>
     </modules>
 
     <dependencyManagement>
@@ -117,7 +121,7 @@
 
             <dependency>
                 <groupId>com.wanniwa</groupId>
-                <artifactId>king-admin-client</artifactId>
+                <artifactId>king-admin-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -175,6 +179,7 @@
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
                     <target>${java.version}</target>
                     <source>${java.version}</source>

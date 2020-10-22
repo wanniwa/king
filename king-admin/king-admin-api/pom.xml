@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>king-admin-client</artifactId>
+    <artifactId>king-admin-api</artifactId>
 
     <dependencies>
         <!--core 工具类-->
@@ -17,20 +17,14 @@
             <groupId>com.wanniwa</groupId>
             <artifactId>king-common-core</artifactId>
         </dependency>
+
         <!--mybatis plus extension,包含了mybatis plus core-->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-extension</artifactId>
         </dependency>
-        <!--feign 依赖-->
-        <!--<dependency>-->
-        <!--    <groupId>io.github.openfeign</groupId>-->
-        <!--    <artifactId>feign-okhttp</artifactId>-->
-        <!--</dependency>-->
-        <dependency>
-            <groupId>io.github.openfeign</groupId>
-            <artifactId>feign-httpclient</artifactId>
-        </dependency>
+
+        <!--openfeign-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
