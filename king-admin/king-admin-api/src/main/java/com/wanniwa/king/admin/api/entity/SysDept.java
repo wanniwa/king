@@ -1,4 +1,4 @@
-package com.wanniwa.king.admin.entity;
+package com.wanniwa.king.admin.api.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -9,25 +9,37 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-@TableName(value = "sys_role")
-public class SysRole {
+@TableName(value = "sys_dept")
+public class SysDept {
     /**
-     * 角色ID
+     * 部门ID
      */
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     /**
-     * 角色名称
+     * 部门名称
      */
     @TableField(value = "name")
     private String name;
 
     /**
-     * 角色标识
+     * 父级编号
      */
-    @TableField(value = "code")
-    private String code;
+    @TableField(value = "parent_id")
+    private Integer parentId;
+
+    /**
+     * 所有父级编号
+     */
+    @TableField(value = "parent_ids")
+    private String parentIds;
+
+    /**
+     * 排序
+     */
+    @TableField(value = "sort")
+    private Integer sort;
 
     /**
      * 备注
@@ -40,18 +52,6 @@ public class SysRole {
      */
     @TableField(value = "del_flag")
     private Boolean delFlag;
-
-    /**
-     * 创建人ID
-     */
-    @TableField(value = "create_by")
-    private Integer createBy;
-
-    /**
-     * 修改人ID
-     */
-    @TableField(value = "update_by")
-    private Integer updateBy;
 
     /**
      * 创建时间

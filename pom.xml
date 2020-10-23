@@ -87,19 +87,19 @@
                 <version>2.0.5</version>
             </dependency>
 
-            <!--web 模块-->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-web</artifactId>
-                <version>${spring-boot.version}</version>
-                <exclusions>
-                    <!--排除tomcat依赖-->
-                    <exclusion>
-                        <artifactId>spring-boot-starter-tomcat</artifactId>
-                        <groupId>org.springframework.boot</groupId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
+            <!--&lt;!&ndash;web 模块&ndash;&gt;-->
+            <!--<dependency>-->
+            <!--    <groupId>org.springframework.boot</groupId>-->
+            <!--    <artifactId>spring-boot-starter-web</artifactId>-->
+            <!--    <version>${spring-boot.version}</version>-->
+            <!--    <exclusions>-->
+            <!--        &lt;!&ndash;排除tomcat依赖&ndash;&gt;-->
+            <!--        <exclusion>-->
+            <!--            <artifactId>spring-boot-starter-tomcat</artifactId>-->
+            <!--            <groupId>org.springframework.boot</groupId>-->
+            <!--        </exclusion>-->
+            <!--    </exclusions>-->
+            <!--</dependency>-->
 
             <dependency>
                 <groupId>com.wanniwa</groupId>

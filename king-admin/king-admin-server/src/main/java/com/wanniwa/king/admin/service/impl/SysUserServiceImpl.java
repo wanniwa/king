@@ -1,9 +1,9 @@
 package com.wanniwa.king.admin.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.wanniwa.king.admin.dto.UserInfo;
-import com.wanniwa.king.admin.entity.SysRole;
-import com.wanniwa.king.admin.entity.SysUser;
+import com.wanniwa.king.admin.api.dto.UserInfo;
+import com.wanniwa.king.admin.api.entity.SysRole;
+import com.wanniwa.king.admin.api.entity.SysUser;
 import com.wanniwa.king.admin.mapper.SysUserMapper;
 import com.wanniwa.king.admin.service.SysMenuService;
 import com.wanniwa.king.admin.service.SysRoleService;

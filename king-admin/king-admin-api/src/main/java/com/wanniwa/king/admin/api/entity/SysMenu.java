@@ -1,4 +1,4 @@
-package com.wanniwa.king.admin.entity;
+package com.wanniwa.king.admin.api.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;

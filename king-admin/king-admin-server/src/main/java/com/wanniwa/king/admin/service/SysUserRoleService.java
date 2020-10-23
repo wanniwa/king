@@ -1,7 +1,7 @@
 package com.wanniwa.king.admin.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.wanniwa.king.admin.entity.SysUserRole;
+import com.wanniwa.king.admin.api.entity.SysUserRole;
 
 /**
  * @author Administrator

@@ -1,9 +1,9 @@
 package com.wanniwa.king.auth.service;
 
 import cn.hutool.core.collection.CollectionUtil;
-import com.wanniwa.king.admin.dto.UserInfo;
-import com.wanniwa.king.admin.entity.SysUser;
-import com.wanniwa.king.admin.feign.ISysUserClient;
+import com.wanniwa.king.admin.api.dto.UserInfo;
+import com.wanniwa.king.admin.api.entity.SysUser;
+import com.wanniwa.king.admin.api.feign.SysUserClient;
 import com.wanniwa.king.common.core.constant.CacheConstants;
 import com.wanniwa.king.common.core.utils.R;
 import com.wanniwa.king.common.security.constant.SecurityConstants;
@@ -25,7 +25,7 @@ import java.util.Set;
 @Service
 @AllArgsConstructor
 public class KingUserDetailsServiceImpl implements KingUserDetailsService {
-    private final ISysUserClient sysUserClient;
+    private final SysUserClient sysUserClient;
     private final CacheManager cacheManager;
 
     @Override

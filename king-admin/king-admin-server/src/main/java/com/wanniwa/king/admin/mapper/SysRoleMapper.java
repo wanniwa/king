@@ -1,7 +1,7 @@
 package com.wanniwa.king.admin.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.wanniwa.king.admin.entity.SysRole;
+import com.wanniwa.king.admin.api.entity.SysRole;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

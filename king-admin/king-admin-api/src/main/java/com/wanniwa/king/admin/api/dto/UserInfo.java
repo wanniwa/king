@@ -1,6 +1,6 @@
-package com.wanniwa.king.admin.dto;
+package com.wanniwa.king.admin.api.dto;
 
-import com.wanniwa.king.admin.entity.SysUser;
+import com.wanniwa.king.admin.api.entity.SysUser;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

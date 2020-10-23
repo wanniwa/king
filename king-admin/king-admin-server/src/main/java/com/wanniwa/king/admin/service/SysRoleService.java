@@ -1,7 +1,7 @@
 package com.wanniwa.king.admin.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.wanniwa.king.admin.entity.SysRole;
+import com.wanniwa.king.admin.api.entity.SysRole;
 
 import java.util.List;
 

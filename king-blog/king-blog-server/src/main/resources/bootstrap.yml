@@ -1,10 +1,10 @@
 #开发环境配置
 server:
   #端口
-  port: 8011
+  port: 8012
 spring:
   application:
-    name: king-admin
+    name: king-blog
   profiles:
     active: dev
   cloud:
@@ -21,10 +21,10 @@ spring:
     sentinel:
       transport:
         dashboard: localhost:8080
-  redis:
-    host: 122.51.14.162
-    port: 6379
-    password: wang1993
+#  redis:
+#    host: 122.51.14.162
+#    port: 6379
+#    password: wang1993
 
 #ribbon:
 #  eager-load:

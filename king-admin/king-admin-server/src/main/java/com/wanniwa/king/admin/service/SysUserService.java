@@ -1,8 +1,8 @@
 package com.wanniwa.king.admin.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.wanniwa.king.admin.dto.UserInfo;
-import com.wanniwa.king.admin.entity.SysUser;
+import com.wanniwa.king.admin.api.dto.UserInfo;
+import com.wanniwa.king.admin.api.entity.SysUser;
 
 /**
  * 用户

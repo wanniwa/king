@@ -1,7 +1,7 @@
 package com.wanniwa.king.admin.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.wanniwa.king.admin.entity.SysDept;
+import com.wanniwa.king.admin.api.entity.SysDept;
 
 /**
  * 部门

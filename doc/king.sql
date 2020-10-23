@@ -123,7 +123,7 @@ CREATE TABLE `sys_role`
     PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB
   CHARACTER SET = utf8mb4
-  COLLATE = utf8mb4_0900_ai_ci COMMENT = '角色表  '
+  COLLATE = utf8mb4_0900_ai_ci COMMENT = '角色表'
   ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -137,7 +137,7 @@ CREATE TABLE `sys_role_menu`
     PRIMARY KEY (`role_id`, `menu_id`) USING BTREE
 ) ENGINE = InnoDB
   CHARACTER SET = utf8mb4
-  COLLATE = utf8mb4_0900_ai_ci COMMENT = '角色菜单表  '
+  COLLATE = utf8mb4_0900_ai_ci COMMENT = '角色菜单表'
   ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -184,7 +184,7 @@ CREATE TABLE `sys_user_role`
     PRIMARY KEY (`user_id`, `role_id`) USING BTREE
 ) ENGINE = InnoDB
   CHARACTER SET = utf8mb4
-  COLLATE = utf8mb4_0900_ai_ci COMMENT = '用户角色关系表  '
+  COLLATE = utf8mb4_0900_ai_ci COMMENT = '用户角色关系表'
   ROW_FORMAT = Dynamic;
 
 SET FOREIGN_KEY_CHECKS = 1;
