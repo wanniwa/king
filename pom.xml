@@ -9,20 +9,21 @@
     <packaging>pom</packaging>
 
 
-
     <properties>
         <king-version>1.0.0</king-version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <spring-boot.version>2.3.5.RELEASE</spring-boot.version>
-        <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
-        <spring-cloud-alibaba.version>2.2.3.RELEASE</spring-cloud-alibaba.version>
+        <maven.compiler.version>3.8.1</maven.compiler.version>
+        <spring-boot.version>2.4.5</spring-boot.version>
+        <spring-cloud.version>2020.0.2</spring-cloud.version>
+        <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <knife4j.version>3.0.2</knife4j.version>
         <fastjson.version>1.2.74</fastjson.version>
         <hutool.version>5.1.1</hutool.version>
         <guava.version>28.2-jre</guava.version>
-        <mybatis-plus.version>3.4.0</mybatis-plus.version>
+        <mybatis-plus.version>3.4.2</mybatis-plus.version>
         <swagger.core.version>1.5.24</swagger.core.version>
     </properties>
 
@@ -60,17 +61,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
-            <!-- SpringCloud Alibaba 微服务 -->
-            <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>2.2.3.RELEASE</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
-            <!-- SpringCloud -->
+            <!--spring cloud 公共版本定义-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -78,66 +69,65 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!-- knife4j swagger的ui扩展 -->
+            <!--spring cloud alibaba-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--web 模块-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-boot.version}</version>
+                <exclusions>
+                    <!--排除tomcat依赖-->
+                    <exclusion>
+                        <artifactId>spring-boot-starter-tomcat</artifactId>
+                        <groupId>org.springframework.boot</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
                 <artifactId>knife4j-spring-boot-starter</artifactId>
                 <!--在引用时请在maven中央仓库搜索最新版本号-->
                 <version>2.0.5</version>
             </dependency>
-
-            <!--&lt;!&ndash;web 模块&ndash;&gt;-->
-            <!--<dependency>-->
-            <!--    <groupId>org.springframework.boot</groupId>-->
-            <!--    <artifactId>spring-boot-starter-web</artifactId>-->
-            <!--    <version>${spring-boot.version}</version>-->
-            <!--    <exclusions>-->
-            <!--        &lt;!&ndash;排除tomcat依赖&ndash;&gt;-->
-            <!--        <exclusion>-->
-            <!--            <artifactId>spring-boot-starter-tomcat</artifactId>-->
-            <!--            <groupId>org.springframework.boot</groupId>-->
-            <!--        </exclusion>-->
-            <!--    </exclusions>-->
-            <!--</dependency>-->
-
             <dependency>
                 <groupId>com.wanniwa</groupId>
                 <artifactId>king-common-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>com.wanniwa</groupId>
                 <artifactId>king-common-data</artifactId>
                 <version>${project.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>com.wanniwa</groupId>
                 <artifactId>king-common-security</artifactId>
                 <version>${project.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>com.wanniwa</groupId>
                 <artifactId>king-admin-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
-
             <!--mybatis plus extension,包含了mybatis plus core-->
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-extension</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
-
             <!--mybatis-->
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
-
             <!--swagger 最新依赖内置版本-->
             <!-- https://mvnrepository.com/artifact/io.swagger/swagger-models -->
             <dependency>
@@ -176,38 +166,24 @@
             </plugins>
         </pluginManagement>
         <plugins>
+            <!--代码编译指定版本插件-->
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven-compiler-plugin.version}</version>
+                <version>${maven.compiler.version}</version>
                 <configuration>
                     <target>${java.version}</target>
                     <source>${java.version}</source>
-                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <encoding>UTF-8</encoding>
+                    <skip>true</skip>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-    <repositories>
-        <repository>
-            <id>public</id>
-            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
-        <repository>
-            <id>spring-snapshots</id>
-            <url>http://repo.spring.io/libs-snapshot</url>
-        </repository>
-    </repositories>
     <pluginRepositories>
         <pluginRepository>
-            <id>spring-snapshots</id>
-            <url>http://repo.spring.io/libs-snapshot</url>
-        </pluginRepository>
-        <pluginRepository>
-            <id>public</id>
-            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <id>aliyun-plugin</id>
+            <url>https://maven.aliyun.com/repository/public</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
@@ -216,4 +192,13 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
+
+    <repositories>
+        <!--阿里云代理-->
+        <repository>
+            <id>aliyun</id>
+            <name>aliyun</name>
+            <url>https://maven.aliyun.com/nexus/content/groups/public</url>
+        </repository>
+    </repositories>
 </project>
