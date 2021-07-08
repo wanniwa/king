@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class BlogController {
     private final SysUserClient sysUserClient;
 
-    @GetMapping
+    @GetMapping("/test")
     private R<UserInfo> test(Integer id) {
         return sysUserClient.info(id);
     }
