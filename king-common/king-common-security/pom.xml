@@ -24,6 +24,11 @@
             <groupId>com.wanniwa</groupId>
             <artifactId>king-admin-api</artifactId>
         </dependency>
+        <!--feign-->
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-core</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
