@@ -25,7 +25,7 @@
 
         <dependency>
             <groupId>com.wanniwa</groupId>
-            <artifactId>king-admin-api</artifactId>
+            <artifactId>king-upms-api</artifactId>
         </dependency>
         <dependency>
             <groupId>com.wanniwa</groupId>

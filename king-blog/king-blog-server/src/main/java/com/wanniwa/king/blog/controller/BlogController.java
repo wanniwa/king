@@ -1,7 +1,7 @@
 package com.wanniwa.king.blog.controller;
 
-import com.wanniwa.king.admin.api.dto.UserInfo;
-import com.wanniwa.king.admin.api.feign.SysUserClient;
+import com.wanniwa.king.upms.api.dto.UserInfo;
+import com.wanniwa.king.upms.api.feign.SysUserClient;
 import com.wanniwa.king.common.core.utils.R;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
