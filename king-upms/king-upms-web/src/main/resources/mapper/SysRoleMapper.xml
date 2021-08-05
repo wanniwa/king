@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wanniwa.king.upms.biz.mapper.SysRoleMapper">
+    <resultMap id="BaseResultMap" type="com.wanniwa.king.upms.api.entity.SysRole">
+        <!--@mbg.generated-->
+        <!--@Table sys_role-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="code" jdbcType="VARCHAR" property="code"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="del_flag" jdbcType="BIT" property="delFlag"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, `name`, code, remark, del_flag, create_time, update_time
+    </sql>
+    <select id="selectListByUserId" resultMap="BaseResultMap">
+        SELECT r.*
+        FROM sys_role r,
+             sys_user_role ur
+        WHERE r.id = ur.role_id
+          AND r.del_flag = 0
+          AND ur.user_id = #{userId}
+    </select>
+</mapper>

@@ -24,7 +24,7 @@
 /nbdist/
 /.nb-gradle/
 # Project exclude paths
-/king-admin/target/
+/king-upms/target/
 /king-common/target/
 /king-config/target/
 /king-eureka/target/

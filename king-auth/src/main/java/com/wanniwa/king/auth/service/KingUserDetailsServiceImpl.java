@@ -1,9 +1,9 @@
 package com.wanniwa.king.auth.service;
 
 import cn.hutool.core.collection.CollectionUtil;
-import com.wanniwa.king.admin.api.dto.UserInfo;
-import com.wanniwa.king.admin.api.entity.SysUser;
-import com.wanniwa.king.admin.api.feign.SysUserClient;
+import com.wanniwa.king.upms.api.dto.UserInfo;
+import com.wanniwa.king.upms.api.entity.SysUser;
+import com.wanniwa.king.upms.api.feign.SysUserClient;
 import com.wanniwa.king.common.core.constant.CacheConstants;
 import com.wanniwa.king.common.core.utils.R;
 import com.wanniwa.king.common.security.constant.SecurityConstants;

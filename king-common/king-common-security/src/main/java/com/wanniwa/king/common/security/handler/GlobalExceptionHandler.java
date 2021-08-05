@@ -29,7 +29,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ResultException.class)
     @ResponseStatus(HttpStatus.OK)
     public R<String> resultException(ResultException e) {
-        log.error("异常信息:{}",e.getMessage(), e);
+        log.error("异常信息:{}", e.getMessage(), e);
         return R.fail(e.getCode(), e.getMessage());
     }
 
