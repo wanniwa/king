@@ -22,6 +22,12 @@ public interface SysUserClient {
     @GetMapping("/api/user/info/{username}")
     R<UserInfo> info(@PathVariable("username") String username);
 
+    /**
+     * 通过用户ID查询用户、角色信息
+     *
+     * @param userId 用户ID
+     * @return R
+     */
     @GetMapping("/api/user/sys/user")
     R<UserInfo> info(@RequestParam("userId") Integer userId);
 }
