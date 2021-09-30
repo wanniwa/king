@@ -8,8 +8,9 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848
-        service: nacos
+        server-addr: 122.51.14.162:8848
+      #        namespace: 1fe8f6d3-f5aa-4de4-ae07-57cfa21f600f
+      #        cluster-name: nanjing
     gateway:
       discovery:
         locator:
