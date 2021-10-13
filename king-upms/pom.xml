@@ -13,7 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>king-upms-api</module>
-        <module>king-upms-web</module>
+        <module>king-upms-biz</module>
     </modules>
 
 </project>
